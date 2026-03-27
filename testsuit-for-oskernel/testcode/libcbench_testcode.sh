@@ -1,0 +1,3 @@
+set -ex 
+
+./libc-bench
