@@ -16,12 +16,10 @@ set -ex
 ./entry-static.exe inet_pton
 ./entry-static.exe mbc
 ./entry-static.exe memstream
-
 # ./entry-static.exe pthread_cancel_points
-# ./entry-static.exe pthread_cancel
-# ./entry-static.exe pthread_cond
-# ./entry-static.exe pthread_tsd
-
+./entry-static.exe pthread_cancel
+./entry-static.exe pthread_cond
+./entry-static.exe pthread_tsd
 ./entry-static.exe qsort
 ./entry-static.exe random
 ./entry-static.exe search_hsearch
@@ -86,13 +84,13 @@ set -ex
 ./entry-static.exe printf_fmt_g_zeros
 ./entry-static.exe printf_fmt_n
 
-# ./entry-static.exe pthread_robust_detach
+./entry-static.exe pthread_robust_detach
 # ./entry-static.exe pthread_cancel_sem_wait
-# ./entry-static.exe pthread_cond_smasher
-# ./entry-static.exe pthread_condattr_setclock
-# ./entry-static.exe pthread_exit_cancel
-# ./entry-static.exe pthread_once_deadlock
-# ./entry-static.exe pthread_rwlock_ebusy
+./entry-static.exe pthread_cond_smasher
+./entry-static.exe pthread_condattr_setclock
+./entry-static.exe pthread_exit_cancel
+./entry-static.exe pthread_once_deadlock
+./entry-static.exe pthread_rwlock_ebusy
 
 ./entry-static.exe putenv_doublefree
 ./entry-static.exe regex_backref_0

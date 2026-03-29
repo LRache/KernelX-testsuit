@@ -19,9 +19,9 @@ set -ex
 ./entry-dynamic.exe memstream
 
 # ./entry-dynamic.exe pthread_cancel_points
-# ./entry-dynamic.exe pthread_cancel
-# ./entry-dynamic.exe pthread_cond
-# ./entry-dynamic.exe pthread_tsd
+./entry-dynamic.exe pthread_cancel
+./entry-dynamic.exe pthread_cond
+./entry-dynamic.exe pthread_tsd
 
 ./entry-dynamic.exe qsort
 ./entry-dynamic.exe random
@@ -30,7 +30,7 @@ set -ex
 ./entry-dynamic.exe search_lsearch
 ./entry-dynamic.exe search_tsearch
 
-# ./entry-dynamic.exe sem_init
+./entry-dynamic.exe sem_init
 
 ./entry-dynamic.exe setjmp
 ./entry-dynamic.exe snprintf
@@ -58,7 +58,7 @@ set -ex
 ./entry-dynamic.exe tgmath
 ./entry-dynamic.exe time
 
-# ./entry-dynamic.exe tls_init
+./entry-dynamic.exe tls_init
 
 ./entry-dynamic.exe tls_local_exec
 ./entry-dynamic.exe udiv
@@ -93,12 +93,12 @@ set -ex
 ./entry-dynamic.exe printf_fmt_g_zeros
 ./entry-dynamic.exe printf_fmt_n
 
-# ./entry-dynamic.exe pthread_robust_detach
-# ./entry-dynamic.exe pthread_cond_smasher
-# ./entry-dynamic.exe pthread_condattr_setclock
-# ./entry-dynamic.exe pthread_exit_cancel
-# ./entry-dynamic.exe pthread_once_deadlock
-# ./entry-dynamic.exe pthread_rwlock_ebusy
+./entry-dynamic.exe pthread_robust_detach
+./entry-dynamic.exe pthread_cond_smasher
+./entry-dynamic.exe pthread_condattr_setclock
+./entry-dynamic.exe pthread_exit_cancel
+./entry-dynamic.exe pthread_once_deadlock
+./entry-dynamic.exe pthread_rwlock_ebusy
 
 ./entry-dynamic.exe putenv_doublefree
 ./entry-dynamic.exe regex_backref_0
@@ -119,7 +119,7 @@ set -ex
 ./entry-dynamic.exe strverscmp
 ./entry-dynamic.exe syscall_sign_extend
 
-# ./entry-dynamic.exe tls_get_new_dtv
+./entry-dynamic.exe tls_get_new_dtv
 
 ./entry-dynamic.exe uselocale_0
 ./entry-dynamic.exe wcsncpy_read_overflow
