@@ -15,20 +15,25 @@ if [ ! -f "$IMG" ]; then
     xz -dk "$XZ"
 fi
 
+SUDO=""
+if [ "$(id -u)" -ne 0 ]; then
+    SUDO="sudo"
+fi
+
 MOUNT_DIR="$SCRIPT_DIR/sdcard-rv"
 mkdir -p "$MOUNT_DIR"
 echo "Mounting $IMG to $MOUNT_DIR..."
-sudo mount -o loop "$IMG" "$MOUNT_DIR"
+$SUDO mount -o loop "$IMG" "$MOUNT_DIR"
 
 echo "Copying testcode to image..."
-sudo cp -r "$TESTCODE" "$MOUNT_DIR/"
-sudo chown -R root:root "$MOUNT_DIR/testcode"
+$SUDO cp -r "$TESTCODE" "$MOUNT_DIR/"
+$SUDO chown -R root:root "$MOUNT_DIR/testcode"
 
 echo "=== sdcard-rv/ ==="
 ls "$MOUNT_DIR" -al
 echo "=== sdcard-rv/testcode/ ==="
 ls "$MOUNT_DIR/testcode" -al
 
-sudo umount "$MOUNT_DIR"
+$SUDO umount "$MOUNT_DIR"
 
 echo "Done. testcode has been written to $IMG."

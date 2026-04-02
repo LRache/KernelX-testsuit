@@ -1,5 +1,7 @@
 #!/glibc/busybox sh
 
+echo "------ LIBCTEST STATIC TEST START ------"
+
 set -ex
 
 ./entry-static.exe argv
@@ -113,3 +115,7 @@ set -ex
 ./entry-static.exe uselocale_0
 ./entry-static.exe wcsncpy_read_overflow
 ./entry-static.exe wcsstr_false_negative
+
+set +ex
+
+echo "------ LIBCTEST STATIC TEST END ------"

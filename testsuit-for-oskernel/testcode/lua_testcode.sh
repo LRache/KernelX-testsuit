@@ -1,8 +1,8 @@
 #!/glibc/busybox sh
 
-set -ex
+echo "------ LUA TEST START ------"
 
-echo "lua test"
+set -ex
 
 ./lua date.lua
 ./lua file_io.lua
@@ -14,4 +14,6 @@ echo "lua test"
 ./lua sort.lua
 ./lua strings.lua
 
-echo "lua test done"
+set +ex
+
+echo "------ LUA TEST END ------"

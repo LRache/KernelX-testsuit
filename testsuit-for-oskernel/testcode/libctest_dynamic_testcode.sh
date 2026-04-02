@@ -1,5 +1,7 @@
 #!/glibc/busybox sh
 
+echo "------ LIBCTEST DYNAMIC TEST START ------"
+
 set -ex
 
 ./entry-dynamic.exe argv
@@ -124,3 +126,7 @@ set -ex
 ./entry-dynamic.exe uselocale_0
 ./entry-dynamic.exe wcsncpy_read_overflow
 ./entry-dynamic.exe wcsstr_false_negative
+
+set +ex
+
+echo "------ LIBCTEST DYNAMIC TEST END ------"

@@ -1,8 +1,8 @@
 #!/glibc/busybox sh
 
-set -ex
+echo " ------ BUSYBOX TEST START ------ "
 
-echo "busybox test"
+set -ex
 
 ./busybox ash -c exit
 ./busybox sh -c exit
@@ -58,4 +58,6 @@ echo "busybox test"
 ./busybox rm busybox_cmd.bak
 ./busybox find -name "busybox_cmd.txt"
 
-echo "busybox test done"
+set +ex
+
+echo " ------ BUSYBOX TEST END ------ "

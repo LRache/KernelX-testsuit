@@ -1,29 +1,45 @@
 #!/glibc/busybox sh
 
-set -ex
+/glibc/busybox mkdir -p /lib
+/glibc/busybox rm -rf /lib/*
 
 cd /glibc
 
-./busybox sh -c 'sleep 5' & ./busybox kill $!
+/glibc/busybox ln /glibc/lib/ld-linux-riscv64-lp64d.so.1 /lib/ld-linux-riscv64-lp64d.so.1
+/glibc/busybox ln /glibc/lib/libc.so.6 /lib/libc.so.6
+/glibc/busybox ln /glibc/lib/libm.so.6 /lib/libm.so.6
 
-# /testcode/busybox_testcode.sh
-# /testcode/lua_testcode.sh
+set -ex
+
+/testcode/basic_testcode.sh
+/testcode/busybox_testcode.sh
+/testcode/lua_testcode.sh
 /testcode/libcbench_testcode.sh
+/testcode/lmbench_testcode.sh
+/testcode/unixbench_testcode.sh
+/testcode/iozone_testcode.sh
+
+/glibc/busybox rm -rf /lib/ld-linux-riscv64-lp64d.so.1
 
 cd /musl
 
-# i=1
-# while [ "$i" -le 100 ]; do
-# 	./entry-static.exe pthread_cond
-# 	i=$((i + 1))
-# done
+set +ex
 
-# /glibc/busybox mkdir -p /lib
-# /glibc/busybox ln /musl/lib/libc.so /lib/ld-musl-riscv64-sf.so.1
+/glibc/busybox ln /musl/lib/libc.so /lib/ld-musl-riscv64-sf.so.1
+/glibc/busybox ln /musl/lib/libc.so /lib/ld-linux-riscv64-lp64d.so.1
 
+set -ex
+
+/testcode/basic_testcode.sh
+/testcode/busybox_testcode.sh
+/testcode/lua_testcode.sh
 /testcode/libctest_static_testcode.sh
 /testcode/libctest_dynamic_testcode.sh
+/testcode/libcbench_testcode.sh
+/testcode/lmbench_testcode.sh
+/testcode/unixbench_testcode.sh
+/testcode/iozone_testcode.sh
 
-# ./entry-static.exe pthread_cancel
+set +ex
 
-# /glibc/busybox rm -rf /lib
+/glibc/busybox rm -rf /lib
