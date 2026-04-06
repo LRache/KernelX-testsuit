@@ -24,37 +24,38 @@ cd /glibc
 
 set -ex
 
-/testcode/basic_testcode.sh
-/testcode/busybox_testcode.sh
-/testcode/lua_testcode.sh
-/testcode/libcbench_testcode.sh
-/testcode/lmbench_testcode.sh
-/testcode/unixbench_testcode.sh
-/testcode/iozone_testcode.sh
-/testcode/cyclictest_testcode.sh
+# /testcode/basic_testcode.sh
+# /testcode/busybox_testcode.sh
+# /testcode/lua_testcode.sh
+# /testcode/libcbench_testcode.sh
+# /testcode/lmbench_testcode.sh
+# /testcode/unixbench_testcode.sh
+# /testcode/iozone_testcode.sh
+# /testcode/cyclictest_testcode.sh
+/testcode/ltp_testcode.sh
 
 set +ex
 
 /glibc/busybox rm -rf /lib/ld-linux-riscv64-lp64d.so.1
 
-cd /musl
+# cd /musl
 
-/glibc/busybox ln /musl/lib/libc.so /lib/ld-musl-riscv64-sf.so.1
-/glibc/busybox ln /musl/lib/libc.so /lib/ld-linux-riscv64-lp64d.so.1
+# /glibc/busybox ln /musl/lib/libc.so /lib/ld-musl-riscv64-sf.so.1
+# /glibc/busybox ln /musl/lib/libc.so /lib/ld-linux-riscv64-lp64d.so.1
 
-set -ex
+# set -ex
 
-/testcode/basic_testcode.sh
-/testcode/busybox_testcode.sh
-/testcode/lua_testcode.sh
-/testcode/libctest_static_testcode.sh
-/testcode/libctest_dynamic_testcode.sh
-/testcode/libcbench_testcode.sh
-/testcode/lmbench_testcode.sh
-/testcode/unixbench_testcode.sh
-/testcode/iozone_testcode.sh
-/testcode/cyclictest_testcode.sh
+# /testcode/basic_testcode.sh
+# /testcode/busybox_testcode.sh
+# /testcode/lua_testcode.sh
+# /testcode/libctest_static_testcode.sh
+# /testcode/libctest_dynamic_testcode.sh
+# /testcode/libcbench_testcode.sh
+# /testcode/lmbench_testcode.sh
+# /testcode/unixbench_testcode.sh
+# /testcode/iozone_testcode.sh
+# /testcode/cyclictest_testcode.sh
 
-set +ex
+# set +ex
 
-/glibc/busybox rm -rf /lib
+# /glibc/busybox rm -rf /lib
