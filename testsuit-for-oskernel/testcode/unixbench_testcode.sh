@@ -12,7 +12,7 @@ set -ex
 ./spawn 10
 UB_BINDIR=./ ./execl 10
 
-# #./fstime
+#./fstime
 ./fstime -w -t 20 -b 256 -m 500
 ./fstime -r -t 20 -b 256 -m 500
 ./fstime -c -t 20 -b 256 -m 500

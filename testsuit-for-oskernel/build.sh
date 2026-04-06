@@ -25,9 +25,16 @@ mkdir -p "$MOUNT_DIR"
 echo "Mounting $IMG to $MOUNT_DIR..."
 $SUDO mount -o loop "$IMG" "$MOUNT_DIR"
 
+$SUDO chown -R $USER:$USER "$MOUNT_DIR"
+
 echo "Copying testcode to image..."
 $SUDO cp -r "$TESTCODE" "$MOUNT_DIR/"
 $SUDO chown -R root:root "$MOUNT_DIR/testcode"
+
+$SUDO find "$MOUNT_DIR" -type f -executable -exec chmod o-x {} +
+
+$SUDO mkdir -p "$MOUNT_DIR/etc"
+$SUDO cp ./data/passwd "$MOUNT_DIR/etc/"
 
 echo "=== sdcard-rv/ ==="
 ls "$MOUNT_DIR" -al

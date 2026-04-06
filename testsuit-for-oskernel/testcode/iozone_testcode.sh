@@ -21,4 +21,6 @@ set -ex
 ./busybox echo iozone throughtput pwritev/preadv measurements
 ./iozone -t 4 -i 11 -i 12 -r 1k -s 1m
 
+set +ex
+
 echo "------ IOZONE TEST END ------"

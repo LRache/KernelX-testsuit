@@ -4,19 +4,6 @@ echo "------ CYCLICTEST TEST START ------"
 
 set -ex
 
-# run_cyclictest() {
-#     echo "====== cyclictest $1 begin ======"
-#     ./cyclictest $2
-#     if [ $? == 0 ]; then
-# 	    ans="success"
-#     else
-# 	    ans="fail"
-#     fi
-#   echo "====== cyclictest $1 end: $ans ======"
-# }
-
-# run_cyclictest NO_STRESS_P1 "-a -i 1000 -t1  -p99 -D 1s -q"
-# run_cyclictest NO_STRESS_P8 "-a -i 1000 -t8  -p99 -D 1s -q"
 # NO_STRESS_P1
 ./cyclictest -a -i 1000 -t1 -p99 -D 1s -q
 # NO_STRESS_P8

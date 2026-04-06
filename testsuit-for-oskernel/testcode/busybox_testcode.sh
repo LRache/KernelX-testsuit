@@ -12,7 +12,7 @@ set -ex
 ./busybox date 
 ./busybox df 
 ./busybox dirname /aaa/bbb
-# ./busybox dmesg 
+./busybox dmesg 
 ./busybox du
 ./busybox expr 1 + 1
 # ./busybox false
@@ -24,7 +24,7 @@ set -ex
 ./busybox ps
 ./busybox pwd
 # ./busybox free
-# ./busybox hwclock
+./busybox hwclock
 ./busybox sh -c 'sleep 5' & ./busybox kill $!
 ./busybox ls
 ./busybox sleep 1
