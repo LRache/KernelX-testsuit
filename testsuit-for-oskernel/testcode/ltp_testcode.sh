@@ -4,8 +4,9 @@ cd ./ltp/testcases/bin
 
 set -ex
 
-# ./abort01 # PASS
-# ./abs01 # PASS
+# ./abort01 # PASSED
+# ./abs01 # PASSED
+
 # ./accept01
 # ./accept02
 # ./accept03
@@ -140,8 +141,8 @@ set -ex
 
 # ./change_password.sh
 
-# ./chdir01
-# ./chdir04
+# ./chdir01 # FAILED: Need device
+# ./chdir04 # PASSED
 
 # ./check_envval
 # ./check_icmpv4_connectivity
@@ -152,22 +153,18 @@ set -ex
 # ./check_setkey
 # ./check_simple_capset
 
-# ./chmod01 # PASS
+# ./chmod01 # PASSED
 # ./chmod03 # Need socket
 # ./chmod05
 # ./chmod06 # 
 # ./chmod07
 
-# ./chown01
-# ./chown01_16
-# ./chown02
-# ./chown02_16
-# ./chown03
-# ./chown03_16
-# ./chown04
-# ./chown04_16
-# ./chown05
-# ./chown05_16
+# ./chown01 # PASSED
+# ./chown02 # PASSED
+# ./chown03 # FAILED: Need socket
+# ./chown04 # FAILED: Need device
+./chown05
+
 # ./chroot01
 # ./chroot02
 # ./chroot03
@@ -1114,6 +1111,7 @@ set -ex
 # ./keyctl07
 # ./keyctl08
 # ./keyctl09
+
 # ./kill02
 # ./kill03
 # ./kill05
@@ -1125,9 +1123,11 @@ set -ex
 # ./kill11
 # ./kill12
 # ./kill13
+
 # ./killall_icmp_traffic
 # ./killall_tcp_traffic
 # ./killall_udp_traffic
+
 # ./kmsg01
 # ./ksm01
 # ./ksm02
@@ -2745,9 +2745,11 @@ set -ex
 # ./umount03
 # ./umount2_01
 # ./umount2_02
-# ./uname01
-# ./uname02
-# ./uname04
+
+# ./uname01 # PASSED
+# ./uname02 # PASSED
+# ./uname04 # PASSED
+
 # ./unlink05
 # ./unlink07
 # ./unlink08
@@ -2783,10 +2785,12 @@ set -ex
 # ./utsname03
 # ./utsname04
 # ./verify_caps_exec
+
 # ./vfork
 # ./vfork01
 # ./vfork02
 # ./vfork_freeze.sh
+
 # ./vhangup01
 # ./vhangup02
 # ./virt_lib.sh
@@ -2834,10 +2838,10 @@ set -ex
 # ./waitpid07 # PASSED
 # ./waitpid08 # ?????
 # ./waitpid09 # PASSED
-./waitpid10
-./waitpid11
-./waitpid12
-./waitpid13
+# ./waitpid10 # PASSED
+# ./waitpid11 # PASSED
+# ./waitpid12 # PASSED
+# ./waitpid13 # FAILED: NEED SIGSTOP
 
 # ./wc01.sh
 # ./which01.sh
