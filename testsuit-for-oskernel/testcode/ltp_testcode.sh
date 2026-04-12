@@ -163,7 +163,7 @@ set -ex
 # ./chown02 # PASSED
 # ./chown03 # FAILED: Need socket
 # ./chown04 # FAILED: Need device
-./chown05
+# ./chown05 # PASSED
 
 # ./chroot01
 # ./chroot02
@@ -264,6 +264,7 @@ set -ex
 # ./cpuset_syscall_testset.sh
 # ./crash01
 # ./crash02
+
 # ./creat01
 # ./creat03
 # ./creat04
@@ -275,6 +276,7 @@ set -ex
 # ./creat09
 # ./create_datafile
 # ./create_file
+
 # ./crypto_user01
 # ./crypto_user02
 # ./cve-2014-0196
@@ -441,29 +443,30 @@ set -ex
 # ./fanotify23
 # ./fanotify_child
 # ./fanout01
-# ./fchdir01
-# ./fchdir02
-# ./fchdir03
-# ./fchmod01
-# ./fchmod02
-# ./fchmod03
-# ./fchmod04
-# ./fchmod05
-# ./fchmod06
-# ./fchmodat01
-# ./fchmodat02
-# ./fchown01
-# ./fchown01_16
-# ./fchown02
-# ./fchown02_16
-# ./fchown03
-# ./fchown03_16
-# ./fchown04
-# ./fchown04_16
-# ./fchown05
-# ./fchown05_16
-# ./fchownat01
-# ./fchownat02
+
+# ./fchdir01 # FAILED: Need socket
+# ./fchdir02 # PASSED
+# ./fchdir03 # FAILED: Need socket
+
+# ./fchmod01 # PASSED
+# ./fchmod02 # PASSED
+# ./fchmod03 # PASSED
+# ./fchmod04 # PASSED
+# ./fchmod05 # PASSED
+# ./fchmod06 # FAILED: Need device
+
+# ./fchmodat01 # PASSED
+# ./fchmodat02 # PASSED
+
+# ./fchown01 # PASSED
+# ./fchown02 # PASSED
+# ./fchown03 # PASSED
+# ./fchown04 # FAILED: Need device
+# ./fchown05 # PASSED
+
+# ./fchownat01 # PASSED unknown exit 4
+# ./fchownat02 # FAILED Need symlink
+
 # ./fcntl01
 # ./fcntl01_64
 # ./fcntl02
@@ -538,12 +541,14 @@ set -ex
 # ./fcntl38_64
 # ./fcntl39
 # ./fcntl39_64
+
 # ./fdatasync01
 # ./fdatasync02
 # ./fdatasync03
 # ./fgetxattr01
 # ./fgetxattr02
 # ./fgetxattr03
+
 # ./file01.sh
 # ./filecapstest.sh
 # ./find_portbundle
@@ -557,11 +562,13 @@ set -ex
 # ./float_iperb
 # ./float_power
 # ./float_trigo
+
 # ./flock01
 # ./flock02
 # ./flock03
 # ./flock04
 # ./flock06
+
 # ./force_erase.sh
 
 # ./fork01 # PASSED
@@ -825,22 +832,17 @@ set -ex
 # ./getdents01
 # ./getdents02
 # ./getdomainname01
+
+# PASSED
 # ./getegid01
-# ./getegid01_16
 # ./getegid02
-# ./getegid02_16
 # ./geteuid01
-# ./geteuid01_16
 # ./geteuid02
-# ./geteuid02_16
 # ./getgid01
-# ./getgid01_16
 # ./getgid03
-# ./getgid03_16
 # ./getgroups01
-# ./getgroups01_16
 # ./getgroups03
-# ./getgroups03_16
+
 # ./gethostbyname_r01
 # ./gethostid01
 # ./gethostname01
@@ -849,6 +851,8 @@ set -ex
 # ./getitimer02
 # ./getpagesize01
 # ./getpeername01
+
+# PASSED
 # ./getpgid01
 # ./getpgid02
 # ./getpgrp01
@@ -856,25 +860,24 @@ set -ex
 # ./getpid02
 # ./getppid01
 # ./getppid02
+
 # ./getpriority01
 # ./getpriority02
-# ./getrandom01
-# ./getrandom02
-# ./getrandom03
-# ./getrandom04
-# ./getrandom05
+
+# ./getrandom01 # PASSED
+# ./getrandom02 # PASSED
+# ./getrandom03 # PASSED
+# ./getrandom04 # PASSED
+# ./getrandom05 # PASSED
+
+# PASSED
 # ./getresgid01
-# ./getresgid01_16
 # ./getresgid02
-# ./getresgid02_16
 # ./getresgid03
-# ./getresgid03_16
 # ./getresuid01
-# ./getresuid01_16
 # ./getresuid02
-# ./getresuid02_16
 # ./getresuid03
-# ./getresuid03_16
+
 # ./getrlimit01
 # ./getrlimit02
 # ./getrlimit03
@@ -888,14 +891,17 @@ set -ex
 # ./getsockname01
 # ./getsockopt01
 # ./getsockopt02
+
 # ./gettid01
-# ./gettid02
+# ./gettid02 # BUGGED
+
 # ./gettimeofday01
 # ./gettimeofday02
+
+# PASSED
 # ./getuid01
-# ./getuid01_16
 # ./getuid03
-# ./getuid03_16
+
 # ./getxattr01
 # ./getxattr02
 # ./getxattr03
@@ -1171,10 +1177,12 @@ set -ex
 # ./locktests
 # ./logrotate_tests.sh
 # ./lremovexattr01
-# ./lseek01
-# ./lseek02
-# ./lseek07
-# ./lseek11
+
+# ./lseek01 # PASSED
+# ./lseek02 # FAILED: Need fifo
+# ./lseek07 # PASSED
+# ./lseek11 # FAILED
+
 # ./lsmod01.sh
 # ./lstat01
 # ./lstat01_64
@@ -1313,6 +1321,7 @@ set -ex
 # ./mlockall02
 # ./mlockall03
 # ./mmap-corruption01
+
 # ./mmap001
 # ./mmap01
 # ./mmap02
@@ -1336,6 +1345,7 @@ set -ex
 # ./mmap2
 # ./mmap20
 # ./mmap3
+
 # ./mmapstress01
 # ./mmapstress02
 # ./mmapstress03
@@ -1576,6 +1586,8 @@ set -ex
 # ./pids_task2
 # ./ping01.sh
 # ./ping02.sh
+
+# PASSED
 # ./pipe01
 # ./pipe02
 # ./pipe03
@@ -1590,11 +1602,14 @@ set -ex
 # ./pipe12
 # ./pipe13
 # ./pipe14
-# ./pipe15
+
+# ./pipe15 # FAILED
+
+# PASSED
 # ./pipe2_01
 # ./pipe2_02
-# ./pipe2_02_child
-# ./pipe2_04
+# ./pipe2_04 
+
 # ./pipeio
 # ./pivot_root01
 # ./pkey01
@@ -1626,6 +1641,8 @@ set -ex
 # ./prctl08
 # ./prctl09
 # ./prctl10
+
+# PASSED
 # ./pread01
 # ./pread01_64
 # ./pread02
@@ -1634,14 +1651,21 @@ set -ex
 # ./preadv01_64
 # ./preadv02
 # ./preadv02_64
+
+# FAILED
 # ./preadv03
 # ./preadv03_64
+
+# PASSED
 # ./preadv201
 # ./preadv201_64
 # ./preadv202
 # ./preadv202_64
+
+# FAILED: Need device
 # ./preadv203
 # ./preadv203_64
+
 # ./prepare_lvm.sh
 # ./print_caps
 # ./proc01
@@ -1713,10 +1737,12 @@ set -ex
 # ./quotactl08
 # ./quotactl09
 # ./rcu_torture.sh
-# ./read01
-# ./read02
-# ./read03
-# ./read04
+
+./read01
+./read02
+./read03
+./read04
+
 # ./read_all
 # ./readahead01
 # ./readahead02
@@ -1726,8 +1752,11 @@ set -ex
 # ./readlink03
 # ./readlinkat01
 # ./readlinkat02
+
+# PASSED
 # ./readv01
 # ./readv02
+
 # ./realpath01
 # ./reboot01
 # ./reboot02
@@ -1949,54 +1978,39 @@ set -ex
 # ./setitimer02
 # ./setns01
 # ./setns02
+
+# PASSED
 # ./setpgid01
 # ./setpgid02
 # ./setpgid03
-# ./setpgid03_child
 # ./setpgrp01
 # ./setpgrp02
+
 # ./setpriority01
 # ./setpriority02
+
+# PASSED
 # ./setregid01
-# ./setregid01_16
 # ./setregid02
-# ./setregid02_16
 # ./setregid03
-# ./setregid03_16
 # ./setregid04
-# ./setregid04_16
 # ./setresgid01
-# ./setresgid01_16
 # ./setresgid02
-# ./setresgid02_16
 # ./setresgid03
-# ./setresgid03_16
-# ./setresgid04
-# ./setresgid04_16
+# ./setresgid04 # Exited 4
 # ./setresuid01
-# ./setresuid01_16
 # ./setresuid02
-# ./setresuid02_16
 # ./setresuid03
-# ./setresuid03_16
 # ./setresuid04
-# ./setresuid04_16
 # ./setresuid05
-# ./setresuid05_16
 # ./setreuid01
-# ./setreuid01_16
 # ./setreuid02
-# ./setreuid02_16
 # ./setreuid03
-# ./setreuid03_16
 # ./setreuid04
-# ./setreuid04_16
 # ./setreuid05
-# ./setreuid05_16
 # ./setreuid06
-# ./setreuid06_16
 # ./setreuid07
-# ./setreuid07_16
+
 # ./setrlimit01
 # ./setrlimit02
 # ./setrlimit03
@@ -2014,14 +2028,15 @@ set -ex
 # ./setsockopt08
 # ./setsockopt09
 # ./setsockopt10
+
 # ./settimeofday01
 # ./settimeofday02
+
+# PASSED
 # ./setuid01
-# ./setuid01_16
 # ./setuid03
-# ./setuid03_16
 # ./setuid04
-# ./setuid04_16
+
 # ./setxattr01
 # ./setxattr02
 # ./setxattr03
@@ -2787,8 +2802,8 @@ set -ex
 # ./verify_caps_exec
 
 # ./vfork
-# ./vfork01
-# ./vfork02
+./vfork01 # PASSED
+./vfork02
 # ./vfork_freeze.sh
 
 # ./vhangup01

@@ -35,6 +35,7 @@ $SUDO find "$MOUNT_DIR" -type f -executable -exec chmod o-x {} +
 
 $SUDO mkdir -p "$MOUNT_DIR/etc"
 $SUDO cp ./data/passwd "$MOUNT_DIR/etc/"
+$SUDO cp ./data/group "$MOUNT_DIR/etc/"
 
 echo "=== sdcard-rv/ ==="
 ls "$MOUNT_DIR" -al
