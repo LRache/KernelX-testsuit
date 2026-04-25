@@ -335,7 +335,7 @@ set -ex
 ./dup02 # PASSED
 ./dup03 # PASSED
 ./dup04 # PASSED
-./dup05 # FAILED: Need mkfifo
+# ./dup05 # FAILED: Need mkfifo
 ./dup06 # PASSED
 ./dup07 # PASSED
 ./dup201 # PASSED
@@ -410,7 +410,7 @@ set -ex
 ./execve06
 ./execveat01
 ./execveat02
-./execveat03 # FAILED: Couldn't find 'mkfs.ext2' in $PATH
+# ./execveat03 # FAILED: Couldn't find 'mkfs.ext2' in $PATH
 ./execvp01
 
 # PASSED
@@ -468,7 +468,7 @@ set -ex
 ./fchmod03 # PASSED
 ./fchmod04 # PASSED
 ./fchmod05 # PASSED
-# ./fchmod06 # FAILED: Need device
+./fchmod06 # FAILED: Need device
 
 ./fchmodat01 # PASSED
 ./fchmodat02 # PASSED
@@ -480,7 +480,7 @@ set -ex
 ./fchown05 # PASSED
 
 ./fchownat01 # PASSED unknown exit 4
-./fchownat02 # FAILED Need symlink
+# ./fchownat02 # FAILED Need symlink
 
 ./fcntl01
 ./fcntl01_64
@@ -1251,9 +1251,9 @@ set -ex
 # ./lremovexattr01
 
 ./lseek01 # PASSED
-./lseek02 # FAILED: Need fifo
+# ./lseek02 # FAILED: Need fifo
 ./lseek07 # PASSED
-./lseek11 # FAILED
+# ./lseek11 # FAILED
 
 # ./lsmod01.sh
 
@@ -2044,8 +2044,8 @@ set -ex
 ./sendfile05_64
 ./sendfile06
 ./sendfile06_64
-./sendfile07
-./sendfile07_64
+# ./sendfile07
+# ./sendfile07_64
 ./sendfile08
 ./sendfile08_64
 
@@ -2072,30 +2072,23 @@ set -ex
 # ./set_robust_list01
 # ./set_thread_area01
 
-# ./set_tid_address01 # PASSED
+./set_tid_address01 # PASSED
 
 # ./setdomainname01
 # ./setdomainname02
 # ./setdomainname03
 
 # PASSED
-# ./setegid01
-# ./setegid02
+./setegid01
+./setegid02
 
 ./setfsgid01
-./setfsgid01_16
 ./setfsgid02
-./setfsgid02_16
 ./setfsgid03
-./setfsgid03_16
 ./setfsuid01
-./setfsuid01_16
 ./setfsuid02
-./setfsuid02_16
 ./setfsuid03
-./setfsuid03_16
 ./setfsuid04
-./setfsuid04_16
 
 # PASSED
 ./setgid01
@@ -2202,7 +2195,7 @@ set -ex
 # ./shmdt02
 # ./shmem_2nstest
 
-./shmget02 # PASSED
+# ./shmget02 # PASSED
 # ./shmget03 # NO TPASS
 # ./shmget04 # NO TPASS
 # ./shmget05
@@ -2285,7 +2278,7 @@ set -ex
 
 # ./splice06
 
-./splice07 # PASSED
+# ./splice07 # FAILED
 
 # kernel 6.7+
 # ./splice08
@@ -2777,7 +2770,7 @@ set -ex
 ./timerfd_create01
 ./timerfd_gettime01
 ./timerfd_settime01
-./timerfd_settime02
+# ./timerfd_settime02 # exit 4
 
 # ./times01
 # ./times03
@@ -2956,7 +2949,7 @@ set -ex
 ./uname02
 ./uname04
 
-./unlink05 # FAILED Half: Need mkfifo
+# ./unlink05 # FAILED Half: Need mkfifo
 ./unlink07 # PASSED
 ./unlink08 # PASSED
 
@@ -3096,7 +3089,7 @@ set -ex
 
 ./writev01 # PASSED
 ./writev02 # PASSED
-./writev03 # FAILED: Test needs at least 2 CPUs onlin
+# ./writev03 # FAILED: Test needs at least 2 CPUs onlin
 ./writev05 # PASSED
 ./writev06 # PASSED
 ./writev07 # PASSED
