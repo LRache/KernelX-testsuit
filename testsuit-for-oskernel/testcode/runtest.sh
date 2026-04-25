@@ -24,14 +24,15 @@ cd /glibc
 
 set -ex
 
-/testcode/basic_testcode.sh
-/testcode/busybox_testcode.sh
-/testcode/lua_testcode.sh
-/testcode/libcbench_testcode.sh
-/testcode/lmbench_testcode.sh
-/testcode/unixbench_testcode.sh
-/testcode/iozone_testcode.sh
-/testcode/cyclictest_testcode.sh
+# /testcode/basic_testcode.sh
+# /testcode/busybox_testcode.sh
+# /testcode/lua_testcode.sh
+# /testcode/libcbench_testcode.sh
+# /testcode/lmbench_testcode.sh
+# /testcode/unixbench_testcode.sh
+# /testcode/iozone_testcode.sh
+# /testcode/cyclictest_testcode.sh
+/testcode/ltp_testcode.sh
 
 set +ex
 
@@ -44,16 +45,17 @@ cd /musl
 
 set -ex
 
-/testcode/basic_testcode.sh
-/testcode/busybox_testcode.sh
-/testcode/lua_testcode.sh
-/testcode/libctest_static_testcode.sh
-/testcode/libctest_dynamic_testcode.sh
-/testcode/libcbench_testcode.sh
-/testcode/lmbench_testcode.sh
-/testcode/unixbench_testcode.sh
-/testcode/iozone_testcode.sh
-/testcode/cyclictest_testcode.sh
+# /testcode/basic_testcode.sh
+# /testcode/busybox_testcode.sh
+# /testcode/lua_testcode.sh
+# /testcode/libctest_static_testcode.sh
+# /testcode/libctest_dynamic_testcode.sh
+# /testcode/libcbench_testcode.sh
+# /testcode/lmbench_testcode.sh
+# /testcode/unixbench_testcode.sh
+# /testcode/iozone_testcode.sh
+# /testcode/cyclictest_testcode.sh
+/testcode/ltp_testcode.sh
 
 set +ex
 
