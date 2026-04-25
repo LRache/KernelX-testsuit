@@ -155,9 +155,9 @@ set -ex
 
 # ./chmod01 # PASSED
 # ./chmod03 # Need socket
-# ./chmod05
-# ./chmod06 # 
-# ./chmod07
+# ./chmod05 # PASSED
+# ./chmod06 # FAILED Need device
+# ./chmod07 # PASSED
 
 # ./chown01 # PASSED
 # ./chown02 # PASSED
@@ -173,14 +173,17 @@ set -ex
 # ./clock_adjtime01
 # ./clock_adjtime02
 # ./clock_getres01
+
 # ./clock_gettime01
 # ./clock_gettime02
 # ./clock_gettime03
 # ./clock_gettime04
+
 # ./clock_nanosleep01
 # ./clock_nanosleep02
 # ./clock_nanosleep03
 # ./clock_nanosleep04
+
 # ./clock_settime01
 # ./clock_settime02
 # ./clock_settime03
@@ -1119,6 +1122,8 @@ set -ex
 # ./keyctl09
 
 # ./kill02
+
+# PASSED
 # ./kill03
 # ./kill05
 # ./kill06
@@ -1127,6 +1132,8 @@ set -ex
 # ./kill09
 # ./kill10
 # ./kill11
+
+# Never
 # ./kill12
 # ./kill13
 
@@ -1271,13 +1278,17 @@ set -ex
 # ./memcontrol02
 # ./memcontrol03
 # ./memcontrol04
-# ./memcpy01
+
+# ./memcpy01 # PASSED
+
 # ./memctl_test01
 # ./memfd_create01
 # ./memfd_create02
 # ./memfd_create03
 # ./memfd_create04
-# ./memset01
+
+# ./memset01 # PASSED
+
 # ./memtoy
 # ./mesgq_nstest
 # ./migrate_pages01
@@ -1454,9 +1465,13 @@ set -ex
 # ./myfunctions.sh
 # ./name_to_handle_at01
 # ./name_to_handle_at02
-# ./nanosleep01
+
+# ./nanosleep01 FAILED: sh: systemd-detect-virt: not found
+
+# PASSED
 # ./nanosleep02
 # ./nanosleep04
+
 # ./net_cmdlib.sh
 # ./netns_breakns.sh
 # ./netns_comm.sh
@@ -1547,9 +1562,12 @@ set -ex
 # ./parameters.sh
 # ./pathconf01
 # ./pathconf02
+
+# PASSED
 # ./pause01
 # ./pause02
 # ./pause03
+
 # ./pcrypt_aead01
 # ./pec_listener
 # ./perf_event_open01
@@ -1701,6 +1719,7 @@ set -ex
 # ./ptrace09
 # ./ptrace10
 # ./ptrace11
+
 # ./pty01
 # ./pty02
 # ./pty03
@@ -1708,6 +1727,8 @@ set -ex
 # ./pty05
 # ./pty06
 # ./pty07
+
+# PASSED
 # ./pwrite01
 # ./pwrite01_64
 # ./pwrite02
@@ -1720,12 +1741,17 @@ set -ex
 # ./pwritev01_64
 # ./pwritev02
 # ./pwritev02_64
+
+# FAILED: Need device
 # ./pwritev03
 # ./pwritev03_64
+
+# PASSED
 # ./pwritev201
 # ./pwritev201_64
 # ./pwritev202
 # ./pwritev202_64
+
 # ./quota_remount_test01.sh
 # ./quotactl01
 # ./quotactl02
@@ -1738,10 +1764,11 @@ set -ex
 # ./quotactl09
 # ./rcu_torture.sh
 
-./read01
-./read02
-./read03
-./read04
+# PASSED
+# ./read01
+# ./read02 # PASSED
+# ./read03 # FAILED Need device
+# ./read04 # PASSED
 
 # ./read_all
 # ./readahead01
@@ -1926,9 +1953,11 @@ set -ex
 # ./sendmsg01
 # ./sendmsg02
 # ./sendmsg03
+
 # ./sendto01
 # ./sendto02
 # ./sendto03
+
 # ./set_ipv4addr
 # ./set_mempolicy01
 # ./set_mempolicy02
@@ -1937,32 +1966,37 @@ set -ex
 # ./set_mempolicy05
 # ./set_robust_list01
 # ./set_thread_area01
-# ./set_tid_address01
+
+# ./set_tid_address01 # PASSED
+
 # ./setdomainname01
 # ./setdomainname02
 # ./setdomainname03
+
+# PASSED
 # ./setegid01
 # ./setegid02
-# ./setfsgid01
-# ./setfsgid01_16
-# ./setfsgid02
-# ./setfsgid02_16
-# ./setfsgid03
-# ./setfsgid03_16
-# ./setfsuid01
-# ./setfsuid01_16
-# ./setfsuid02
-# ./setfsuid02_16
-# ./setfsuid03
-# ./setfsuid03_16
-# ./setfsuid04
-# ./setfsuid04_16
+
+./setfsgid01
+./setfsgid01_16
+./setfsgid02
+./setfsgid02_16
+./setfsgid03
+./setfsgid03_16
+./setfsuid01
+./setfsuid01_16
+./setfsuid02
+./setfsuid02_16
+./setfsuid03
+./setfsuid03_16
+./setfsuid04
+./setfsuid04_16
+
+# PASSED
 # ./setgid01
-# ./setgid01_16
 # ./setgid02
-# ./setgid02_16
 # ./setgid03
-# ./setgid03_16
+
 # ./setgroups01
 # ./setgroups01_16
 # ./setgroups02
@@ -2075,17 +2109,24 @@ set -ex
 # ./shmt08
 # ./shmt09
 # ./shmt10
+
+# PASSED
 # ./sigaction01
 # ./sigaction02
 # ./sigaltstack01
 # ./sigaltstack02
-# ./sighold02
+
+# ./sighold02 # FAILED
+
+# PASSED
 # ./signal01
 # ./signal02
 # ./signal03
 # ./signal04
 # ./signal05
-# ./signal06
+
+# ./signal06 # FAILED: Only x86
+
 # ./signalfd01
 # ./signalfd4_01
 # ./signalfd4_02
@@ -2121,15 +2162,22 @@ set -ex
 # ./socketpair01
 # ./socketpair02
 # ./sockioctl01
+
+# PASSED
 # ./splice01
 # ./splice02
 # ./splice03
 # ./splice04
 # ./splice05
+
 # ./splice06
-# ./splice07
+
+# ./splice07 # PASSED
+
+# kernel 6.7+
 # ./splice08
 # ./splice09
+
 # ./squashfs01
 # ./ssetmask01
 # ./ssh-stress.sh
@@ -2201,9 +2249,11 @@ set -ex
 # ./sysfs03
 # ./sysfs04
 # ./sysfs05
-# ./sysinfo01
-# ./sysinfo02
-# ./sysinfo03
+
+# ./sysinfo01 # PASSED
+# ./sysinfo02 # PASSED
+# ./sysinfo03 # FAILED: Couldn't locate kernel config
+
 # ./syslog11
 # ./syslog12
 # ./tar_tests.sh
@@ -2523,8 +2573,11 @@ set -ex
 # ./tcp_ipsec.sh
 # ./tcp_ipsec_vti.sh
 # ./tcpdump01.sh
+
+# PASSED
 # ./tee01
 # ./tee02
+
 # ./test.sh
 # ./test_1_to_1_accept_close
 # ./test_1_to_1_addrs
@@ -2647,10 +2700,13 @@ set -ex
 # ./trace_sched
 # ./tracepath01.sh
 # ./traceroute01.sh
+
+# PASSED 
 # ./truncate02
 # ./truncate02_64
 # ./truncate03
 # ./truncate03_64
+
 # ./tst_ansi_color.sh
 # ./tst_brk
 # ./tst_brkm
@@ -2660,6 +2716,7 @@ set -ex
 # ./tst_checkpoint
 # ./tst_device
 # ./tst_exit
+
 # ./tst_fs_has_free
 # ./tst_fsfreeze
 # ./tst_get_free_pids
@@ -2752,8 +2809,11 @@ set -ex
 # ./uevent01
 # ./uevent02
 # ./uevent03
+
 # ./ulimit01
-# ./umask01
+
+# ./umask01 # PASSED
+
 # ./umip_basic_test
 # ./umount01
 # ./umount02
@@ -2765,11 +2825,13 @@ set -ex
 # ./uname02 # PASSED
 # ./uname04 # PASSED
 
-# ./unlink05
-# ./unlink07
-# ./unlink08
-# ./unlink09
-# ./unlinkat01
+# ./unlink05 # FAILED Half: Need mkfifo
+# ./unlink07 # PASSED
+# ./unlink08 # PASSED
+# ./unlink09 # FAILD: Need device
+
+# ./unlinkat01 # PASSED
+
 # ./unshare01
 # ./unshare01.sh
 # ./unshare02
@@ -2801,9 +2863,9 @@ set -ex
 # ./utsname04
 # ./verify_caps_exec
 
-# ./vfork
-./vfork01 # PASSED
-./vfork02
+# ./vfork # FAILED: Need ptrace
+# ./vfork01 # PASSED
+# ./vfork02 # FAILED: Need sigpending
 # ./vfork_freeze.sh
 
 # ./vhangup01
