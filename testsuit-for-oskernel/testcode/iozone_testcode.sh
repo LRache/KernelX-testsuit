@@ -6,7 +6,7 @@ set -ex
 
 # iozone automatic measurements
 ./iozone -a -r 1k -s 4m
-# iozone throughput write/read measurements
+./busybox echo iozone throughput write/read measurements
 ./iozone -t 4 -i 0 -i 1 -r 1k -s 1m
 ./busybox echo iozone throughput random-read measurements
 ./iozone -t 4 -i 0 -i 2 -r 1k -s 1m
