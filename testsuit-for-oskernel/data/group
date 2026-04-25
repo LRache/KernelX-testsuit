@@ -1,3 +1,4 @@
 root:x:0:
+nobody:x:65534:root:x:0:
 users:x:100:rache
 nogroup:x:65534:

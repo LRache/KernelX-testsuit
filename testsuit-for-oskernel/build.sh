@@ -25,17 +25,50 @@ mkdir -p "$MOUNT_DIR"
 echo "Mounting $IMG to $MOUNT_DIR..."
 $SUDO mount -o loop "$IMG" "$MOUNT_DIR"
 
-$SUDO chown -R $USER:$USER "$MOUNT_DIR"
+link_in_image() {
+    local source_path="$1"
+    local link_path="$2"
+
+    if [ ! -e "$source_path" ]; then
+        echo "Missing source for hard link: $source_path"
+        exit 1
+    fi
+
+    $SUDO rm -f "$link_path"
+    $SUDO ln "$source_path" "$link_path"
+}
+
+echo "Preparing /bin busybox links in image..."
+$SUDO mkdir -p "$MOUNT_DIR/bin"
+for tool in sh cp ls mkdir ln rm chmod; do
+    link_in_image "$MOUNT_DIR/glibc/busybox" "$MOUNT_DIR/bin/$tool"
+done
+
+echo "Preparing runtime library links in image..."
+$SUDO mkdir -p "$MOUNT_DIR/lib"
+link_in_image "$MOUNT_DIR/glibc/lib/ld-linux-riscv64-lp64d.so.1" \
+    "$MOUNT_DIR/lib/ld-linux-riscv64-lp64d.so.1"
+link_in_image "$MOUNT_DIR/glibc/lib/libc.so.6" "$MOUNT_DIR/lib/libc.so.6"
+link_in_image "$MOUNT_DIR/glibc/lib/libm.so.6" "$MOUNT_DIR/lib/libm.so.6"
+link_in_image "$MOUNT_DIR/musl/lib/libc.so" "$MOUNT_DIR/lib/ld-musl-riscv64-sf.so.1"
+link_in_image "$MOUNT_DIR/musl/lib/libc.so" \
+    "$MOUNT_DIR/lib/.ld-linux-riscv64-lp64d.so.1.musl"
 
 echo "Copying testcode to image..."
 $SUDO cp -r "$TESTCODE" "$MOUNT_DIR/"
 $SUDO chown -R root:root "$MOUNT_DIR/testcode"
 
 $SUDO find "$MOUNT_DIR" -type f -executable -exec chmod o-x {} +
+$SUDO find -L "$MOUNT_DIR/bin" -maxdepth 1 -mindepth 1 -type f -exec chmod +x {} +
 
 $SUDO mkdir -p "$MOUNT_DIR/etc"
 $SUDO cp ./data/passwd "$MOUNT_DIR/etc/"
 $SUDO cp ./data/group "$MOUNT_DIR/etc/"
+
+$SUDO mkdir -p "$MOUNT_DIR/lib/modules/5.0.0"
+$SUDO cp ./data/config "$MOUNT_DIR/lib/modules/5.0.0/config"
+
+$SUDO chown -R $USER:$USER "$MOUNT_DIR"
 
 echo "=== sdcard-rv/ ==="
 ls "$MOUNT_DIR" -al
