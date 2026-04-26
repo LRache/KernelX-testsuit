@@ -5,6 +5,7 @@ IMG="$SCRIPT_DIR/sdcard-rv.img"
 XZ="$SCRIPT_DIR/sdcard-rv.img.xz"
 URL="https://github.com/oscomp/testsuits-for-oskernel/releases/download/pre-20250615/sdcard-rv.img.xz"
 TESTCODE="$SCRIPT_DIR/testcode"
+DATA_DIR="$SCRIPT_DIR/data"
 
 if [ ! -f "$IMG" ]; then
     if [ ! -f "$XZ" ]; then
@@ -59,14 +60,14 @@ $SUDO cp -r "$TESTCODE" "$MOUNT_DIR/"
 $SUDO chown -R root:root "$MOUNT_DIR/testcode"
 
 $SUDO find "$MOUNT_DIR" -type f -executable -exec chmod o-x {} +
-$SUDO find -L "$MOUNT_DIR/bin" -maxdepth 1 -mindepth 1 -type f -exec chmod +x {} +
+$SUDO find -L "$MOUNT_DIR/bin" -maxdepth 1 -mindepth 1 -type f -exec chmod a+x {} +
 
 $SUDO mkdir -p "$MOUNT_DIR/etc"
-$SUDO cp ./data/passwd "$MOUNT_DIR/etc/"
-$SUDO cp ./data/group "$MOUNT_DIR/etc/"
+$SUDO cp "$DATA_DIR/passwd" "$MOUNT_DIR/etc/"
+$SUDO cp "$DATA_DIR/group" "$MOUNT_DIR/etc/"
 
 $SUDO mkdir -p "$MOUNT_DIR/lib/modules/5.0.0"
-$SUDO cp ./data/config "$MOUNT_DIR/lib/modules/5.0.0/config"
+$SUDO cp "$DATA_DIR/config" "$MOUNT_DIR/lib/modules/5.0.0/config"
 
 $SUDO chown -R $USER:$USER "$MOUNT_DIR"
 

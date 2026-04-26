@@ -484,7 +484,7 @@ set -ex
 # ./fchmod03 # PASSED
 # ./fchmod04 # PASSED
 # ./fchmod05 # PASSED
-# ./fchmod06 # FAILED: Need device
+./fchmod06 # FAILED: Need device
 
 # ./fchmodat01 # PASSED
 # ./fchmodat02 # PASSED
@@ -1701,7 +1701,7 @@ set -ex
 # ./pipe01
 # ./pipe02
 # ./pipe03
-# ./pipe04
+# ./pipe04 # NOEXIT musl
 # ./pipe05
 # ./pipe06
 # ./pipe07
@@ -2019,7 +2019,7 @@ set -ex
 # ./sctp_ipsec.sh
 # ./sctp_ipsec_vti.sh
 # ./select01
-# ./select02
+# ./select02 # NOEXITED: sh: systemd-detect-virt: not found
 # ./select03
 # ./select04
 # ./sem_comm
@@ -2058,8 +2058,8 @@ set -ex
 # ./sendfile05_64
 # ./sendfile06
 # ./sendfile06_64
-# ./sendfile07
-# ./sendfile07_64
+# ./sendfile07 # FAILED
+# ./sendfile07_64 # FAILED
 # ./sendfile08
 # ./sendfile08_64
 
@@ -2299,7 +2299,7 @@ set -ex
 
 # ./splice06
 
-# ./splice07 # PASSED
+# ./splice07 # FAILED
 
 # kernel 6.7+
 # ./splice08
@@ -2775,13 +2775,13 @@ set -ex
 # ./timens01
 
 # PASSED
-./timer_delete01
-./timer_delete02
-./timer_getoverrun01
-./timer_gettime01
-./timer_settime01
-./timer_settime02
-./timer_settime03
+# ./timer_delete01
+# ./timer_delete02
+# ./timer_getoverrun01
+# ./timer_gettime01
+# ./timer_settime01
+# ./timer_settime02 # exit 4
+# ./timer_settime03
 
 # ./timerfd01 # PASSED
 # ./timerfd02 # PASSED

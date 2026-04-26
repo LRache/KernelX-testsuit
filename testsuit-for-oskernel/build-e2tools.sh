@@ -18,7 +18,7 @@ if [ ! -f "$IMG" ]; then
     xz -dk -T 0 "$XZ"
 fi
 
-for tool in e2cp e2mkdir e2ls e2ln e2rm; do
+for tool in e2cp e2mkdir e2ls e2ln e2rm e2chmod; do
     if ! command -v "$tool" >/dev/null 2>&1; then
         echo "Error: e2tools is not fully installed. Missing: $tool"
         echo "Install with: apt install e2tools"
@@ -84,6 +84,11 @@ echo "Preparing /bin busybox links in image..."
 ensure_dir "/bin"
 for tool in sh cp ls mkdir ln rm chmod; do
     make_hardlink "/glibc/busybox" "/bin/$tool"
+done
+
+echo "Adding execute permission for all users on /bin files..."
+for tool in sh cp ls mkdir ln rm chmod; do
+    e2chmod 755 "$IMG:/bin/$tool"
 done
 
 echo "Preparing runtime library links in image..."

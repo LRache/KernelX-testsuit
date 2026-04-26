@@ -11,10 +11,10 @@ cd /glibc
 # /testcode/lua_testcode.sh
 # /testcode/libcbench_testcode.sh
 # /testcode/lmbench_testcode.sh
-/testcode/unixbench_testcode.sh
+# /testcode/unixbench_testcode.sh
 # /testcode/iozone_testcode.sh
 # /testcode/cyclictest_testcode.sh
-# /testcode/ltp_testcode.sh
+/testcode/ltp_testcode.sh
 
 cd /musl
 
@@ -23,9 +23,9 @@ cd /musl
 #     /glibc/busybox mv /lib/.ld-linux-riscv64-lp64d.so.1.musl /lib/ld-linux-riscv64-lp64d.so.1
 # fi
 
-# /glibc/busybox rm -f /lib/ld-linux-riscv64-lp64d.so.1
-# /glibc/busybox mv /lib/.ld-linux-riscv64-lp64d.so.1.musl /lib/ld-linux-riscv64-lp64d.so.1
-# /glibc/busybox mv /lib/.ld-linux-riscv64-lp64d.so.1.musl /lib/ld-musl-riscv64.so.1
+/glibc/busybox rm -f /lib/ld-linux-riscv64-lp64d.so.1
+/glibc/busybox mv /lib/.ld-linux-riscv64-lp64d.so.1.musl /lib/ld-linux-riscv64-lp64d.so.1
+/glibc/busybox mv /lib/.ld-linux-riscv64-lp64d.so.1.musl /lib/ld-musl-riscv64.so.1
 
 set -ex
 
@@ -39,6 +39,6 @@ set -ex
 # /testcode/unixbench_testcode.sh
 # /testcode/iozone_testcode.sh
 # /testcode/cyclictest_testcode.sh
-# /testcode/ltp_testcode.sh
+/testcode/ltp_testcode.sh
 
 # set +ex
