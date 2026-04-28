@@ -171,8 +171,8 @@ set -ex
 # ./clock_adjtime02
 # ./clock_getres01
 
-# ./clock_gettime01
-# ./clock_gettime02
+./clock_gettime01
+./clock_gettime02
 # ./clock_gettime03
 # ./clock_gettime04
 
@@ -210,7 +210,7 @@ set -ex
 # ./connect02
 # ./copy_file_range01
 # ./copy_file_range02
-# ./copy_file_range03
+./copy_file_range03
 # ./cp_tests.sh
 # ./cpio_tests.sh
 # ./cpuacct.sh
@@ -884,12 +884,12 @@ set -ex
 # ./getaddrinfo_01
 # ./getcontext01
 # ./getcpu01
-# ./getcwd01
-# ./getcwd02
-# ./getcwd03
+./getcwd01
+./getcwd02
+./getcwd03
 # ./getcwd04
-# ./getdents01
-# ./getdents02
+./getdents01
+./getdents02
 # ./getdomainname01
 
 # PASSED
@@ -906,9 +906,9 @@ set -ex
 # ./gethostid01
 # ./gethostname01
 # ./gethostname02
-# ./getitimer01
-# ./getitimer02
-# ./getpagesize01
+./getitimer01
+./getitimer02
+./getpagesize01
 # ./getpeername01
 
 # PASSED
@@ -937,11 +937,11 @@ set -ex
 ./getresuid02
 ./getresuid03
 
-# ./getrlimit01
-# ./getrlimit02
+./getrlimit01
+./getrlimit02
 # ./getrlimit03
-# ./getrusage01
-# ./getrusage02
+./getrusage01
+./getrusage02
 # ./getrusage03
 # ./getrusage03_child
 # ./getrusage04
@@ -954,12 +954,12 @@ set -ex
 ./gettid01
 # ./gettid02 # BUGGED
 
-# ./gettimeofday01
-# ./gettimeofday02
+./gettimeofday01
+./gettimeofday02
 
 # PASSED
-# ./getuid01
-# ./getuid03
+./getuid01
+./getuid03
 
 # ./getxattr01
 # ./getxattr02
@@ -1258,10 +1258,10 @@ set -ex
 # ./lsmod01.sh
 
 # PASSED
-# ./lstat01
-# ./lstat01_64
-# ./lstat02
-# ./lstat02_64
+./lstat01
+./lstat01_64
+./lstat02
+./lstat02_64
 
 # ./ltpClient
 # ./ltpServer
@@ -1347,7 +1347,7 @@ set -ex
 # ./memcontrol03
 # ./memcontrol04
 
-# ./memcpy01 # PASSED
+./memcpy01 # PASSED
 
 # ./memctl_test01
 # ./memfd_create01
@@ -1355,7 +1355,7 @@ set -ex
 # ./memfd_create03
 # ./memfd_create04
 
-# ./memset01 # PASSED
+./memset01 # PASSED
 
 # ./memtoy
 # ./mesgq_nstest
@@ -1599,15 +1599,16 @@ set -ex
 # ./oom03
 # ./oom04
 # ./oom05
-# ./open01
-# ./open02
-# ./open03
-# ./open04
+
+./open01
+./open02
+./open03
+./open04
 # ./open06
-# ./open07
-# ./open08
-# ./open09
-# ./open10
+./open07
+./open08
+./open09
+./open10
 # ./open11
 # ./open12
 # ./open12_child
@@ -1617,22 +1618,22 @@ set -ex
 # ./open_by_handle_at02
 # ./open_tree01
 # ./open_tree02
-# ./openat01
+./openat01
 # ./openat02
-# ./openat02_child
 # ./openat03
 # ./openat04
-# ./openat201
-# ./openat202
-# ./openat203
+./openat201
+./openat202
+./openat203
 # ./openfile
 # ./output_ipsec_conf
 # ./overcommit_memory
 # ./page01
 # ./page02
 # ./parameters.sh
-# ./pathconf01
-# ./pathconf02
+
+./pathconf01
+./pathconf02
 
 # PASSED
 ./pause01
@@ -2095,19 +2096,16 @@ set -ex
 ./setgid02
 ./setgid03
 
-# ./setgroups01
-# ./setgroups01_16
-# ./setgroups02
-# ./setgroups02_16
-# ./setgroups03
-# ./setgroups03_16
-# ./setgroups04
-# ./setgroups04_16
+./setgroups01
+./setgroups02
+./setgroups03
+./setgroups04
+
 # ./sethostname01
 # ./sethostname02
 # ./sethostname03
-# ./setitimer01
-# ./setitimer02
+./setitimer01
+./setitimer02
 # ./setns01
 # ./setns02
 
@@ -2290,18 +2288,20 @@ set -ex
 # ./stack_clash
 # ./stack_space
 # ./starvation
-# ./stat01
-# ./stat01_64
-# ./stat02
-# ./stat02_64
-# ./stat03
-# ./stat03_64
+
+./stat01
+./stat01_64
+./stat02
+./stat02_64
+./stat03
+./stat03_64
 # ./statfs01
 # ./statfs01_64
-# ./statfs02
-# ./statfs02_64
-# ./statfs03
-# ./statfs03_64
+./statfs02
+./statfs02_64
+./statfs03
+./statfs03_64
+
 # ./statvfs01
 # ./statvfs02
 # ./statx01
@@ -2343,7 +2343,7 @@ set -ex
 # ./sync_file_range01
 # ./sync_file_range02
 # ./syncfs01
-# ./syscall01
+./syscall01
 # ./sysconf01
 # ./sysctl01
 # ./sysctl01.sh
