@@ -23,13 +23,9 @@ set -ex
 
 set +ex
 
-/glibc/busybox rm -rf /lib/ld-linux-riscv64-lp64d.so.1
-
 cd /musl
 
-rm -f /lib/ld-musl-riscv64-sf.so.1
-rm -f /lib/ld-linux-riscv64-lp64d.so.1
-rm -f /lib/ld-musl-riscv64.so.1
+rm -f /lib/ld-musl-riscv64-sf.so.1 /lib/ld-linux-riscv64-lp64d.so.1 /lib/ld-musl-riscv64.so.1
 ln /musl/lib/libc.so /lib/ld-musl-riscv64-sf.so.1
 ln /musl/lib/libc.so /lib/ld-linux-riscv64-lp64d.so.1
 ln /musl/lib/libc.so /lib/ld-musl-riscv64.so.1
