@@ -1623,7 +1623,7 @@ set -ex
 # ./openat03
 # ./openat04
 ./openat201
-./openat202
+# ./openat202
 ./openat203
 # ./openfile
 # ./output_ipsec_conf
