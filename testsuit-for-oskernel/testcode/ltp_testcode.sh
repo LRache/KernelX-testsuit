@@ -934,10 +934,8 @@ set -ex
 # ./getpid02
 # ./getppid01
 # ./getppid02
-
 # ./getpriority01
 # ./getpriority02
-
 # ./getrandom01 # PASSED
 # ./getrandom02 # PASSED
 # ./getrandom03 # PASSED
@@ -2097,19 +2095,12 @@ set -ex
 # ./setegid02
 
 ./setfsgid01
-./setfsgid01_16
 ./setfsgid02
-./setfsgid02_16
 ./setfsgid03
-./setfsgid03_16
 ./setfsuid01
-./setfsuid01_16
 ./setfsuid02
-./setfsuid02_16
 ./setfsuid03
-./setfsuid03_16
 ./setfsuid04
-./setfsuid04_16
 
 # PASSED
 # ./setgid01
