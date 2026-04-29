@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
-
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-IMG="$SCRIPT_DIR/sdcard-rv.img"
-XZ="$SCRIPT_DIR/sdcard-rv.img.xz"
+IMG="${IMG:-$SCRIPT_DIR/sdcard-rv.img}"
+XZ="${XZ:-$SCRIPT_DIR/sdcard-rv.img.xz}"
 URL="https://github.com/oscomp/testsuits-for-oskernel/releases/download/pre-20250615/sdcard-rv.img.xz"
 TESTCODE="$SCRIPT_DIR/testcode"
-DATA_DIR="$SCRIPT_DIR/data"
+DATA="$SCRIPT_DIR/data"
 
 if [ ! -f "$IMG" ]; then
     if [ ! -f "$XZ" ]; then
@@ -15,104 +14,100 @@ if [ ! -f "$IMG" ]; then
         wget -O "$XZ" "$URL"
     fi
     echo "Extracting sdcard-rv.img.xz..."
-    xz -dk -T 0 "$XZ"
+    mkdir -p "$(dirname "$IMG")"
+    xz -dc "$XZ" > "$IMG"
 fi
 
-for tool in e2cp e2mkdir e2ls e2ln e2rm e2chmod; do
-    if ! command -v "$tool" >/dev/null 2>&1; then
-        echo "Error: e2tools is not fully installed. Missing: $tool"
-        echo "Install with: apt install e2tools"
+check_e2tools() {
+    for cmd in e2cp e2ln e2ls e2mkdir e2rm; do
+        if ! command -v "$cmd" >/dev/null 2>&1; then
+            echo "Error: $cmd is not installed. Install with: apt install e2tools"
+            exit 1
+        fi
+    done
+}
+
+e2_exists() {
+    e2ls "$IMG:$1" >/dev/null 2>&1
+}
+
+e2mkdir_p() {
+    local dir="$1"
+    local mode="${2:-0755}"
+    local current=""
+    local part
+    local -a parts
+
+    dir="${dir#/}"
+    IFS='/' read -r -a parts <<< "$dir"
+    for part in "${parts[@]}"; do
+        [ -n "$part" ] || continue
+        current="$current/$part"
+        if ! e2_exists "$current"; then
+            e2mkdir -O 0 -G 0 -P "$mode" "$IMG:$current"
+        fi
+    done
+}
+
+e2rm_if_exists() {
+    local path="$1"
+
+    if e2_exists "$path"; then
+        e2rm -r "$IMG:$path"
+    fi
+}
+
+e2cp_file() {
+    local src="$1"
+    local dest_dir="$2"
+    local mode="$3"
+    local dest_path="${dest_dir%/}/$(basename "$src")"
+
+    e2mkdir_p "$dest_dir"
+    e2rm_if_exists "$dest_path"
+    e2cp -O 0 -G 0 -P "$mode" "$src" "$IMG:$dest_dir/"
+}
+
+check_e2tools
+
+for file in "$DATA/passwd" "$DATA/group" "$DATA/config"; do
+    if [ ! -f "$file" ]; then
+        echo "Error: missing required file: $file"
         exit 1
     fi
 done
 
-ensure_dir() {
-    e2mkdir "$IMG:$1" 2>/dev/null || true
-}
-
-remove_path() {
-    e2rm "$IMG:$1" 2>/dev/null || true
-}
-
-path_exists() {
-    e2ls "$IMG:$1" >/dev/null 2>&1
-}
-
-copy_file() {
-    local src="$1"
-    local dest_dir="$2"
-    local dest_path="$dest_dir/$(basename "$src")"
-
-    remove_path "$dest_path"
-    e2cp -p "$src" "$IMG:$dest_dir/"
-}
-
-make_hardlink() {
-    local source_path="$1"
-    local link_path="$2"
-
-    if path_exists "$link_path"; then
-        remove_path "$link_path"
-    fi
-
-    if path_exists "$link_path"; then
-        echo "Keeping existing $link_path"
-        return 0
-    fi
-
-    e2ln -f "$IMG:$source_path" "$link_path"
-}
-
 echo "Writing testcode to $IMG using e2tools..."
 
-ensure_dir "/testcode"
+e2rm_if_exists /testcode
+e2mkdir_p /testcode
 
-find "$TESTCODE" -type d | while read -r dir; do
+find "$TESTCODE" -type d -print | sort | while read -r dir; do
     rel="${dir#$TESTCODE}"
-    if [ -n "$rel" ]; then
-        ensure_dir "/testcode$rel"
-    fi
+    [ -n "$rel" ] || continue
+    e2mkdir_p "/testcode$rel"
 done
 
 find "$TESTCODE" -type f | while read -r file; do
     rel="${file#$TESTCODE}"
     dest_dir="/testcode$(dirname "$rel")"
-    copy_file "$file" "$dest_dir"
+    mode=0644
+    if [ "${file##*.}" = "sh" ]; then
+        mode=0755
+    fi
+    e2cp_file "$file" "$dest_dir" "$mode"
 done
 
-echo "Preparing /bin busybox links in image..."
-ensure_dir "/bin"
-for tool in sh cp ls mkdir ln rm chmod; do
-    make_hardlink "/glibc/busybox" "/bin/$tool"
-done
+e2mkdir_p /etc
+e2cp_file "$DATA/passwd" /etc 0644
+e2cp_file "$DATA/group" /etc 0644
 
-echo "Adding execute permission for all users on /bin files..."
-for tool in sh cp ls mkdir ln rm chmod; do
-    e2chmod 755 "$IMG:/bin/$tool"
-done
+e2mkdir_p /lib/modules/5.0.0
+e2cp_file "$DATA/config" /lib/modules/5.0.0 0644
 
-echo "Preparing runtime library links in image..."
-ensure_dir "/lib"
-make_hardlink "/glibc/lib/ld-linux-riscv64-lp64d.so.1" \
-    "/lib/ld-linux-riscv64-lp64d.so.1"
-make_hardlink "/glibc/lib/libc.so.6" "/lib/libc.so.6"
-make_hardlink "/glibc/lib/libm.so.6" "/lib/libm.so.6"
-make_hardlink "/musl/lib/libc.so" "/lib/ld-musl-riscv64-sf.so.1"
-make_hardlink "/musl/lib/libc.so" "/lib/.ld-linux-riscv64-lp64d.so.1.musl"
-
-echo "Copying config files to image..."
-ensure_dir "/etc"
-copy_file "$DATA_DIR/passwd" "/etc"
-copy_file "$DATA_DIR/group" "/etc"
-
-ensure_dir "/lib/modules"
-ensure_dir "/lib/modules/5.0.0"
-remove_path "/lib/modules/5.0.0/config"
-e2cp -p "$DATA_DIR/config" "$IMG:/lib/modules/5.0.0/config"
-
-echo "=== / ==="
+echo "=== sdcard-rv/ ==="
 e2ls -la "$IMG:/"
-echo "=== /testcode/ ==="
+echo "=== sdcard-rv/testcode/ ==="
 e2ls -la "$IMG:/testcode/"
 
 echo "Done. testcode has been written to $IMG."

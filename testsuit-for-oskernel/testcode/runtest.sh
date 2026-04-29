@@ -2,6 +2,17 @@
 
 export PATH=/bin:$PATH
 
+/glibc/busybox mkdir -p /bin
+/glibc/busybox rm -f /bin/*
+/glibc/busybox ln /glibc/busybox /bin/ln
+/musl/busybox chmod 0755 /glibc/busybox
+
+ln /glibc/busybox /bin/sh
+ln /glibc/busybox /bin/cp
+ln /glibc/busybox /bin/rm
+ln /glibc/busybox /bin/ls
+ln /glibc/busybox /bin/echo
+
 cd /glibc
 
 rm -f /lib/ld-linux-riscv64-lp64d.so.1 /lib/libc.so.6 /lib/libm.so.6

@@ -795,15 +795,21 @@ set -ex
 # ./fspick01
 # ./fspick02
 # ./fsstress
+
+# PASSED
 # ./fstat02
 # ./fstat02_64
 # ./fstat03
 # ./fstat03_64
 # ./fstatat01
+
 # ./fstatfs01
 # ./fstatfs01_64
+
+# PASSED
 # ./fstatfs02
 # ./fstatfs02_64
+
 # ./fsx-linux
 # ./fsx.sh
 
@@ -1279,7 +1285,7 @@ set -ex
 # ./link08
 
 # ./linkat01 # FAILED: Need mkfifo
-# ./linkat02
+# ./linkat02 # FAILED: Need mkfs.ext2
 
 # ./linktest.sh
 # ./listen01
@@ -1629,11 +1635,15 @@ set -ex
 # ./nft02
 # ./nftw01
 # ./nftw6401
+
+# PASSED
 # ./nice01
 # ./nice02
 # ./nice03
 # ./nice04
-# ./nice05
+
+# ./nice05 # FAILED: 
+
 # ./nm01.sh
 # ./nptl01
 # ./ns-echoclient
@@ -2000,11 +2010,14 @@ set -ex
 # ./rt_sigaction02
 # ./rt_sigaction03
 
+# NOSUMMARY
 # ./rt_sigprocmask01
 # ./rt_sigprocmask02
 
+# PASSED
 # ./rt_sigqueueinfo01
 # ./rt_sigsuspend01
+
 # ./rtc01
 # ./rtc02
 # ./run_capbounds.sh
@@ -2074,8 +2087,8 @@ set -ex
 # ./sctp_ipsec_vti.sh
 # ./select01
 # ./select02 # NOEXITED: sh: systemd-detect-virt: not found
-# ./select03
-# ./select04
+./select03
+./select04
 # ./sem_comm
 # ./sem_nstest
 # ./semctl01
@@ -3052,21 +3065,24 @@ set -ex
 # ./ustat01
 # ./ustat02
 
-./utime01
-./utime02
-./utime03
-./utime04
-./utime05
-./utime06
-./utime07
+# ./utime01
+# ./utime02
+# ./utime03
+# ./utime04
+# ./utime05
+# ./utime06
+# ./utime07
 
 # ./utimensat01 # FAILED: Need mkfs.ext2
 
 # ./utimes01
-./utsname01 # PASSED
-# ./utsname02 # FAILED
-./utsname03
-./utsname04
+
+# PASSED
+# ./utsname01
+# ./utsname02
+# ./utsname03
+# ./utsname04
+
 # ./verify_caps_exec
 
 # ./vfork # FAILED: Need ptrace
