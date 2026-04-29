@@ -187,10 +187,14 @@ set -ex
 # ./clock_adjtime02
 # ./clock_getres01
 
-# ./clock_gettime01
-# ./clock_gettime02
-# ./clock_gettime03
-# ./clock_gettime04
+# ./clock_gettime01 # PASSED
+# ./clock_gettime02 # PASSED
+# ./clock_gettime03 # NOEXIT: sh: systemd-detect-virt: not found
+# ./clock_gettime04 # NOEXIT: sh: systemd-detect-virt: not found
+# ./clock_gettime01 # PASSED
+# ./clock_gettime02 # PASSED
+# ./clock_gettime03 # NOEXIT: sh: systemd-detect-virt: not found
+# ./clock_gettime04 # NOEXIT: sh: systemd-detect-virt: not found
 
 # ./clock_nanosleep01 # PASSED
 # ./clock_nanosleep02 # FAILED: sh: systemd-detect-virt: not found
@@ -221,12 +225,16 @@ set -ex
 
 # ./cmdlib.sh
 # ./cn_pec.sh
-# ./confstr01
+
+# ./confstr01 # PASSED
+
 # ./connect01
 # ./connect02
-# ./copy_file_range01
-# ./copy_file_range02
-# ./copy_file_range03
+
+# ./copy_file_range01 # FAILED: There are no supported filesystems
+# ./copy_file_range02 # FIALED: Need mkfs.ext2
+# ./copy_file_range03 # PASSED
+
 # ./cp_tests.sh
 # ./cpio_tests.sh
 # ./cpuacct.sh
@@ -484,7 +492,7 @@ set -ex
 # ./fchmod03 # PASSED
 # ./fchmod04 # PASSED
 # ./fchmod05 # PASSED
-./fchmod06 # FAILED: Need device
+# ./fchmod06 # PASSED
 
 # ./fchmodat01 # PASSED
 # ./fchmodat02 # PASSED
@@ -798,10 +806,12 @@ set -ex
 # ./fstatfs02_64
 # ./fsx-linux
 # ./fsx.sh
-# ./fsync01
-# ./fsync02
-# ./fsync03
-# ./fsync04
+
+# ./fsync01 # FAILED: Need fs
+# ./fsync02 # NOEXIT: sh: systemd-detect-virt: not found
+# ./fsync03 # FAILED: Need mkfifo
+# ./fsync04 # FAILED: Need fs
+
 # ./ftest01
 # ./ftest02
 # ./ftest03
@@ -822,10 +832,13 @@ set -ex
 # ./ftrace_regression02.sh
 # ./ftrace_stress
 # ./ftrace_stress_test.sh
+
+# PASSED
 # ./ftruncate01
 # ./ftruncate01_64
 # ./ftruncate03
 # ./ftruncate03_64
+
 # ./ftruncate04
 # ./ftruncate04_64
 
@@ -899,13 +912,19 @@ set -ex
 # ./getaddrinfo_01
 # ./getcontext01
 # ./getcpu01
+
+# PASSED
 # ./getcwd01
 # ./getcwd02
 # ./getcwd03
-# ./getcwd04
+
+# ./getcwd04 # FAILED: Need 2 CPUs
+
+# PASSED
 # ./getdents01
 # ./getdents02
-# ./getdomainname01
+
+# ./getdomainname01 # PASSED
 
 # PASSED
 # ./getegid01
@@ -919,11 +938,18 @@ set -ex
 
 # ./gethostbyname_r01
 # ./gethostid01
+
+# PASSED
 # ./gethostname01
 # ./gethostname02
+
+# PASSED
 # ./getitimer01
 # ./getitimer02
 # ./getpagesize01
+
+# ./getpagesize01 # PASSED
+
 # ./getpeername01
 
 # PASSED
@@ -950,16 +976,19 @@ set -ex
 # ./getresuid02
 # ./getresuid03
 
-# ./getrlimit01
-# ./getrlimit02
-# ./getrlimit03
-# ./getrusage01
-# ./getrusage02
-# ./getrusage03
-# ./getrusage03_child
-# ./getrusage04
+# ./getrlimit01 # PASSED
+# ./getrlimit02 # PASSED
+
+# ./getrlimit03 # FAILED
+ 
+# ./getrusage01 # PASSED
+# ./getrusage02 # PASSED
+# ./getrusage03 # FAILED: Test needs at least 512MB MemAvailable
+# ./getrusage04 # NOEXIT: sh: systemd-detect-virt: not found
+
 # ./getsid01
 # ./getsid02
+
 # ./getsockname01
 # ./getsockopt01
 # ./getsockopt02
@@ -967,6 +996,7 @@ set -ex
 # ./gettid01
 # ./gettid02 # BUGGED
 
+# PASSED
 # ./gettimeofday01
 # ./gettimeofday02
 
@@ -1096,9 +1126,10 @@ set -ex
 # ./initialize_if
 # ./inode01
 # ./inode02
-# ./inotify01
-# ./inotify02
-# ./inotify03
+
+# ./inotify01 # PASSED
+# ./inotify02 # PASSED
+# ./inotify03 # FAILED
 # ./inotify04
 # ./inotify05
 # ./inotify06
@@ -1108,8 +1139,11 @@ set -ex
 # ./inotify10
 # ./inotify11
 # ./inotify12
+
+# PASSED
 # ./inotify_init1_01
 # ./inotify_init1_02
+
 # ./input01
 # ./input02
 # ./input03
@@ -1178,9 +1212,10 @@ set -ex
 # ./isofs.sh
 # ./kallsyms
 
-# ./kcmp01 # PASSED
-# ./kcmp02 # PASSED
-# ./kcmp03 # FAILED
+# FAILED
+# ./kcmp01
+# ./kcmp02
+# ./kcmp03
 
 # ./kernbench
 # ./keyctl01
@@ -1236,12 +1271,16 @@ set -ex
 # ./lgetxattr01
 # ./lgetxattr02
 # ./libcgroup_freezer
+
+# PASSED
 # ./link02
 # ./link04
 # ./link05
 # ./link08
-# ./linkat01
+
+# ./linkat01 # FAILED: Need mkfifo
 # ./linkat02
+
 # ./linktest.sh
 # ./listen01
 # ./listxattr01
@@ -1379,14 +1418,18 @@ set -ex
 # ./mincore02
 # ./mincore03
 # ./mincore04
+
 # ./mkdir02
 # ./mkdir03
 # ./mkdir04
 # ./mkdir05
 # ./mkdir09
+
 # ./mkdir_tests.sh
+
 # ./mkdirat01
 # ./mkdirat02
+
 # ./mkfs01.sh
 # ./mknod01
 # ./mknod02
@@ -1611,38 +1654,48 @@ set -ex
 # ./oom03
 # ./oom04
 # ./oom05
+
+# PASSED
 # ./open01
 # ./open02
 # ./open03
 # ./open04
-# ./open06
+
+# ./open06 # FAILED: Need mkfifo
+
+# PASSED
 # ./open07
 # ./open08
 # ./open09
-# ./open10
-# ./open11
-# ./open12
-# ./open12_child
-# ./open13
-# ./open14
+# ./open10 # PASSED
+
+# ./open11 # FAILED: Need mknod
+# ./open12 # NOTPASS PASSED
+# ./open13 # NOTPASS HALF: 
+# ./open14 # FAILED: Need mkfifo
+
 # ./open_by_handle_at01
 # ./open_by_handle_at02
 # ./open_tree01
 # ./open_tree02
+
 # ./openat01
-# ./openat02
-# ./openat02_child
-# ./openat03
-# ./openat04
-# ./openat201
-# ./openat202
-# ./openat203
+# ./openat02 # NOTPASS PASSED
+# ./openat03 # FAILED 
+# ./openat04 # FAILED: There are no supported filesystems
+
+# ./openat201 # PASSED
+# ./openat202 # SOME: openat2
+# ./openat203 # PASSED
+
 # ./openfile
 # ./output_ipsec_conf
 # ./overcommit_memory
 # ./page01
 # ./page02
 # ./parameters.sh
+
+# PASSED
 # ./pathconf01
 # ./pathconf02
 
@@ -1900,6 +1953,8 @@ set -ex
 # ./remove_password.sh
 # ./removexattr01
 # ./removexattr02
+
+# FAILED
 # ./rename01
 # ./rename03
 # ./rename04
@@ -1916,6 +1971,7 @@ set -ex
 # ./renameat01
 # ./renameat201
 # ./renameat202
+
 # ./request_key01
 # ./request_key02
 # ./request_key03
@@ -2086,6 +2142,7 @@ set -ex
 
 # ./set_tid_address01 # PASSED
 
+# PASSED
 # ./setdomainname01
 # ./setdomainname02
 # ./setdomainname03
@@ -2093,33 +2150,30 @@ set -ex
 # PASSED
 # ./setegid01
 # ./setegid02
-
-./setfsgid01
-./setfsgid02
-./setfsgid03
-./setfsuid01
-./setfsuid02
-./setfsuid03
-./setfsuid04
+# ./setfsgid01
+# ./setfsgid02
+# ./setfsgid03
+# ./setfsuid01
+# ./setfsuid02
+# ./setfsuid03
+# ./setfsuid04
 
 # PASSED
 # ./setgid01
 # ./setgid02
 # ./setgid03
-
 # ./setgroups01
-# ./setgroups01_16
 # ./setgroups02
-# ./setgroups02_16
 # ./setgroups03
-# ./setgroups03_16
 # ./setgroups04
-# ./setgroups04_16
 # ./sethostname01
 # ./sethostname02
 # ./sethostname03
+
+# PASSED
 # ./setitimer01
 # ./setitimer02
+
 # ./setns01
 # ./setns02
 
@@ -2302,20 +2356,28 @@ set -ex
 # ./stack_clash
 # ./stack_space
 # ./starvation
+
+# PASSED
 # ./stat01
 # ./stat01_64
 # ./stat02
 # ./stat02_64
 # ./stat03
 # ./stat03_64
+
+# FAILED: no supported filesystems
 # ./statfs01
 # ./statfs01_64
+
+# PASSED
 # ./statfs02
 # ./statfs02_64
 # ./statfs03
 # ./statfs03_64
+
 # ./statvfs01
 # ./statvfs02
+
 # ./statx01
 # ./statx02
 # ./statx03
@@ -2328,6 +2390,7 @@ set -ex
 # ./statx10
 # ./statx11
 # ./statx12
+
 # ./stime01
 # ./stime02
 # ./stop_freeze_sleep_thaw_cont.sh
@@ -2346,16 +2409,20 @@ set -ex
 # ./swapon02
 # ./swapon03
 # ./swapping01
-# ./symlink01
-# ./symlink02
-# ./symlink03
-# ./symlink04
-# ./symlinkat01
+
+# ./symlink01 # NOSUMMARY
+# ./symlink02 # PASSED
+# ./symlink03 # FAILED
+# ./symlink04 # PASSED
+# ./symlinkat01 # NOSUMMARY
+
 # ./sync01
 # ./sync_file_range01
 # ./sync_file_range02
 # ./syncfs01
-# ./syscall01
+
+# ./syscall01 # PASSED
+
 # ./sysconf01
 # ./sysctl01
 # ./sysctl01.sh
@@ -2984,19 +3051,22 @@ set -ex
 # ./userns08
 # ./ustat01
 # ./ustat02
-# ./utime01
-# ./utime02
-# ./utime03
-# ./utime04
-# ./utime05
-# ./utime06
-# ./utime07
-# ./utimensat01
+
+./utime01
+./utime02
+./utime03
+./utime04
+./utime05
+./utime06
+./utime07
+
+# ./utimensat01 # FAILED: Need mkfs.ext2
+
 # ./utimes01
-# ./utsname01
-# ./utsname02
-# ./utsname03
-# ./utsname04
+./utsname01 # PASSED
+# ./utsname02 # FAILED
+./utsname03
+./utsname04
 # ./verify_caps_exec
 
 # ./vfork # FAILED: Need ptrace

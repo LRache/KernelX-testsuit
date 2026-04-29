@@ -42,5 +42,8 @@ set +ex
 # /testcode/unixbench_testcode.sh
 # /testcode/iozone_testcode.sh
 # /testcode/cyclictest_testcode.sh
+# /testcode/ltp_testcode.sh
+
+rm -rf /var/tmp/*
 
 # set +ex
