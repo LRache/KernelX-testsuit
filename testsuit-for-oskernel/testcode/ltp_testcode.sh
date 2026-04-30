@@ -2251,7 +2251,7 @@ set -ex
 # ./setsockopt10
 
 # ./settimeofday01
-# ./settimeofday02
+# ./settimeofday02 # PASSED
 
 # PASSED
 # ./setuid01
