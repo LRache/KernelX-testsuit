@@ -483,9 +483,9 @@ set -ex
 # ./fanotify_child
 # ./fanout01
 
-# ./fchdir01 # FAILED: Need socket
+# ./fchdir01 # PASSED
 # ./fchdir02 # PASSED
-# ./fchdir03 # FAILED: Need socket
+# ./fchdir03 # PASSED
 
 # ./fchmod01 # PASSED
 # ./fchmod02 # PASSED
@@ -1425,15 +1425,16 @@ set -ex
 # ./mincore03
 # ./mincore04
 
-# ./mkdir02
-# ./mkdir03
-# ./mkdir04
-# ./mkdir05
-# ./mkdir09
+# ./mkdir02 # PASSED
+# ./mkdir03 # FAILED: Need mkfifo
+# ./mkdir04 # PASSED
+# ./mkdir05 # PASSED
+# ./mkdir09 # FAILED: Need fs
 
 # ./mkdir_tests.sh
 
-# ./mkdirat01
+# PASSED
+# ./mkdirat01 # NOSUMMARY
 # ./mkdirat02
 
 # ./mkfs01.sh
@@ -1465,40 +1466,42 @@ set -ex
 
 # ./mmap-corruption01
 
-# ./mmap001
-# ./mmap01
-# ./mmap02
-# ./mmap03
-# ./mmap04
-# ./mmap05
-# ./mmap06
-# ./mmap08
-# ./mmap09
+# ./mmap001 # NOSUMMARY KERNEL BUG
+# ./mmap01 # NOSUMMARY
+# ./mmap02 # PASSED
+# ./mmap03 # NOSUMMARY
+# ./mmap04 # PASSED
+# ./mmap05 # PASSED
+# ./mmap06 # PASSED
+# ./mmap08 # PASSED
+# ./mmap09 # PASSED
+# ./mmap10 # NOSUMMARY
+# ./mmap11 # NOSUMMARY
+# ./mmap12 # PASSED
+# ./mmap13 # PASSES
+# ./mmap14 # NUSUMMARY
+# ./mmap15 # FAILED: Need mkfs
+# ./mmap16 # FAILED: Need mkfs
+# ./mmap17 # PASSED
+# ./mmap18 # FAILED: Need prlimit core
+# ./mmap19 # PASSED
+# ./mmap20 # PASSED
+
 # ./mmap1
-# ./mmap10
-# ./mmap11
-# ./mmap12
-# ./mmap13
-# ./mmap14
-# ./mmap15
-# ./mmap16
-# ./mmap17
-# ./mmap18
-# ./mmap19
 # ./mmap2
-# ./mmap20
 # ./mmap3
 
-# ./mmapstress01
-# ./mmapstress02
-# ./mmapstress03
-# ./mmapstress04
-# ./mmapstress05
-# ./mmapstress06
-# ./mmapstress07
-# ./mmapstress08
-# ./mmapstress09
-# ./mmapstress10
+# ./mmapstress01 # PASSED
+# ./mmapstress02 # PASSED NOSUMMARY
+# ./mmapstress03 # PASSED NOSUMMARY
+# ./mmapstress04 # PASSED
+# ./mmapstress05 # PASSED NOSUMMARY
+# ./mmapstress06 1 # BUGGED
+# ./mmapstress07 # NOSUMMARY
+# ./mmapstress08 # NOSUMMARY
+# ./mmapstress09 # NOSUMMARY
+# ./mmapstress10 # NOSUMMARY
+
 # ./mmstress
 # ./mmstress_dummy
 # ./modify_ldt01
@@ -1590,9 +1593,11 @@ set -ex
 # ./munlock01
 # ./munlock02
 # ./munlockall01
-# ./munmap01
-# ./munmap02
-# ./munmap03
+
+# ./munmap01 # PASSED NOSUMMARY
+# ./munmap02 # NOSUMMARY
+# ./munmap03 # NOSUMMARY
+
 # ./mv_tests.sh
 # ./myfunctions.sh
 # ./name_to_handle_at01
@@ -1677,7 +1682,7 @@ set -ex
 # ./open07
 # ./open08
 # ./open09
-# ./open10 # PASSED
+# ./open10
 
 # ./open11 # FAILED: Need mknod
 # ./open12 # NOTPASS PASSED
@@ -1936,8 +1941,10 @@ set -ex
 # ./read_all
 # ./readahead01
 # ./readahead02
-# ./readdir01
-# ./readdir21
+# ./readdir01 # PASSED
+# ./readdir21 # FAILED: __NR_readdir not supported on your arch
+
+# PASSED
 # ./readlink01
 # ./readlink03
 # ./readlinkat01
@@ -2087,8 +2094,11 @@ set -ex
 # ./sctp_ipsec_vti.sh
 # ./select01
 # ./select02 # NOEXITED: sh: systemd-detect-virt: not found
-./select03
-./select04
+
+# PASSED
+# ./select03
+# ./select04
+
 # ./sem_comm
 # ./sem_nstest
 # ./semctl01
@@ -2256,10 +2266,11 @@ set -ex
 # ./shm_comm
 # ./shm_test
 
+# PASSED
 # ./shmat01
 # ./shmat02
 # ./shmat03
-# ./shmat04
+# ./shmat04 # KILLED: Need shm's split
 
 # ./shmat1
 # ./shmctl01
@@ -2274,7 +2285,7 @@ set -ex
 # ./shmdt02
 # ./shmem_2nstest
 
-# ./shmget02 # PASSED
+# ./shmget02 # FAILED
 # ./shmget03 # NO TPASS
 # ./shmget04 # NO TPASS
 # ./shmget05
@@ -2309,16 +2320,20 @@ set -ex
 
 # ./signal06 # FAILED: Only x86
 
+# NOSUMMARY
 # ./signalfd01
 # ./signalfd4_01
 # ./signalfd4_02
-# ./sigpending02
-# ./sigprocmask01
-# ./sigrelse01
-# ./sigsuspend01
-# ./sigtimedwait01
-# ./sigwait01
-# ./sigwaitinfo01
+
+# ./sigpending02 # PASSED
+# ./sigprocmask01 # PASSED
+# ./sigrelse01 # NOSUMMARY
+# ./sigsuspend01 # PASSED
+# ./sigtimedwait01 # PASSED
+
+# ./sigwait01 # PASSED
+# ./sigwaitinfo01 # PASSED
+
 # ./sit01.sh
 # ./smack_common.sh
 # ./smack_file_access.sh
@@ -2336,8 +2351,11 @@ set -ex
 # ./smt_smp_enabled.sh
 # ./snd_seq01
 # ./snd_timer01
-# ./socket01
-# ./socket02
+
+# ./socket01 # PASSED
+# ./socket02 # PASSED
+
+# Not supprted: __NR_socketcall not supported on your arch
 # ./socketcall01
 # ./socketcall02
 # ./socketcall03
