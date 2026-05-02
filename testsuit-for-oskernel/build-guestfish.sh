@@ -130,10 +130,10 @@ trap cleanup EXIT
     echo "chmod 0644 /etc/passwd"
     echo "chmod 0644 /etc/group"
 
-    echo "mkdir-p /lib/modules/5.0.0"
-    echo "upload $(gf_quote "$DATA/config") /lib/modules/5.0.0/config"
-    echo "chown 0 0 /lib/modules/5.0.0/config"
-    echo "chmod 0644 /lib/modules/5.0.0/config"
+    echo "mkdir-p /lib/modules/6.0.0"
+    echo "upload $(gf_quote "$DATA/config") /lib/modules/6.0.0/config"
+    echo "chown 0 0 /lib/modules/6.0.0/config"
+    echo "chmod 0644 /lib/modules/6.0.0/config"
 
     echo "echo === sdcard-rv/ ==="
     echo "ll /"
