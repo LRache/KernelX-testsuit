@@ -434,7 +434,7 @@ set -ex
 # ./execve06
 # ./execveat01
 # ./execveat02
-# ./execveat03 # FAILED: Couldn't find 'mkfs.ext2' in $PATH
+# ./execveat03 # FAILED: overlayfs
 # ./execvp01
 
 # PASSED
@@ -458,29 +458,29 @@ set -ex
 # ./fallocate06
 
 # ./fanotify01
-# ./fanotify02
-# ./fanotify03
-# ./fanotify04
-# ./fanotify05
-# ./fanotify06
-# ./fanotify07
-# ./fanotify08
-# ./fanotify09
-# ./fanotify10
-# ./fanotify11
-# ./fanotify12
+./fanotify02 # PASSED
+./fanotify03 # PASSED
+./fanotify04 # PASSED
+# ./fanotify05 # TBROK: open(fs_mnt/fname_53,66,0644) failed: ENOSPC (28)
+./fanotify06 # PASSED
+# ./fanotify07 # HALF: overlayfs
+./fanotify08 # PASSED
+./fanotify09 # PASSED 
+# ./fanotify10 # HALF, Unstable
+# ./fanotify11 # libgcc_s.so.1 must be installed for pthread_exit to work
+# ./fanotify12 # PASSED
 # ./fanotify13
-# ./fanotify14
-# ./fanotify15
+# ./fanotify14 # FAILED: TCONF: There are no supported filesystems
+# ./fanotify15 # FAILED: TCONF: There are no supported filesystems
 # ./fanotify16
-# ./fanotify17
+# ./fanotify17 # FAILED: fanotify inside user namespace is not supported
 # ./fanotify18
-# ./fanotify19
-# ./fanotify20
-# ./fanotify21
-# ./fanotify22
-# ./fanotify23
-# ./fanotify_child
+# ./fanotify19 # PASSED
+# ./fanotify20 # FAILED: No support fs
+# ./fanotify21 # FAILED: No support fs
+# ./fanotify22 # FAILED: Couldn't find 'debugfs' in $PATH
+# ./fanotify23 # FAILED: FAN_ATTRIB not supported in kernel 
+
 # ./fanout01
 
 # ./fchdir01 # PASSED
@@ -1268,7 +1268,7 @@ set -ex
 # ./lchown01
 # ./lchown02
 
-# ./lchown03 # FAILED Couldn't find 'mkfs.ext2' in $PATH
+./lchown03 # FAILED Couldn't find 'mkfs.ext2' in $PATH
 
 # ./ld01.sh
 # ./ldd01.sh
@@ -2092,6 +2092,7 @@ set -ex
 # ./sctp_big_chunk
 # ./sctp_ipsec.sh
 # ./sctp_ipsec_vti.sh
+
 # ./select01
 # ./select02 # NOEXITED: sh: systemd-detect-virt: not found
 

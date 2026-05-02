@@ -69,6 +69,9 @@ $SUDO cp "$DATA_DIR/group" "$MOUNT_DIR/etc/"
 $SUDO mkdir -p "$MOUNT_DIR/lib/modules/5.0.0"
 $SUDO cp "$DATA_DIR/config" "$MOUNT_DIR/lib/modules/5.0.0/config"
 
+$SUDO mkdir -p "$MOUNT_DIR/bin"
+$SUDO cp "bin/mkfs.ext2" "$MOUNT_DIR/bin"
+
 $SUDO chown -R $USER:$USER "$MOUNT_DIR"
 
 echo "=== sdcard-rv/ ==="

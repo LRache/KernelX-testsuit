@@ -3,7 +3,7 @@
 export PATH=/bin:$PATH
 
 /glibc/busybox mkdir -p /bin
-/glibc/busybox rm -f /bin/*
+/glibc/busybox rm -f /bin/sh /bin/cp /bin/ls /bin/mkdir /bin/ln /bin/rm
 /glibc/busybox ln /glibc/busybox /bin/ln
 /musl/busybox chmod 0755 /glibc/busybox
 
