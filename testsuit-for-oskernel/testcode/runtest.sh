@@ -3,7 +3,7 @@
 export PATH=/bin:$PATH
 
 /glibc/busybox mkdir -p /bin
-/glibc/busybox rm -f /bin/sh /bin/cp /bin/ls /bin/mkdir /bin/ln /bin/rm
+/glibc/busybox rm -f /bin/sh /bin/cp /bin/ls /bin/mkdir /bin/ln /bin/rm /bin/mkfs.ext4
 /glibc/busybox ln /glibc/busybox /bin/ln
 /musl/busybox chmod 0755 /glibc/busybox
 
@@ -12,6 +12,7 @@ ln /glibc/busybox /bin/cp
 ln /glibc/busybox /bin/rm
 ln /glibc/busybox /bin/ls
 ln /glibc/busybox /bin/echo
+ln /bin/mkfs.ext2 /bin/mkfs.ext4
 
 cd /glibc
 
@@ -53,7 +54,7 @@ set +ex
 # /testcode/unixbench_testcode.sh
 # /testcode/iozone_testcode.sh
 # /testcode/cyclictest_testcode.sh
-# /testcode/ltp_testcode.sh
+/testcode/ltp_testcode.sh
 
 rm -rf /var/tmp/*
 

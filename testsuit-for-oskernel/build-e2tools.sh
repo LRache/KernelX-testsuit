@@ -105,6 +105,9 @@ e2cp_file "$DATA/group" /etc 0644
 e2mkdir_p /lib/modules/5.0.0
 e2cp_file "$DATA/config" /lib/modules/5.0.0 0644
 
+e2mkdir_p /bin
+e2cp_file "$SCRIPT_DIR/bin/mkfs.ext2" /bin 0755
+
 echo "=== sdcard-rv/ ==="
 e2ls -la "$IMG:/"
 echo "=== sdcard-rv/testcode/ ==="

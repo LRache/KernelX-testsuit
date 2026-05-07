@@ -297,8 +297,7 @@ set -ex
 # ./creat06
 # ./creat07
 # ./creat08
-
-# ./creat09 # FAILED: Need fs
+# ./creat09 # mkfs
 
 # ./create_datafile
 # ./create_file
@@ -458,14 +457,14 @@ set -ex
 # ./fallocate06
 
 # ./fanotify01
-./fanotify02 # PASSED
-./fanotify03 # PASSED
-./fanotify04 # PASSED
+# ./fanotify02 # PASSED
+# ./fanotify03 # PASSED
+# ./fanotify04 # PASSED
 # ./fanotify05 # TBROK: open(fs_mnt/fname_53,66,0644) failed: ENOSPC (28)
-./fanotify06 # PASSED
+# ./fanotify06 # PASSED
 # ./fanotify07 # HALF: overlayfs
-./fanotify08 # PASSED
-./fanotify09 # PASSED 
+# ./fanotify08 # PASSED
+# ./fanotify09 # PASSED 
 # ./fanotify10 # HALF, Unstable
 # ./fanotify11 # libgcc_s.so.1 must be installed for pthread_exit to work
 # ./fanotify12 # PASSED
@@ -497,15 +496,17 @@ set -ex
 # ./fchmodat01 # PASSED
 # ./fchmodat02 # PASSED
 
-# ./fchown01 # PASSED
-# ./fchown02 # PASSED
-# ./fchown03 # PASSED
-# ./fchown04 # FAILED: Need device
-# ./fchown05 # PASSED
+# PASSED
+# ./fchown01
+# ./fchown02
+# ./fchown03
+# ./fchown04 
+# ./fchown05 
 
 # ./fchownat01 # PASSED unknown exit 4
 # ./fchownat02 # FAILED Need symlink
 
+# PASSED
 # ./fcntl01
 # ./fcntl01_64
 # ./fcntl02
@@ -803,6 +804,7 @@ set -ex
 # ./fstat03_64
 # ./fstatat01
 
+# HALF
 # ./fstatfs01
 # ./fstatfs01_64
 
@@ -813,10 +815,10 @@ set -ex
 # ./fsx-linux
 # ./fsx.sh
 
-# ./fsync01 # FAILED: Need fs
+# ./fsync01 # PASSED: Need fs
 # ./fsync02 # NOEXIT: sh: systemd-detect-virt: not found
 # ./fsync03 # FAILED: Need mkfifo
-# ./fsync04 # FAILED: Need fs
+# ./fsync04 # FAILED: Need mkfs.ex4
 
 # ./ftest01
 # ./ftest02
@@ -1268,7 +1270,7 @@ set -ex
 # ./lchown01
 # ./lchown02
 
-./lchown03 # FAILED Couldn't find 'mkfs.ext2' in $PATH
+# ./lchown03 # FAILED Couldn't find 'mkfs.ext2' in $PATH
 
 # ./ld01.sh
 # ./ldd01.sh
@@ -1285,7 +1287,7 @@ set -ex
 # ./link08
 
 # ./linkat01 # FAILED: Need mkfifo
-# ./linkat02 # FAILED: Need mkfs.ext2
+# ./linkat02 # NOSUMMARY
 
 # ./linktest.sh
 # ./listen01
@@ -1429,7 +1431,7 @@ set -ex
 # ./mkdir03 # FAILED: Need mkfifo
 # ./mkdir04 # PASSED
 # ./mkdir05 # PASSED
-# ./mkdir09 # FAILED: Need fs
+# ./mkdir09 # PASSED
 
 # ./mkdir_tests.sh
 
@@ -1935,7 +1937,7 @@ set -ex
 # PASSED
 # ./read01
 # ./read02 # PASSED
-# ./read03 # FAILED Need device
+# ./read03 # FAILED Need mknod
 # ./read04 # PASSED
 
 # ./read_all
@@ -2397,11 +2399,9 @@ set -ex
 # ./stat03
 # ./stat03_64
 
-# FAILED: no supported filesystems
-# ./statfs01
-# ./statfs01_64
-
 # PASSED
+# ./statfs01 # mkfs
+# ./statfs01_64
 # ./statfs02
 # ./statfs02_64
 # ./statfs03
@@ -3063,7 +3063,7 @@ set -ex
 # ./unlink05 # FAILED Half: Need mkfifo
 # ./unlink07 # PASSED
 # ./unlink08 # PASSED
-# ./unlink09 # FAILD: Need device
+# ./unlink09 # FAILD: Need ioctl command
 
 # ./unlinkat01 # PASSED
 
