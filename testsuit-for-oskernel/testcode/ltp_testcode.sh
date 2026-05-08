@@ -469,14 +469,14 @@ set -ex
 # ./fanotify11 # libgcc_s.so.1 must be installed for pthread_exit to work
 # ./fanotify12 # PASSED
 # ./fanotify13
-# ./fanotify14 # FAILED: TCONF: There are no supported filesystems
-# ./fanotify15 # FAILED: TCONF: There are no supported filesystems
+# ./fanotify14 # PASSED
+# ./fanotify15 # FAILED
 # ./fanotify16
 # ./fanotify17 # FAILED: fanotify inside user namespace is not supported
 # ./fanotify18
 # ./fanotify19 # PASSED
-# ./fanotify20 # FAILED: No support fs
-# ./fanotify21 # FAILED: No support fs
+# ./fanotify20 # PASSED
+# ./fanotify21 # FAILED: Need pidfd
 # ./fanotify22 # FAILED: Couldn't find 'debugfs' in $PATH
 # ./fanotify23 # FAILED: FAN_ATTRIB not supported in kernel 
 
@@ -1509,14 +1509,16 @@ set -ex
 # ./modify_ldt01
 # ./modify_ldt02
 # ./modify_ldt03
-# ./mount01
-# ./mount02
-# ./mount03
+
+# ./mount01 # PASSED
+# ./mount02 # FAILED: Need mknod
+# ./mount03 # HALF: Need mknod
 # ./mount03_suid_child
-# ./mount04
-# ./mount05
-# ./mount06
-# ./mount07
+# ./mount04 # PASSED
+# ./mount05 # PASSED
+# ./mount06 # FAILED
+# ./mount07 # HALF: ST_NOSYMFOLLOW
+
 # ./mount_setattr01
 # ./mountns01
 # ./mountns02
@@ -1973,23 +1975,24 @@ set -ex
 # ./removexattr01
 # ./removexattr02
 
-# FAILED
+# PASSED
 # ./rename01
 # ./rename03
 # ./rename04
 # ./rename05
-# ./rename06
-# ./rename07
-# ./rename08
-# ./rename09
-# ./rename10
-# ./rename11
-# ./rename12
-# ./rename13
-# ./rename14
-# ./renameat01
-# ./renameat201
-# ./renameat202
+
+# ./rename06 # HALF
+# ./rename07 # PASSED
+# ./rename08 # PASSED
+# ./rename09 # FAILED
+# ./rename10 # KERNEL BUG
+# ./rename11 # NOSUMMARY
+# ./rename12 # FAILED
+# ./rename13 # PASSED
+# ./rename14 # PASSED, NOSUMMARY
+# ./renameat01 # NOSUMMARY
+# ./renameat201 # NOSUMMARY
+# ./renameat202 # NOSUMMARY
 
 # ./request_key01
 # ./request_key02
@@ -3049,11 +3052,14 @@ set -ex
 # ./umask01 # PASSED
 
 # ./umip_basic_test
+
+# PASSED
 # ./umount01
 # ./umount02
 # ./umount03
-# ./umount2_01
-# ./umount2_02
+
+# ./umount2_01 # NOSUMMARY
+# ./umount2_02 # HALF
 
 # PASSED
 # ./uname01
