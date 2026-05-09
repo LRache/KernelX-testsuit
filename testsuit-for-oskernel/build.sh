@@ -59,15 +59,15 @@ echo "Copying testcode to image..."
 $SUDO cp -r "$TESTCODE" "$MOUNT_DIR/"
 $SUDO chown -R root:root "$MOUNT_DIR/testcode"
 
-$SUDO find "$MOUNT_DIR" -type f -executable -exec chmod o-x {} +
+# $SUDO find "$MOUNT_DIR" -type f -executable -exec chmod o-x {} +
 $SUDO find -L "$MOUNT_DIR/bin" -maxdepth 1 -mindepth 1 -type f -exec chmod a+x {} +
 
 $SUDO mkdir -p "$MOUNT_DIR/etc"
 $SUDO cp "$DATA_DIR/passwd" "$MOUNT_DIR/etc/"
 $SUDO cp "$DATA_DIR/group" "$MOUNT_DIR/etc/"
 
-$SUDO mkdir -p "$MOUNT_DIR/lib/modules/5.0.0"
-$SUDO cp "$DATA_DIR/config" "$MOUNT_DIR/lib/modules/5.0.0/config"
+$SUDO mkdir -p "$MOUNT_DIR/lib/modules/6.0.0"
+$SUDO cp "$DATA_DIR/config" "$MOUNT_DIR/lib/modules/6.0.0/config"
 
 $SUDO mkdir -p "$MOUNT_DIR/bin"
 $SUDO cp "bin/mkfs.ext2" "$MOUNT_DIR/bin"

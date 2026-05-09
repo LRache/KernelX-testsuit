@@ -297,7 +297,7 @@ set -ex
 # ./creat06
 # ./creat07
 # ./creat08
-# ./creat09 # mkfs
+./creat09 # filesystem support
 
 # ./create_datafile
 # ./create_file
@@ -815,7 +815,7 @@ set -ex
 # ./fsx-linux
 # ./fsx.sh
 
-# ./fsync01 # PASSED: Need fs
+# ./fsync01 # PASSED: filesystem support
 # ./fsync02 # NOEXIT: sh: systemd-detect-virt: not found
 # ./fsync03 # FAILED: Need mkfifo
 # ./fsync04 # FAILED: Need mkfs.ex4
@@ -862,6 +862,8 @@ set -ex
 # ./futex_wait05 # FAILED: sh: systemd-detect-virt: not found
 
 # ./futex_wait_bitset01
+
+# FAILED: syscall(-1) __NR_futex_waitv not supported on your arch
 # ./futex_waitv01
 # ./futex_waitv02
 # ./futex_waitv03
@@ -1193,6 +1195,7 @@ set -ex
 # ./ioctl_loop05
 # ./ioctl_loop06
 # ./ioctl_loop07
+
 # ./ioctl_ns01
 # ./ioctl_ns02
 # ./ioctl_ns03
@@ -1480,10 +1483,10 @@ set -ex
 # ./mmap10 # NOSUMMARY
 # ./mmap11 # NOSUMMARY
 # ./mmap12 # PASSED
-# ./mmap13 # PASSES
+# ./mmap13 # PASSED
 # ./mmap14 # NUSUMMARY
-# ./mmap15 # FAILED: Need mkfs
-# ./mmap16 # FAILED: Need mkfs
+# ./mmap15 # PASSED
+# ./mmap16 # FAILED: Need mremap
 # ./mmap17 # PASSED
 # ./mmap18 # FAILED: Need prlimit core
 # ./mmap19 # PASSED
@@ -1621,7 +1624,9 @@ set -ex
 # ./netns_sysfs.sh
 # ./netstat01.sh
 # ./netstress
-# ./newuname01
+
+# ./newuname01 # NOSUMMARY
+
 # ./nextafter01
 # ./nfs01.sh
 # ./nfs01_open_files
@@ -1913,8 +1918,6 @@ set -ex
 # ./pwritev01_64
 # ./pwritev02
 # ./pwritev02_64
-
-# FAILED: Need device
 # ./pwritev03
 # ./pwritev03_64
 
@@ -2403,7 +2406,7 @@ set -ex
 # ./stat03_64
 
 # PASSED
-# ./statfs01 # mkfs
+# ./statfs01 # filesystem support
 # ./statfs01_64
 # ./statfs02
 # ./statfs02_64
@@ -2477,8 +2480,7 @@ set -ex
 # ./sysinfo01 # PASSED
 # ./sysinfo02 # PASSED
 
-# ./sysinfo03 # FAILED: Couldn't locate kernel config
- # FAILED: Cannot parse kernel .config
+# ./sysinfo03 # FAILED: Need unshare
 
 # ./syslog11
 # ./syslog12
@@ -3090,6 +3092,7 @@ set -ex
 # ./ustat01
 # ./ustat02
 
+# PASSED
 # ./utime01
 # ./utime02
 # ./utime03
@@ -3098,7 +3101,7 @@ set -ex
 # ./utime06
 # ./utime07
 
-# ./utimensat01 # FAILED: Need mkfs.ext2
+# ./utimensat01 # HALF
 
 # ./utimes01
 
