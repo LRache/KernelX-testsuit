@@ -122,12 +122,15 @@ set -ex
 # ./cap_bounds_r
 # ./cap_bounds_rw
 # ./cap_bset_inh_bounds
+
+# PASSED
 # ./capget01
 # ./capget02
 # ./capset01
 # ./capset02
 # ./capset03
 # ./capset04
+
 # ./cfs_bandwidth01
 
 # ./cgroup_core01
@@ -178,10 +181,12 @@ set -ex
 # ./chown04
 # ./chown05
 
+# PASSED
 # ./chroot01
 # ./chroot02
 # ./chroot03
 # ./chroot04
+
 # ./cleanup_lvm.sh
 # ./clock_adjtime01
 # ./clock_adjtime02
@@ -201,6 +206,7 @@ set -ex
 # ./clock_nanosleep03 # FAILED: Cannot parse kernel .config
 # ./clock_nanosleep04 # PASSED
 
+# PASSED
 # ./clock_settime01
 # ./clock_settime02
 # ./clock_settime03
@@ -228,11 +234,11 @@ set -ex
 
 # ./confstr01 # PASSED
 
-# ./connect01
-# ./connect02
+# ./connect01 # HALF
+# ./connect02 # FAILED
 
-# ./copy_file_range01 # FAILED: There are no supported filesystems
-# ./copy_file_range02 # FIALED: Need mkfs.ext2
+# ./copy_file_range01 # PASSED
+# ./copy_file_range02 # FIALED: Need mknod
 # ./copy_file_range03 # PASSED
 
 # ./cp_tests.sh
@@ -297,7 +303,7 @@ set -ex
 # ./creat06
 # ./creat07
 # ./creat08
-./creat09 # filesystem support
+# ./creat09 # filesystem support
 
 # ./create_datafile
 # ./create_file
@@ -378,6 +384,7 @@ set -ex
 # ./endian_switch01
 # ./epoll-ltp
 
+# PASSED
 # ./epoll_create01
 # ./epoll_create02
 # ./epoll_create1_01
@@ -385,20 +392,24 @@ set -ex
 # ./epoll_ctl01
 # ./epoll_ctl02
 # ./epoll_ctl03
+
+# FAILED
 # ./epoll_ctl04
 # ./epoll_ctl05
+
 # ./epoll_pwait01
 # ./epoll_pwait02
 # ./epoll_pwait03
 # ./epoll_pwait04
 # ./epoll_pwait05
-# ./epoll_wait01
-# ./epoll_wait02
-# ./epoll_wait03
-# ./epoll_wait04
-# ./epoll_wait05
-# ./epoll_wait06
-# ./epoll_wait07
+
+# ./epoll_wait01 # PASSED
+# ./epoll_wait02 # NOEXIT: sh: systemd-detect-virt: not found
+# ./epoll_wait03 # PASSED
+# ./epoll_wait04 # PASSED
+# ./epoll_wait05 # FAILED
+# ./epoll_wait06 # HALF
+# ./epoll_wait07 # PASSED 
 
 # ./event_generator
 
@@ -449,12 +460,13 @@ set -ex
 # ./faccessat201
 # ./faccessat202
 
-# ./fallocate01
-# ./fallocate02
-# ./fallocate03
-# ./fallocate04
-# ./fallocate05
-# ./fallocate06
+# TODO: implement fallocate syscall
+# ./fallocate01 # HALF
+# ./fallocate02 # HALF
+# ./fallocate03 # HALF
+# ./fallocate04 # HALF
+# ./fallocate05 # FAILED
+# ./fallocate06 # FAILED
 
 # ./fanotify01
 # ./fanotify02 # PASSED
@@ -605,7 +617,7 @@ set -ex
 # ./fcntl37
 # ./fcntl37_64
 
-# FAILED: Cannot parse kernel .config
+# FAILED: Need dnotify
 # ./fcntl38
 # ./fcntl38_64
 # ./fcntl39
@@ -1223,10 +1235,9 @@ set -ex
 # ./isofs.sh
 # ./kallsyms
 
-# FAILED
-# ./kcmp01
-# ./kcmp02
-# ./kcmp03
+# ./kcmp01 # PASSED
+# ./kcmp02 # PASSED
+# ./kcmp03 # HALF
 
 # ./kernbench
 # ./keyctl01
@@ -2155,6 +2166,7 @@ set -ex
 
 # ./sendmmsg01
 # ./sendmmsg02
+
 # ./sendmsg01
 # ./sendmsg02
 # ./sendmsg03
@@ -2259,8 +2271,9 @@ set -ex
 # ./setsockopt09
 # ./setsockopt10
 
+# PASSED
 # ./settimeofday01
-# ./settimeofday02 # PASSED
+# ./settimeofday02
 
 # PASSED
 # ./setuid01
@@ -3049,7 +3062,7 @@ set -ex
 # ./uevent02
 # ./uevent03
 
-# ./ulimit01
+# ./ulimit01 # NOSUMMARY
 
 # ./umask01 # PASSED
 
