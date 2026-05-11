@@ -481,7 +481,7 @@ set -ex
 # ./fanotify11 # libgcc_s.so.1 must be installed for pthread_exit to work
 # ./fanotify12 # PASSED
 # ./fanotify13
-# ./fanotify14 # PASSED
+# ./fanotify14 # HALF
 # ./fanotify15 # FAILED
 # ./fanotify16
 # ./fanotify17 # FAILED: fanotify inside user namespace is not supported
@@ -1787,7 +1787,7 @@ set -ex
 # ./pipe01
 # ./pipe02
 # ./pipe03
-# ./pipe04 # NOEXIT musl
+# ./pipe04 # NUSUMMARY
 # ./pipe05
 # ./pipe06
 # ./pipe07
@@ -2463,7 +2463,7 @@ set -ex
 
 # ./symlink01 # NOSUMMARY
 # ./symlink02 # PASSED
-# ./symlink03 # FAILED
+# ./symlink03 # NOSUMMARY
 # ./symlink04 # PASSED
 # ./symlinkat01 # NOSUMMARY
 
