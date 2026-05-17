@@ -1,0 +1,3 @@
+[submodule "tools/mkfs/e2fsprogs"]
+	path = tools/mkfs/e2fsprogs
+	url = https://github.com/tytso/e2fsprogs.git
