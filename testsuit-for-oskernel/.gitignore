@@ -1,3 +1,5 @@
 *.xz
 *.img
 scard*
+ltp_testcode_*
+bin

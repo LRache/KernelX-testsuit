@@ -1,13 +1,15 @@
+#!/usr/bin/env bash
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-IMG="$SCRIPT_DIR/sdcard-la.img"
-XZ="$SCRIPT_DIR/sdcard-la.img.xz"
-URL="https://github.com/oscomp/testsuits-for-oskernel/releases/download/pre-20250615/sdcard-la.img.xz"
-TESTCODE="$SCRIPT_DIR/testcode-la"
+IMG="$SCRIPT_DIR/sdcard-rv.img"
+XZ="$SCRIPT_DIR/sdcard-rv.img.xz"
+URL="https://github.com/oscomp/testsuits-for-oskernel/releases/download/pre-20250615/sdcard-rv.img.xz"
+TESTCODE="$SCRIPT_DIR/testcode-rv"
 DATA="$SCRIPT_DIR/data"
+MKE2FS="$SCRIPT_DIR/bin/riscv64-mke2fs.static"
 
-for file in "$DATA/passwd" "$DATA/group" "$DATA/config"; do
+for file in "$DATA/passwd" "$DATA/group" "$DATA/config" "$MKE2FS"; do
     if [ ! -f "$file" ]; then
         echo "Error: missing required file: $file"
         exit 1
@@ -17,10 +19,10 @@ done
 # Always start fresh to avoid leftover corruption
 rm -f "$IMG"
 if [ ! -f "$XZ" ]; then
-    echo "Downloading sdcard-la.img.xz..."
+    echo "Downloading sdcard-rv.img.xz..."
     wget -O "$XZ" "$URL"
 fi
-echo "Extracting sdcard-la.img.xz..."
+echo "Extracting sdcard-rv.img.xz..."
 xz -dk -T 0 "$XZ"
 
 # Prefer debugfs from Homebrew (macOS) or system PATH
@@ -37,6 +39,31 @@ echo "Writing testcode to $IMG using debugfs..."
 
 # Build a debugfs command script
 CMDS=$(mktemp)
+trap 'rm -f "$CMDS"' EXIT
+
+file_mode() {
+    local file="$1"
+    local mode
+
+    if ! mode="$(stat -c '%a' "$file" 2>/dev/null)"; then
+        mode="$(stat -f '%Lp' "$file")"
+    fi
+
+    if [ -x "$file" ]; then
+        printf '%03o' "$((8#$mode & ~1))"
+    else
+        printf '%03o' "$((8#$mode))"
+    fi
+}
+
+set_file_metadata() {
+    local image_path="$1"
+    local mode="$2"
+
+    echo "sif $image_path mode 0100$mode" >> "$CMDS"
+    echo "sif $image_path uid 0" >> "$CMDS"
+    echo "sif $image_path gid 0" >> "$CMDS"
+}
 
 # Create directory structure
 echo "mkdir /testcode" >> "$CMDS"
@@ -62,13 +89,21 @@ done
 # Copy testcode files
 find "$TESTCODE" -type f | sort | while read -r file; do
     rel="${file#$TESTCODE}"
-    echo "write $file /testcode$rel" >> "$CMDS"
+    image_path="/testcode$rel"
+    echo "write $file $image_path" >> "$CMDS"
+    set_file_metadata "$image_path" "$(file_mode "$file")"
 done
 
-# Copy data files
+# Copy tools and data files
+echo "write $MKE2FS /bin/mke2fs.static" >> "$CMDS"
+set_file_metadata "/bin/mke2fs.static" "755"
+
 echo "write $DATA/passwd /etc/passwd" >> "$CMDS"
+set_file_metadata "/etc/passwd" "644"
 echo "write $DATA/group /etc/group" >> "$CMDS"
+set_file_metadata "/etc/group" "644"
 echo "write $DATA/config /lib/modules/6.0.0/config" >> "$CMDS"
+set_file_metadata "/lib/modules/6.0.0/config" "644"
 
 # Hard-link /bin/sh -> /glibc/busybox so shebang scripts work
 echo "ln /glibc/busybox /bin/sh" >> "$CMDS"
@@ -78,7 +113,6 @@ cat "$CMDS"
 echo "--- end ---"
 
 "$DEBUGFS" -w "$IMG" < "$CMDS" 2>&1
-rm -f "$CMDS"
 
 # Fix any checksum issues
 "$E2FSCK" -y -f "$IMG" 2>&1 || true
@@ -91,6 +125,8 @@ echo "=== /testcode/ ==="
 "$DEBUGFS" -R 'ls -l /testcode' "$IMG" 2>&1
 echo "=== /bin/ ==="
 "$DEBUGFS" -R 'ls -l /bin' "$IMG" 2>&1
+echo "=== /bin/mke2fs.static ==="
+"$DEBUGFS" -R 'stat /bin/mke2fs.static' "$IMG" 2>&1 | grep -E "Mode|User|Group|Size"
 echo "=== /glibc/busybox ==="
 "$DEBUGFS" -R 'stat /glibc/busybox' "$IMG" 2>&1 | grep -E "Size|Links"
 

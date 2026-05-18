@@ -6,19 +6,19 @@ export LTPROOT=../..
 
 set -ex
 
-./abort01 # PASSED
-./abs01 # PASSED
+# ./abort01 # PASSED
+# ./abs01 # PASSED
 
-./accept01 # PASSED
+# ./accept01 # PASSED
 # ./accept02
 # ./accept03
 # ./accept4_01
 
 # PASSED
-./access01
-./access02
-./access03
-./access04
+# ./access01
+# ./access02
+# ./access03
+# ./access04
 
 # ./acct01
 # ./acct02
@@ -36,12 +36,28 @@ set -ex
 # ./adjtimex02
 # ./adjtimex03
 
+# ./af_alg01
+# ./af_alg02
+# ./af_alg03
+# ./af_alg04
+# ./af_alg05
+# ./af_alg06
+# ./af_alg07
+
+# Need libaio
+# ./aio-stress
+# ./aio01
+# ./aio02
+# ./aiocp
+# ./aiodio_append
+# ./aiodio_sparse
+
 # PASSED
-./alarm02
-./alarm03 
-./alarm05
-./alarm06
-./alarm07
+# ./alarm02
+# ./alarm03 
+# ./alarm05
+# ./alarm06
+# ./alarm07
 
 # ./ar01.sh
 
@@ -59,9 +75,9 @@ set -ex
 # ./bbr02.sh
 
 # PASSED
-./bind01
-./bind02
-./bind03
+# ./bind01
+# ./bind02
+# ./bind03
 
 # ./bind04
 # ./bind05
@@ -81,8 +97,8 @@ set -ex
 # ./bpf_prog06
 # ./bpf_prog07
 
-./brk01 # PASSED
-./brk02 # PASSED
+# ./brk01 # PASSED
+# ./brk02 # PASSED
 
 # ./broken_ip-checksum.sh
 # ./broken_ip-dstaddr.sh
@@ -106,12 +122,15 @@ set -ex
 # ./cap_bounds_r
 # ./cap_bounds_rw
 # ./cap_bset_inh_bounds
+
+# PASSED
 # ./capget01
 # ./capget02
 # ./capset01
 # ./capset02
 # ./capset03
 # ./capset04
+
 # ./cfs_bandwidth01
 
 # ./cgroup_core01
@@ -136,7 +155,7 @@ set -ex
 # ./change_password.sh
 
 # ./chdir01 # FAILED: Need btrfs
-./chdir04 # PASSED
+# ./chdir04 # PASSED
 
 # ./check_envval
 # ./check_icmpv4_connectivity
@@ -148,69 +167,80 @@ set -ex
 # ./check_simple_capset
 
 # PASSED
-./chmod01
-./chmod03
-./chmod05
-./chmod06 
+# ./chmod01
+# ./chmod03
+# ./chmod05
+# ./chmod06 
 
 # ./chmod07 # FAILED: getgrnam(users) failed
 
 # PASSED
-./chown01
-./chown02
-./chown03
-./chown04
-./chown05
+# ./chown01
+# ./chown02
+# ./chown03
+# ./chown04
+# ./chown05
 
+# PASSED
 # ./chroot01
 # ./chroot02
 # ./chroot03
 # ./chroot04
+
 # ./cleanup_lvm.sh
 # ./clock_adjtime01
 # ./clock_adjtime02
 # ./clock_getres01
 
-./clock_gettime01
-./clock_gettime02
-# ./clock_gettime03
-# ./clock_gettime04
+# ./clock_gettime01 # PASSED
+# ./clock_gettime02 # PASSED
+# ./clock_gettime03 # NOEXIT: sh: systemd-detect-virt: not found
+# ./clock_gettime04 # NOEXIT: sh: systemd-detect-virt: not found
+# ./clock_gettime01 # PASSED
+# ./clock_gettime02 # PASSED
+# ./clock_gettime03 # NOEXIT: sh: systemd-detect-virt: not found
+# ./clock_gettime04 # NOEXIT: sh: systemd-detect-virt: not found
 
-./clock_nanosleep01 # PASSED
+# ./clock_nanosleep01 # PASSED
 # ./clock_nanosleep02 # FAILED: sh: systemd-detect-virt: not found
 # ./clock_nanosleep03 # FAILED: Cannot parse kernel .config
-./clock_nanosleep04 # PASSED
+# ./clock_nanosleep04 # PASSED
 
+# PASSED
 # ./clock_settime01
 # ./clock_settime02
 # ./clock_settime03
 
-./clone01 # PASSED
-./clone02 # PASSED
-./clone03 # PASSED
-./clone04 # PASSED
-./clone05 # PASSED
-./clone06 # PASSED
-./clone07 # PASSED
-./clone08 # PASSED
+# ./clone01 # PASSED
+# ./clone02 # PASSED
+# ./clone03 # PASSED
+# ./clone04 # PASSED
+# ./clone05 # PASSED
+# ./clone06 # PASSED
+# ./clone07 # PASSED
+# ./clone08 # PASSED
 # ./clone09 # Need FILE '/proc/sys/net/ipv4/conf/lo/tag'
-./clone301 # PASSED
-./clone302 # PASSED
+# ./clone301 # PASSED
+# ./clone302 # PASSED
 # ./clone303 # FAILED: Need cgroup
 
-./close01 # PASSED
-./close02 # PASSED
+# ./close01 # PASSED
+# ./close02 # PASSED
 # ./close_range01 # FAILED: Need bcachefs
-./close_range02 # PASSED
+# ./close_range02 # PASSED
 
 # ./cmdlib.sh
 # ./cn_pec.sh
-# ./confstr01
-# ./connect01
-# ./connect02
-# ./copy_file_range01
-# ./copy_file_range02
-./copy_file_range03
+
+# ./confstr01 # PASSED
+
+# ./connect01 # HALF
+# ./connect02 # FAILED
+
+# ./copy_file_range01 # PASSED
+# ./copy_file_range02 # FIALED: Need mknod
+# ./copy_file_range03 # PASSED
+
 # ./cp_tests.sh
 # ./cpio_tests.sh
 # ./cpuacct.sh
@@ -266,15 +296,14 @@ set -ex
 # ./crash02
 
 # PASSED
-./creat01
-./creat03
-./creat04
-./creat05
-./creat06
-./creat07
-./creat08
-
-# ./creat09 # FAILED: Need fs
+# ./creat01
+# ./creat03
+# ./creat04
+# ./creat05
+# ./creat06
+# ./creat07
+# ./creat08
+# ./creat09 # filesystem support
 
 # ./create_datafile
 # ./create_file
@@ -331,22 +360,22 @@ set -ex
 # ./doio
 # ./du01.sh
 
-./dup01 # PASSED
-./dup02 # PASSED
-./dup03 # PASSED
-./dup04 # PASSED
+# ./dup01 # PASSED
+# ./dup02 # PASSED
+# ./dup03 # PASSED
+# ./dup04 # PASSED
 # ./dup05 # FAILED: Need mkfifo
-./dup06 # PASSED
-./dup07 # PASSED
-./dup201 # PASSED
-./dup202 # PASSED
-./dup203 # PASSED
-./dup204 # PASSED
-./dup205 # PASSED
-./dup206 # PASSED  
-./dup207 # PASSED
-./dup3_01 # PASSED
-./dup3_02 # PASSED
+# ./dup06 # PASSED
+# ./dup07 # PASSED
+# ./dup201 # PASSED
+# ./dup202 # PASSED
+# ./dup203 # PASSED
+# ./dup204 # PASSED
+# ./dup205 # PASSED
+# ./dup206 # PASSED  
+# ./dup207 # PASSED
+# ./dup3_01 # PASSED
+# ./dup3_02 # PASSED
 
 # ./dynamic_debug01.sh
 # ./ebizzy
@@ -355,6 +384,7 @@ set -ex
 # ./endian_switch01
 # ./epoll-ltp
 
+# PASSED
 # ./epoll_create01
 # ./epoll_create02
 # ./epoll_create1_01
@@ -362,35 +392,39 @@ set -ex
 # ./epoll_ctl01
 # ./epoll_ctl02
 # ./epoll_ctl03
+
+# FAILED
 # ./epoll_ctl04
 # ./epoll_ctl05
+
 # ./epoll_pwait01
 # ./epoll_pwait02
 # ./epoll_pwait03
 # ./epoll_pwait04
 # ./epoll_pwait05
-# ./epoll_wait01
-# ./epoll_wait02
-# ./epoll_wait03
-# ./epoll_wait04
-# ./epoll_wait05
-# ./epoll_wait06
-# ./epoll_wait07
+
+# ./epoll_wait01 # PASSED
+# ./epoll_wait02 # NOEXIT: sh: systemd-detect-virt: not found
+# ./epoll_wait03 # PASSED
+# ./epoll_wait04 # PASSED
+# ./epoll_wait05 # FAILED
+# ./epoll_wait06 # HALF
+# ./epoll_wait07 # PASSED 
 
 # ./event_generator
 
 # PASSED
-./eventfd01
-./eventfd02
-./eventfd03
-./eventfd04
-./eventfd05
+# ./eventfd01
+# ./eventfd02
+# ./eventfd03
+# ./eventfd04
+# ./eventfd05
 #./eventfd06 # FAILED: libaio is not available
 
 # PASSED
-./eventfd2_01
-./eventfd2_02
-./eventfd2_03
+# ./eventfd2_01
+# ./eventfd2_02
+# ./eventfd2_03
 
 # ./evm_overlay.sh
 
@@ -398,123 +432,126 @@ set -ex
 # ./exec_without_inh
 
 # PASSED
-./execl01
-./execle01
-./execlp01
-./execv01
-./execve01
-./execve02
-./execve03
-./execve04
-./execve05
-./execve06
-./execveat01
-./execveat02
-# ./execveat03 # FAILED: Couldn't find 'mkfs.ext2' in $PATH
-./execvp01
+# ./execl01
+# ./execle01
+# ./execlp01
+# ./execv01
+# ./execve01
+# ./execve02
+# ./execve03
+# ./execve04
+# ./execve05
+# ./execve06
+# ./execveat01
+# ./execveat02
+# ./execveat03 # FAILED: overlayfs
+# ./execvp01
 
 # PASSED
-./exit01
-./exit02
-./exit_group01
+# ./exit01
+# ./exit02
+# ./exit_group01
 
 # ./f00f
 
 # PASSED
-./faccessat01
-./faccessat02
-./faccessat201
-./faccessat202
+# ./faccessat01
+# ./faccessat02
+# ./faccessat201
+# ./faccessat202
 
-# ./fallocate01
-# ./fallocate02
-# ./fallocate03
-# ./fallocate04
-# ./fallocate05
-# ./fallocate06
+# TODO: implement fallocate syscall
+# ./fallocate01 # HALF
+# ./fallocate02 # HALF
+# ./fallocate03 # HALF
+# ./fallocate04 # HALF
+# ./fallocate05 # FAILED
+# ./fallocate06 # FAILED
 
 # ./fanotify01
-# ./fanotify02
-# ./fanotify03
-# ./fanotify04
-# ./fanotify05
-# ./fanotify06
-# ./fanotify07
-# ./fanotify08
-# ./fanotify09
-# ./fanotify10
-# ./fanotify11
-# ./fanotify12
+# ./fanotify02 # PASSED
+# ./fanotify03 # PASSED
+# ./fanotify04 # PASSED
+# ./fanotify05 # TBROK: open(fs_mnt/fname_53,66,0644) failed: ENOSPC (28)
+# ./fanotify06 # PASSED
+# ./fanotify07 # HALF: overlayfs
+# ./fanotify08 # PASSED
+# ./fanotify09 # PASSED 
+# ./fanotify10 # HALF, Unstable
+# ./fanotify11 # libgcc_s.so.1 must be installed for pthread_exit to work
+# ./fanotify12 # PASSED
 # ./fanotify13
-# ./fanotify14
-# ./fanotify15
+# ./fanotify14 # HALF
+# ./fanotify15 # FAILED
 # ./fanotify16
-# ./fanotify17
+# ./fanotify17 # FAILED: fanotify inside user namespace is not supported
 # ./fanotify18
-# ./fanotify19
-# ./fanotify20
-# ./fanotify21
-# ./fanotify22
-# ./fanotify23
-# ./fanotify_child
+# ./fanotify19 # PASSED
+# ./fanotify20 # PASSED
+# ./fanotify21 # FAILED: Need pidfd
+# ./fanotify22 # FAILED: Couldn't find 'debugfs' in $PATH
+# ./fanotify23 # FAILED: FAN_ATTRIB not supported in kernel 
+
 # ./fanout01
 
-# ./fchdir01 # FAILED: Need socket
-./fchdir02 # PASSED
-# ./fchdir03 # FAILED: Need socket
+# ./fchdir01 # PASSED
+# ./fchdir02 # PASSED
+# ./fchdir03 # PASSED
 
-./fchmod01 # PASSED
-./fchmod02 # PASSED
-./fchmod03 # PASSED
-./fchmod04 # PASSED
-./fchmod05 # PASSED
-./fchmod06 # FAILED: Need device
+# ./fchmod01 # PASSED
+# ./fchmod02 # PASSED
+# ./fchmod03 # PASSED
+# ./fchmod04 # PASSED
+# ./fchmod05 # PASSED
+# ./fchmod06 # PASSED
 
-./fchmodat01 # PASSED
-./fchmodat02 # PASSED
+# ./fchmodat01 # PASSED
+# ./fchmodat02 # PASSED
 
-./fchown01 # PASSED
-./fchown02 # PASSED
-./fchown03 # PASSED
-./fchown04 # FAILED: Need device
-./fchown05 # PASSED
+# PASSED
+# ./fchown01
+# ./fchown02
+# ./fchown03
+# ./fchown04 
+# ./fchown05 
 
-./fchownat01 # PASSED unknown exit 4
+# ./fchownat01 # PASSED unknown exit 4
 # ./fchownat02 # FAILED Need symlink
 
-./fcntl01
-./fcntl01_64
-./fcntl02
-./fcntl02_64
-./fcntl03
-./fcntl03_64
-./fcntl04
-./fcntl04_64
-./fcntl05
-./fcntl05_64
+# PASSED
+# ./fcntl01
+# ./fcntl01_64
+# ./fcntl02
+# ./fcntl02_64
+# ./fcntl03
+# ./fcntl03_64
+# ./fcntl04
+# ./fcntl04_64
+# ./fcntl05
+# ./fcntl05_64
 
 # ./fcntl07 # FAILED: mkfifo
 # ./fcntl07_64 # FAILED: mkfifo
 
 # PASSED
-./fcntl08
-./fcntl08_64
-./fcntl09
-./fcntl09_64
-./fcntl10
-./fcntl10_64
-./fcntl11
-./fcntl11_64
-./fcntl12
-./fcntl12_64
-./fcntl13
-./fcntl13_64
-./fcntl14
-./fcntl14_64
-./fcntl15
-./fcntl15_64
-./fcntl16
-./fcntl16_64
+# ./fcntl08
+# ./fcntl08_64
+# ./fcntl09
+# ./fcntl09_64
+# ./fcntl10
+# ./fcntl10_64
+# ./fcntl11
+# ./fcntl11_64
+# ./fcntl12
+# ./fcntl12_64
+# ./fcntl13
+# ./fcntl13_64
+# ./fcntl14
+# ./fcntl14_64
+# ./fcntl15
+# ./fcntl15_64
+# ./fcntl16
+# ./fcntl16_64
 
 # FAILED
 # ./fcntl17
@@ -523,14 +560,14 @@ set -ex
 # ./fcntl18_64
 
 # PASSED
-./fcntl19
-./fcntl19_64
-./fcntl20
-./fcntl20_64
-./fcntl21
-./fcntl21_64
-./fcntl22
-./fcntl22_64
+# ./fcntl19
+# ./fcntl19_64
+# ./fcntl20
+# ./fcntl20_64
+# ./fcntl21
+# ./fcntl21_64
+# ./fcntl22
+# ./fcntl22_64
 
 # FAILED: F_SETLEASE
 # ./fcntl23
@@ -549,10 +586,10 @@ set -ex
 # ./fcntl27_64
 
 # PASSED
-./fcntl29
-./fcntl29_64
-./fcntl30
-./fcntl30_64
+# ./fcntl29
+# ./fcntl29_64
+# ./fcntl30
+# ./fcntl30_64
 
 # FAILED: setsid
 # ./fcntl31
@@ -580,7 +617,7 @@ set -ex
 # ./fcntl37
 # ./fcntl37_64
 
-# FAILED: Cannot parse kernel .config
+# FAILED: Need dnotify
 # ./fcntl38
 # ./fcntl38_64
 # ./fcntl39
@@ -610,22 +647,22 @@ set -ex
 # ./float_trigo
 
 # PASSED
-./flock01
-./flock02
-./flock03
-./flock04
-./flock06
+# ./flock01
+# ./flock02
+# ./flock03
+# ./flock04
+# ./flock06
 
 # ./force_erase.sh
 
-./fork01 # PASSED
-./fork03 # PASSED
-./fork04 # PASSED
-./fork05 # PASSED
-./fork07 # PASSED
-./fork08 # PASSED
-./fork09 # PASSED
-./fork10 # PASSED
+# ./fork01 # PASSED
+# ./fork03 # PASSED
+# ./fork04 # PASSED
+# ./fork05 # PASSED
+# ./fork07 # PASSED
+# ./fork08 # PASSED
+# ./fork09 # PASSED
+# ./fork10 # PASSED
 # ./fork13 # FAILED: 10000000
 # ./fork14 # FAILED: stressful
 
@@ -771,21 +808,30 @@ set -ex
 # ./fspick01
 # ./fspick02
 # ./fsstress
+
+# PASSED
 # ./fstat02
 # ./fstat02_64
 # ./fstat03
 # ./fstat03_64
 # ./fstatat01
+
+# HALF
 # ./fstatfs01
 # ./fstatfs01_64
+
+# PASSED
 # ./fstatfs02
 # ./fstatfs02_64
+
 # ./fsx-linux
 # ./fsx.sh
-# ./fsync01
-# ./fsync02
-# ./fsync03
-# ./fsync04
+
+# ./fsync01 # PASSED: filesystem support
+# ./fsync02 # NOEXIT: sh: systemd-detect-virt: not found
+# ./fsync03 # FAILED: Need mkfifo
+# ./fsync04 # FAILED: Need mkfs.ex4
+
 # ./ftest01
 # ./ftest02
 # ./ftest03
@@ -806,10 +852,13 @@ set -ex
 # ./ftrace_regression02.sh
 # ./ftrace_stress
 # ./ftrace_stress_test.sh
+
+# PASSED
 # ./ftruncate01
 # ./ftruncate01_64
 # ./ftruncate03
 # ./ftruncate03_64
+
 # ./ftruncate04
 # ./ftruncate04_64
 
@@ -817,23 +866,24 @@ set -ex
 # ./futex_cmp_requeue02
 
 # PASSED
-./futex_wait01
-./futex_wait02
-./futex_wait03
-./futex_wait04
+# ./futex_wait01
+# ./futex_wait02
+# ./futex_wait03
+# ./futex_wait04
 
 # ./futex_wait05 # FAILED: sh: systemd-detect-virt: not found
 
-# FAILED
 # ./futex_wait_bitset01
+
+# FAILED: syscall(-1) __NR_futex_waitv not supported on your arch
 # ./futex_waitv01
 # ./futex_waitv02
 # ./futex_waitv03
 
 # PASSED
-./futex_wake01
-./futex_wake02
-./futex_wake03
+# ./futex_wake01
+# ./futex_wake02
+# ./futex_wake03
 
 # ./futex_wake04 # FAILED: Need hugetlbfs
 
@@ -884,82 +934,97 @@ set -ex
 # ./getaddrinfo_01
 # ./getcontext01
 # ./getcpu01
-./getcwd01
-./getcwd02
-./getcwd03
-# ./getcwd04
-./getdents01
-./getdents02
-# ./getdomainname01
 
 # PASSED
-./getegid01
-./getegid02
-./geteuid01
-./geteuid02
-./getgid01
-./getgid03
-./getgroups01
-./getgroups03
+# ./getcwd01
+# ./getcwd02
+# ./getcwd03
+
+# ./getcwd04 # FAILED: Need 2 CPUs
+
+# PASSED
+# ./getdents01
+# ./getdents02
+
+# ./getdomainname01 # PASSED
+
+# PASSED
+# ./getegid01
+# ./getegid02
+# ./geteuid01
+# ./geteuid02
+# ./getgid01
+# ./getgid03
+# ./getgroups01
+# ./getgroups03
 
 # ./gethostbyname_r01
 # ./gethostid01
+
+# PASSED
 # ./gethostname01
 # ./gethostname02
-./getitimer01
-./getitimer02
-./getpagesize01
+
+# PASSED
+# ./getitimer01
+# ./getitimer02
+# ./getpagesize01
+
+# ./getpagesize01 # PASSED
+
 # ./getpeername01
 
 # PASSED
-./getpgid01
-./getpgid02
-./getpgrp01
-./getpid01
-./getpid02
-./getppid01
-./getppid02
-
+# ./getpgid01
+# ./getpgid02
+# ./getpgrp01
+# ./getpid01
+# ./getpid02
+# ./getppid01
+# ./getppid02
 # ./getpriority01
 # ./getpriority02
-
-./getrandom01 # PASSED
-./getrandom02 # PASSED
-./getrandom03 # PASSED
-./getrandom04 # PASSED
-./getrandom05 # PASSED
+# ./getrandom01 # PASSED
+# ./getrandom02 # PASSED
+# ./getrandom03 # PASSED
+# ./getrandom04 # PASSED
+# ./getrandom05 # PASSED
 
 # PASSED
-./getresgid01
-./getresgid02
-./getresgid03
-./getresuid01
-./getresuid02
-./getresuid03
+# ./getresgid01
+# ./getresgid02
+# ./getresgid03
+# ./getresuid01
+# ./getresuid02
+# ./getresuid03
 
-./getrlimit01
-./getrlimit02
-# ./getrlimit03
-./getrusage01
-./getrusage02
-# ./getrusage03
-# ./getrusage03_child
-# ./getrusage04
+# ./getrlimit01 # PASSED
+# ./getrlimit02 # PASSED
+
+# ./getrlimit03 # FAILED
+ 
+# ./getrusage01 # PASSED
+# ./getrusage02 # PASSED
+# ./getrusage03 # FAILED: Test needs at least 512MB MemAvailable
+# ./getrusage04 # NOEXIT: sh: systemd-detect-virt: not found
+
 # ./getsid01
 # ./getsid02
+
 # ./getsockname01
 # ./getsockopt01
 # ./getsockopt02
 
-./gettid01
+# ./gettid01
 # ./gettid02 # BUGGED
 
-./gettimeofday01
-./gettimeofday02
+# PASSED
+# ./gettimeofday01
+# ./gettimeofday02
 
 # PASSED
-./getuid01
-./getuid03
+# ./getuid01
+# ./getuid03
 
 # ./getxattr01
 # ./getxattr02
@@ -1083,9 +1148,10 @@ set -ex
 # ./initialize_if
 # ./inode01
 # ./inode02
-# ./inotify01
-# ./inotify02
-# ./inotify03
+
+# ./inotify01 # PASSED
+# ./inotify02 # PASSED
+# ./inotify03 # FAILED
 # ./inotify04
 # ./inotify05
 # ./inotify06
@@ -1095,8 +1161,11 @@ set -ex
 # ./inotify10
 # ./inotify11
 # ./inotify12
+
+# PASSED
 # ./inotify_init1_01
 # ./inotify_init1_02
+
 # ./input01
 # ./input02
 # ./input03
@@ -1138,6 +1207,7 @@ set -ex
 # ./ioctl_loop05
 # ./ioctl_loop06
 # ./ioctl_loop07
+
 # ./ioctl_ns01
 # ./ioctl_ns02
 # ./ioctl_ns03
@@ -1165,10 +1235,9 @@ set -ex
 # ./isofs.sh
 # ./kallsyms
 
-# FAILED
 # ./kcmp01 # PASSED
 # ./kcmp02 # PASSED
-# ./kcmp03 # FAILED
+# ./kcmp03 # HALF
 
 # ./kernbench
 # ./keyctl01
@@ -1185,14 +1254,14 @@ set -ex
 # ./kill02
 
 # PASSED
-./kill03
-./kill05
-./kill06
-./kill07
-./kill08
-./kill09
-./kill10
-./kill11
+# ./kill03
+# ./kill05
+# ./kill06
+# ./kill07
+# ./kill08
+# ./kill09
+# ./kill10
+# ./kill11
 
 # Never
 # ./kill12
@@ -1212,8 +1281,8 @@ set -ex
 # ./ksm07
 
 # PASSED
-./lchown01
-./lchown02
+# ./lchown01
+# ./lchown02
 
 # ./lchown03 # FAILED Couldn't find 'mkfs.ext2' in $PATH
 
@@ -1224,12 +1293,16 @@ set -ex
 # ./lgetxattr01
 # ./lgetxattr02
 # ./libcgroup_freezer
+
+# PASSED
 # ./link02
 # ./link04
 # ./link05
 # ./link08
-# ./linkat01
-# ./linkat02
+
+# ./linkat01 # FAILED: Need mkfifo
+# ./linkat02 # NOSUMMARY
+
 # ./linktest.sh
 # ./listen01
 # ./listxattr01
@@ -1240,9 +1313,9 @@ set -ex
 # ./llistxattr03
 
 # PASSED
-./llseek01
-./llseek02
-./llseek03
+# ./llseek01
+# ./llseek02
+# ./llseek03
 
 # ./ln_tests.sh
 # ./lock_torture.sh
@@ -1250,18 +1323,18 @@ set -ex
 # ./logrotate_tests.sh
 # ./lremovexattr01
 
-./lseek01 # PASSED
+# ./lseek01 # PASSED
 # ./lseek02 # FAILED: Need fifo
-./lseek07 # PASSED
+# ./lseek07 # PASSED
 # ./lseek11 # FAILED
 
 # ./lsmod01.sh
 
 # PASSED
-./lstat01
-./lstat01_64
-./lstat02
-./lstat02_64
+# ./lstat01
+# ./lstat01_64
+# ./lstat02
+# ./lstat02_64
 
 # ./ltpClient
 # ./ltpServer
@@ -1347,7 +1420,7 @@ set -ex
 # ./memcontrol03
 # ./memcontrol04
 
-./memcpy01 # PASSED
+# ./memcpy01 # PASSED
 
 # ./memctl_test01
 # ./memfd_create01
@@ -1355,7 +1428,7 @@ set -ex
 # ./memfd_create03
 # ./memfd_create04
 
-./memset01 # PASSED
+# ./memset01 # PASSED
 
 # ./memtoy
 # ./mesgq_nstest
@@ -1367,14 +1440,19 @@ set -ex
 # ./mincore02
 # ./mincore03
 # ./mincore04
-# ./mkdir02
-# ./mkdir03
-# ./mkdir04
-# ./mkdir05
-# ./mkdir09
+
+./mkdir02 # PASSED
+# ./mkdir03 # FAILED: Need mkfifo
+./mkdir04 # PASSED
+./mkdir05 # PASSED
+./mkdir09 # PASSED
+
 # ./mkdir_tests.sh
-# ./mkdirat01
+
+# PASSED
+# ./mkdirat01 # NOSUMMARY
 # ./mkdirat02
+
 # ./mkfs01.sh
 # ./mknod01
 # ./mknod02
@@ -1389,7 +1467,7 @@ set -ex
 # ./mknodat02
 # ./mkswap01.sh
 
-./mlock01 # PASSED
+# ./mlock01 # PASSED
 
 # ./mlock02
 # ./mlock03
@@ -1404,53 +1482,57 @@ set -ex
 
 # ./mmap-corruption01
 
-# ./mmap001
-# ./mmap01
-# ./mmap02
-# ./mmap03
-# ./mmap04
-# ./mmap05
-# ./mmap06
-# ./mmap08
-# ./mmap09
+# ./mmap001 # NOSUMMARY KERNEL BUG
+# ./mmap01 # NOSUMMARY
+# ./mmap02 # PASSED
+# ./mmap03 # NOSUMMARY
+# ./mmap04 # PASSED
+# ./mmap05 # PASSED
+# ./mmap06 # PASSED
+# ./mmap08 # PASSED
+# ./mmap09 # PASSED
+# ./mmap10 # NOSUMMARY
+# ./mmap11 # NOSUMMARY
+# ./mmap12 # PASSED
+# ./mmap13 # PASSED
+# ./mmap14 # NUSUMMARY
+# ./mmap15 # PASSED
+# ./mmap16 # FAILED: Need mremap
+# ./mmap17 # PASSED
+# ./mmap18 # FAILED: Need prlimit core
+# ./mmap19 # PASSED
+# ./mmap20 # PASSED
+
 # ./mmap1
-# ./mmap10
-# ./mmap11
-# ./mmap12
-# ./mmap13
-# ./mmap14
-# ./mmap15
-# ./mmap16
-# ./mmap17
-# ./mmap18
-# ./mmap19
 # ./mmap2
-# ./mmap20
 # ./mmap3
 
-# ./mmapstress01
-# ./mmapstress02
-# ./mmapstress03
-# ./mmapstress04
-# ./mmapstress05
-# ./mmapstress06
-# ./mmapstress07
-# ./mmapstress08
-# ./mmapstress09
-# ./mmapstress10
+# ./mmapstress01 # PASSED
+# ./mmapstress02 # PASSED NOSUMMARY
+# ./mmapstress03 # PASSED NOSUMMARY
+# ./mmapstress04 # PASSED
+# ./mmapstress05 # PASSED NOSUMMARY
+# ./mmapstress06 1 # BUGGED
+# ./mmapstress07 # NOSUMMARY
+# ./mmapstress08 # NOSUMMARY
+# ./mmapstress09 # NOSUMMARY
+# ./mmapstress10 # NOSUMMARY
+
 # ./mmstress
 # ./mmstress_dummy
 # ./modify_ldt01
 # ./modify_ldt02
 # ./modify_ldt03
-# ./mount01
-# ./mount02
-# ./mount03
+
+# ./mount01 # PASSED
+# ./mount02 # FAILED: Need mknod
+# ./mount03 # HALF: Need mknod
 # ./mount03_suid_child
-# ./mount04
-# ./mount05
-# ./mount06
-# ./mount07
+# ./mount04 # PASSED
+# ./mount05 # PASSED
+# ./mount06 # FAILED
+# ./mount07 # HALF: ST_NOSYMFOLLOW
+
 # ./mount_setattr01
 # ./mountns01
 # ./mountns02
@@ -1529,9 +1611,11 @@ set -ex
 # ./munlock01
 # ./munlock02
 # ./munlockall01
-# ./munmap01
-# ./munmap02
-# ./munmap03
+
+# ./munmap01 # PASSED NOSUMMARY
+# ./munmap02 # NOSUMMARY
+# ./munmap03 # NOSUMMARY
+
 # ./mv_tests.sh
 # ./myfunctions.sh
 # ./name_to_handle_at01
@@ -1539,7 +1623,6 @@ set -ex
 
 # ./nanosleep01 FAILED: sh: systemd-detect-virt: not found
 
-# PASSED
 ./nanosleep02
 ./nanosleep04
 
@@ -1551,7 +1634,9 @@ set -ex
 # ./netns_sysfs.sh
 # ./netstat01.sh
 # ./netstress
-# ./newuname01
+
+# ./newuname01 # NOSUMMARY
+
 # ./nextafter01
 # ./nfs01.sh
 # ./nfs01_open_files
@@ -1574,11 +1659,14 @@ set -ex
 # ./nft02
 # ./nftw01
 # ./nftw6401
-# ./nice01
-# ./nice02
-# ./nice03
-# ./nice04
-# ./nice05
+
+./nice01
+./nice02
+./nice03
+./nice04
+
+# ./nice05 # FAILED: 
+
 # ./nm01.sh
 # ./nptl01
 # ./ns-echoclient
@@ -1604,27 +1692,33 @@ set -ex
 ./open02
 ./open03
 ./open04
-# ./open06
+
+# ./open06 # FAILED: Need mkfifo
+
 ./open07
 ./open08
 ./open09
 ./open10
-# ./open11
-# ./open12
-# ./open12_child
-# ./open13
-# ./open14
+
+# ./open11 # FAILED: Need mknod
+# ./open12 # NOTPASS PASSED
+# ./open13 # NOTPASS HALF: 
+# ./open14 # FAILED: Need mkfifo
+
 # ./open_by_handle_at01
 # ./open_by_handle_at02
 # ./open_tree01
 # ./open_tree02
+
 ./openat01
-# ./openat02
-# ./openat03
-# ./openat04
+# ./openat02 # NOTPASS PASSED
+# ./openat03 # FAILED 
+# ./openat04 # FAILED: There are no supported filesystems
+
 ./openat201
-# ./openat202
+# ./openat202 # SOME: openat2
 ./openat203
+
 # ./openfile
 # ./output_ipsec_conf
 # ./overcommit_memory
@@ -1635,7 +1729,6 @@ set -ex
 ./pathconf01
 ./pathconf02
 
-# PASSED
 ./pause01
 ./pause02
 ./pause03
@@ -1648,7 +1741,6 @@ set -ex
 # ./personality01
 # ./personality02
 
-# PASSED
 ./pidfd_getfd01
 ./pidfd_getfd02
 ./pidfd_open01
@@ -1684,11 +1776,10 @@ set -ex
 # ./ping01.sh
 # ./ping02.sh
 
-# PASSED
 ./pipe01
 ./pipe02
 ./pipe03
-./pipe04
+# ./pipe04 # NUSUMMARY
 ./pipe05
 ./pipe06
 ./pipe07
@@ -1697,15 +1788,15 @@ set -ex
 ./pipe10
 ./pipe11
 ./pipe12
-# ./pipe13
+./pipe13
 ./pipe14
 
 # ./pipe15 # FAILED
 
 # PASSED
-./pipe2_01
-./pipe2_02
-./pipe2_04 
+# ./pipe2_01
+# ./pipe2_02
+# ./pipe2_04 
 
 # ./pipeio
 # ./pivot_root01
@@ -1729,8 +1820,7 @@ set -ex
 # ./posix_fadvise04
 # ./posix_fadvise04_64
 
-# PASSED
-# ./ppoll01
+./ppoll01
 
 # ./prctl01
 # ./prctl02
@@ -1744,7 +1834,6 @@ set -ex
 # ./prctl09
 # ./prctl10
 
-# PASSED
 ./pread01
 ./pread01_64
 ./pread02
@@ -1758,7 +1847,6 @@ set -ex
 # ./preadv03
 # ./preadv03_64
 
-# PASSED
 ./preadv201
 ./preadv201_64
 ./preadv202
@@ -1784,7 +1872,6 @@ set -ex
 # ./pselect01
 # ./pselect01_64
 
-# PASSED
 ./pselect02
 ./pselect02_64
 ./pselect03
@@ -1817,7 +1904,6 @@ set -ex
 # ./pty06
 # ./pty07
 
-# PASSED
 ./pwrite01
 ./pwrite01_64
 ./pwrite02
@@ -1830,12 +1916,9 @@ set -ex
 ./pwritev01_64
 ./pwritev02
 ./pwritev02_64
+./pwritev03
+./pwritev03_64
 
-# FAILED: Need device
-# ./pwritev03
-# ./pwritev03_64
-
-# PASSED
 ./pwritev201
 ./pwritev201_64
 ./pwritev202
@@ -1853,29 +1936,28 @@ set -ex
 # ./quotactl09
 # ./rcu_torture.sh
 
-# PASSED
 ./read01
-./read02 # PASSED
-# ./read03 # FAILED Need device
-./read04 # PASSED
+./read02
+# ./read03 # FAILED Need mknod
+./read04
 
 # ./read_all
 # ./readahead01
 # ./readahead02
-# ./readdir01
-# ./readdir21
-# ./readlink01
-# ./readlink03
-# ./readlinkat01
-# ./readlinkat02
+./readdir01
+# ./readdir21 # FAILED: __NR_readdir not supported on your arch
 
-# PASSED
+./readlink01
+./readlink03
+./readlinkat01
+./readlinkat02
+
 ./readv01
 ./readv02
 
 # ./realpath01
 
-./reboot01 # PASSED
+./reboot01
 # ./reboot02 # NO TPASS
 
 # ./recv01
@@ -1889,22 +1971,25 @@ set -ex
 # ./remove_password.sh
 # ./removexattr01
 # ./removexattr02
-# ./rename01
-# ./rename03
-# ./rename04
-# ./rename05
-# ./rename06
-# ./rename07
-# ./rename08
-# ./rename09
-# ./rename10
-# ./rename11
-# ./rename12
-# ./rename13
-# ./rename14
-# ./renameat01
-# ./renameat201
-# ./renameat202
+
+./rename01
+./rename03
+./rename04
+./rename05
+
+# ./rename06 # HALF
+./rename07
+./rename08
+# ./rename09 # FAILED
+# ./rename10 # KERNEL BUG
+# ./rename11 # NOSUMMARY
+# ./rename12 # FAILED
+./rename13 # PASSED
+# ./rename14 # PASSED, NOSUMMARY
+# ./renameat01 # NOSUMMARY
+# ./renameat201 # NOSUMMARY
+# ./renameat202 # NOSUMMARY
+
 # ./request_key01
 # ./request_key02
 # ./request_key03
@@ -1912,9 +1997,9 @@ set -ex
 # ./request_key05
 
 # PASSED
-./rmdir01
-./rmdir02
-./rmdir03
+# ./rmdir01
+# ./rmdir02
+# ./rmdir03
 
 # ./route-change-dst.sh
 # ./route-change-gw.sh
@@ -1928,16 +2013,17 @@ set -ex
 # ./route4-rmmod
 # ./route6-rmmod
 
-# PASSED
 ./rt_sigaction01
 ./rt_sigaction02
 ./rt_sigaction03
 
+# NOSUMMARY
 # ./rt_sigprocmask01
 # ./rt_sigprocmask02
 
-# ./rt_sigqueueinfo01
-# ./rt_sigsuspend01
+./rt_sigqueueinfo01
+./rt_sigsuspend01
+
 # ./rtc01
 # ./rtc02
 # ./run_capbounds.sh
@@ -1961,16 +2047,18 @@ set -ex
 # ./runpwtests_exclusive05.sh
 # ./rwtest
 
-./sbrk01 # PASSED
-./sbrk02 # PASSED
+./sbrk01
+./sbrk02
 # ./sbrk03 # FAILED: This arch 'unknown' is not supported for test!
 
 # ./sched_datafile
 # ./sched_driver
-# ./sched_get_priority_max01
-# ./sched_get_priority_max02
-# ./sched_get_priority_min01
-# ./sched_get_priority_min02
+
+./sched_get_priority_max01
+./sched_get_priority_max02
+./sched_get_priority_min01
+./sched_get_priority_min02
+
 # ./sched_getaffinity01
 # ./sched_getattr01
 # ./sched_getattr02
@@ -2005,10 +2093,14 @@ set -ex
 # ./sctp_big_chunk
 # ./sctp_ipsec.sh
 # ./sctp_ipsec_vti.sh
+
 # ./select01
-# ./select02
-# ./select03
-# ./select04
+# ./select02 # NOEXITED: sh: systemd-detect-virt: not found
+
+# PASSED
+./select03
+./select04
+
 # ./sem_comm
 # ./sem_nstest
 # ./semctl01
@@ -2034,7 +2126,6 @@ set -ex
 
 # ./sendfile01.sh
 
-# PASSED
 ./sendfile02
 ./sendfile02_64
 ./sendfile03
@@ -2045,8 +2136,8 @@ set -ex
 ./sendfile05_64
 ./sendfile06
 ./sendfile06_64
-# ./sendfile07
-# ./sendfile07_64
+# ./sendfile07 # FAILED
+# ./sendfile07_64 # FAILED
 ./sendfile08
 ./sendfile08_64
 
@@ -2056,6 +2147,7 @@ set -ex
 
 # ./sendmmsg01
 # ./sendmmsg02
+
 # ./sendmsg01
 # ./sendmsg02
 # ./sendmsg03
@@ -2073,16 +2165,13 @@ set -ex
 # ./set_robust_list01
 # ./set_thread_area01
 
-./set_tid_address01 # PASSED
+./set_tid_address01
+./setdomainname01
+./setdomainname02
+./setdomainname03
 
-# ./setdomainname01
-# ./setdomainname02
-# ./setdomainname03
-
-# PASSED
 ./setegid01
 ./setegid02
-
 ./setfsgid01
 ./setfsgid02
 ./setfsgid03
@@ -2090,26 +2179,24 @@ set -ex
 ./setfsuid02
 ./setfsuid03
 ./setfsuid04
-
-# PASSED
 ./setgid01
 ./setgid02
 ./setgid03
-
 ./setgroups01
 ./setgroups02
 ./setgroups03
 ./setgroups04
 
-# ./sethostname01
-# ./sethostname02
-# ./sethostname03
+./sethostname01
+./sethostname02
+./sethostname03
+
 ./setitimer01
 ./setitimer02
+
 # ./setns01
 # ./setns02
 
-# PASSED
 ./setpgid01
 ./setpgid02
 ./setpgid03
@@ -2127,7 +2214,7 @@ set -ex
 ./setresgid01
 ./setresgid02
 ./setresgid03
-./setresgid04 # Exited 4
+# ./setresgid04 # Exited 4
 ./setresuid01
 ./setresuid02
 ./setresuid03
@@ -2159,10 +2246,8 @@ set -ex
 # ./setsockopt09
 # ./setsockopt10
 
-# ./settimeofday01
-# ./settimeofday02
-
-# PASSED
+./settimeofday01
+./settimeofday02
 ./setuid01
 ./setuid03
 ./setuid04
@@ -2175,10 +2260,10 @@ set -ex
 # ./shm_comm
 # ./shm_test
 
-# ./shmat01
-# ./shmat02
-# ./shmat03
-# ./shmat04
+./shmat01
+./shmat02
+./shmat03
+# ./shmat04 # KILLED: Need shm's split
 
 # ./shmat1
 # ./shmctl01
@@ -2193,7 +2278,7 @@ set -ex
 # ./shmdt02
 # ./shmem_2nstest
 
-# ./shmget02 # PASSED
+# ./shmget02 # FAILED
 # ./shmget03 # NO TPASS
 # ./shmget04 # NO TPASS
 # ./shmget05
@@ -2211,7 +2296,6 @@ set -ex
 # ./shmt09
 # ./shmt10
 
-# PASSED
 ./sigaction01
 ./sigaction02
 ./sigaltstack01
@@ -2219,7 +2303,6 @@ set -ex
 
 # ./sighold02 # FAILED
 
-# PASSED
 ./signal01
 ./signal02
 ./signal03
@@ -2228,16 +2311,20 @@ set -ex
 
 # ./signal06 # FAILED: Only x86
 
+# NOSUMMARY
 # ./signalfd01
 # ./signalfd4_01
 # ./signalfd4_02
-# ./sigpending02
-# ./sigprocmask01
-# ./sigrelse01
-# ./sigsuspend01
-# ./sigtimedwait01
-# ./sigwait01
-# ./sigwaitinfo01
+
+./sigpending02
+./sigprocmask01
+# ./sigrelse01 # NOSUMMARY
+./sigsuspend01
+./sigtimedwait01
+
+./sigwait01
+./sigwaitinfo01
+
 # ./sit01.sh
 # ./smack_common.sh
 # ./smack_file_access.sh
@@ -2255,8 +2342,11 @@ set -ex
 # ./smt_smp_enabled.sh
 # ./snd_seq01
 # ./snd_timer01
-# ./socket01
-# ./socket02
+
+./socket01
+./socket02
+
+# Not supprted: __NR_socketcall not supported on your arch
 # ./socketcall01
 # ./socketcall02
 # ./socketcall03
@@ -2267,7 +2357,6 @@ set -ex
 
 # ./sockioctl01
 
-# PASSED
 ./splice01
 ./splice02
 ./splice03
@@ -2289,14 +2378,15 @@ set -ex
 # ./stack_space
 # ./starvation
 
+# PASSED
 ./stat01
 ./stat01_64
 ./stat02
 ./stat02_64
 ./stat03
 ./stat03_64
-# ./statfs01
-# ./statfs01_64
+./statfs01 # filesystem support
+./statfs01_64
 ./statfs02
 ./statfs02_64
 ./statfs03
@@ -2304,6 +2394,7 @@ set -ex
 
 # ./statvfs01
 # ./statvfs02
+
 # ./statx01
 # ./statx02
 # ./statx03
@@ -2316,6 +2407,7 @@ set -ex
 # ./statx10
 # ./statx11
 # ./statx12
+
 # ./stime01
 # ./stime02
 # ./stop_freeze_sleep_thaw_cont.sh
@@ -2334,16 +2426,20 @@ set -ex
 # ./swapon02
 # ./swapon03
 # ./swapping01
-# ./symlink01
-# ./symlink02
-# ./symlink03
-# ./symlink04
-# ./symlinkat01
+
+# ./symlink01 # NOSUMMARY
+./symlink02
+# ./symlink03 # NOSUMMARY
+./symlink04
+# ./symlinkat01 # NOSUMMARY
+
 # ./sync01
 # ./sync_file_range01
 # ./sync_file_range02
 # ./syncfs01
-./syscall01
+
+# ./syscall01 # PASSED
+
 # ./sysconf01
 # ./sysctl01
 # ./sysctl01.sh
@@ -2358,13 +2454,11 @@ set -ex
 # ./sysfs04
 # ./sysfs05
 
-
 # PASSED
-./sysinfo01 # PASSED
-./sysinfo02 # PASSED
+./sysinfo01
+./sysinfo02
 
-# ./sysinfo03 # FAILED: Couldn't locate kernel config
- # FAILED: Cannot parse kernel .config
+# ./sysinfo03 # FAILED: Need unshare
 
 # ./syslog11
 # ./syslog12
@@ -2686,7 +2780,6 @@ set -ex
 # ./tcp_ipsec_vti.sh
 # ./tcpdump01.sh
 
-# PASSED
 ./tee01
 ./tee02
 
@@ -2740,9 +2833,9 @@ set -ex
 # ./testsf_s
 # ./testsf_s6
 
-./tgkill01 # PASSED
+./tgkill01
 # ./tgkill02 # Failed: Need signal queue
-./tgkill03 # PASSED
+./tgkill03
 
 # ./thp01
 # ./thp02
@@ -2753,29 +2846,26 @@ set -ex
 # ./timed_forkbomb
 # ./timens01
 
-# PASSED
 ./timer_delete01
 ./timer_delete02
 ./timer_getoverrun01
 ./timer_gettime01
 ./timer_settime01
-./timer_settime02
+# ./timer_settime02 # exit 4
 ./timer_settime03
 
-./timerfd01 # PASSED
-./timerfd02 # PASSED
+./timerfd01
+./timerfd02
 # ./timerfd04 # FAILED: unshare
 
-# PASSED
 ./timerfd_create01
 ./timerfd_gettime01
 ./timerfd_settime01
-# ./timerfd_settime02 # exit 4
+./timerfd_settime02
 
 # ./times01
 # ./times03
 
-# PASSED
 ./tkill01
 ./tkill02
 
@@ -2825,10 +2915,10 @@ set -ex
 # ./traceroute01.sh
 
 # PASSED 
-./truncate02
-./truncate02_64
-./truncate03
-./truncate03_64
+# ./truncate02
+# ./truncate02_64
+# ./truncate03
+# ./truncate03_64
 
 # ./tst_ansi_color.sh
 
@@ -2933,29 +3023,29 @@ set -ex
 # ./uevent02
 # ./uevent03
 
-# ./ulimit01
+# ./ulimit01 # NOSUMMARY
 
-./umask01 # PASSED
+# ./umask01 # PASSED
 
 # ./umip_basic_test
-# ./umount01
-# ./umount02
-# ./umount03
-# ./umount2_01
-# ./umount2_02
 
-# PASSED
+./umount01
+./umount02
+./umount03
+
+# ./umount2_01 # NOSUMMARY
+# ./umount2_02 # HALF
+
 ./uname01
 ./uname02
 ./uname04
 
 # ./unlink05 # FAILED Half: Need mkfifo
-./unlink07 # PASSED
-./unlink08 # PASSED
+# ./unlink07 # PASSED
+# ./unlink08 # PASSED
+# ./unlink09 # FAILD: Need ioctl command
 
-# ./unlink09 # FAILD
-
-./unlinkat01 # PASSED
+# ./unlinkat01 # PASSED
 
 # ./unshare01
 # ./unshare01.sh
@@ -2973,23 +3063,28 @@ set -ex
 # ./userns08
 # ./ustat01
 # ./ustat02
-# ./utime01
-# ./utime02
-# ./utime03
-# ./utime04
-# ./utime05
-# ./utime06
-# ./utime07
-# ./utimensat01
+
+./utime01
+./utime02
+./utime03
+./utime04
+./utime05
+./utime06
+./utime07
+
+# ./utimensat01 # HALF
+
 # ./utimes01
-# ./utsname01
-# ./utsname02
-# ./utsname03
-# ./utsname04
+
+./utsname01
+./utsname02
+./utsname03
+./utsname04
+
 # ./verify_caps_exec
 
 # ./vfork # FAILED: Need ptrace
-./vfork01 # PASSED
+# ./vfork01 # PASSED
 # ./vfork02 # FAILED: Need sigpending
 # ./vfork_freeze.sh
 
@@ -3017,14 +3112,12 @@ set -ex
 # ./vxlan03.sh
 # ./vxlan04.sh
 
-# PASSED
 ./wait01
 ./wait02
 ./wait401
 ./wait402
 ./wait403
 
-# PASSED
 ./waitid01
 ./waitid02
 ./waitid03
@@ -3036,11 +3129,10 @@ set -ex
 # ./waitid07
 # ./waitid08
 
-./waitid09 # PASSED
+./waitid09
 # ./waitid10 # FAILED
-./waitid11 # PASSED
+./waitid11
 
-# PASSED
 ./waitpid01
 ./waitpid03
 ./waitpid04
@@ -3049,7 +3141,6 @@ set -ex
 
 # ./waitpid08 # ?????
 
-# PASSED
 ./waitpid09
 ./waitpid10
 ./waitpid11
@@ -3073,26 +3164,24 @@ set -ex
 # ./wqueue08
 # ./wqueue09
 
-# PASSED
 ./write01
 ./write02
 ./write03
 
 # ./write04 # FAILED: need mknodat
 
-# PASSED
 ./write05
 ./write06
 
 # ./write_freezing.sh
 # ./writetest # ???
 
-./writev01 # PASSED
-./writev02 # PASSED
+./writev01
+./writev02
 # ./writev03 # FAILED: Test needs at least 2 CPUs onlin
-./writev05 # PASSED
-./writev06 # PASSED
-./writev07 # PASSED
+./writev05
+./writev06
+./writev07
 
 # ./zram01.sh
 # ./zram02.sh
