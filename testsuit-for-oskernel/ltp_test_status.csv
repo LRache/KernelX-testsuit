@@ -2468,7 +2468,7 @@ timer_gettime01,PASS,PASS,PASS,PASS
 timer_settime01,PASS,PASS,PASS,PASS
 timer_settime02,,,,
 timer_settime03,PASS,PASS,PASS,PASS
-timerfd01,PASS,PASS,HALF: Unstable,PASS
+timerfd01,PASS,PASS,HALF: Unstable,HALF: Unstable
 timerfd02,PASS,PASS,PASS,PASS
 timerfd04,FAILED: unshare,FAILED: unshare,FAILED: unshare,FAILED: unshare
 timerfd_create01,PASS,PASS,PASS,PASS
