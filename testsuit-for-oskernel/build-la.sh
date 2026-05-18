@@ -6,8 +6,11 @@ XZ="$SCRIPT_DIR/sdcard-la.img.xz"
 URL="https://github.com/oscomp/testsuits-for-oskernel/releases/download/pre-20250615/sdcard-la.img.xz"
 TESTCODE="$SCRIPT_DIR/testcode-la"
 DATA="$SCRIPT_DIR/data"
+MKE2FS="$SCRIPT_DIR/bin/loongarch64-mke2fs.static"
 
-for file in "$DATA/passwd" "$DATA/group" "$DATA/config"; do
+"$SCRIPT_DIR/ensure-mke2fs-tools.sh" loongarch64
+
+for file in "$DATA/passwd" "$DATA/group" "$DATA/config" "$MKE2FS"; do
     if [ ! -f "$file" ]; then
         echo "Error: missing required file: $file"
         exit 1
@@ -41,6 +44,10 @@ $SUDO cp -r "$TESTCODE/." "$MOUNT_DIR/testcode/"
 $SUDO chown -R root:root "$MOUNT_DIR/testcode"
 
 $SUDO find "$MOUNT_DIR" -type f -executable -exec chmod o-x {} +
+
+$SUDO mkdir -p "$MOUNT_DIR/bin"
+$SUDO cp "$MKE2FS" "$MOUNT_DIR/bin/mke2fs.static"
+$SUDO chmod 755 "$MOUNT_DIR/bin/mke2fs.static"
 
 $SUDO mkdir -p "$MOUNT_DIR/etc"
 $SUDO cp "$DATA/passwd" "$MOUNT_DIR/etc/passwd"

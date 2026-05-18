@@ -715,7 +715,7 @@ futex_cmp_requeue01,,,,
 futex_cmp_requeue02,,,,
 futex_wait01,PASS,PASS,PASS,PASS
 futex_wait02,PASS,PASS,PASS,PASS
-futex_wait03,PASS,PASS,PASS,PASS
+futex_wait03,PASS,PASS,HALF: Unstable,HALF: Unstable
 futex_wait04,PASS,PASS,PASS,PASS
 futex_wait05,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found
 futex_wait_bitset01,,,,
@@ -723,7 +723,7 @@ futex_waitv01,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FA
 futex_waitv02,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch
 futex_waitv03,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch
 futex_wake01,PASS,PASS,PASS,PASS
-futex_wake02,PASS,PASS,PASS,PASS
+futex_wake02,PASS,PASS,PASS,FAILED: Child (5032) killed by signal SIGSEGV
 futex_wake03,PASS,PASS,PASS,PASS
 futex_wake04,FAILED: Need hugetlbfs,FAILED: Need hugetlbfs,FAILED: Need hugetlbfs,FAILED: Need hugetlbfs
 futimesat01,,,,
@@ -1483,7 +1483,7 @@ pidfd_open01,PASS,PASS,PASS,PASS
 pidfd_open02,PASS,PASS,PASS,PASS
 pidfd_open03,PASS,PASS,PASS,PASS
 pidfd_open04,PASS,PASS,PASS,PASS
-pidfd_send_signal01,PASS,PASS,PASS,PASS
+pidfd_send_signal01,PASS,PASS,PASS,HALF: Unstable
 pidfd_send_signal02,FAILED,FAILED,FAILED,FAILED
 pidfd_send_signal03,FAILED,FAILED,FAILED,FAILED
 pidns01,,,,
@@ -1652,9 +1652,9 @@ readahead02,,,,
 readdir01,PASS,PASS,PASS,PASS
 readdir21,FAILED: __NR_readdir not supported on your arch,FAILED: __NR_readdir not supported on your arch,FAILED: __NR_readdir not supported on your arch,FAILED: __NR_readdir not supported on your arch
 readlink01,PASS,PASS,PASS,PASS
-readlink03,PASS,PASS,PASS,PASS
+readlink03,PASS,PASS,PASS,HALF
 readlinkat01,PASS,PASS,PASS,PASS
-readlinkat02,PASS,PASS,PASS,PASS
+readlinkat02,PASS,PASS,PASS,HALF
 readv01,PASS,PASS,PASS,PASS
 readv02,PASS,PASS,PASS,PASS
 realpath01,,,,
@@ -1711,7 +1711,7 @@ rt_sigaction02,PASS,PASS,PASS,PASS
 rt_sigaction03,PASS,PASS,PASS,PASS
 rt_sigprocmask01,,,,
 rt_sigprocmask02,,,,
-rt_sigqueueinfo01,PASS,PASS,PASS,PASS
+rt_sigqueueinfo01,PASS,PASS,PASS,FAILED: SIGSEGV
 rt_sigsuspend01,PASS,PASS,PASS,PASS
 rtc01,,,,
 rtc02,,,,
@@ -1920,7 +1920,7 @@ sgetmask01,,,,
 shell_pipe01.sh,,,,
 shm_comm,,,,
 shm_test,,,,
-shmat01,PASS,PASS,PASS,PASS
+shmat01,PASS,PASS,HALF,PASS
 shmat02,PASS,PASS,PASS,PASS
 shmat03,PASS,PASS,PASS,PASS
 shmat04,KILLED: Need shm's split,KILLED: Need shm's split,KILLED: Need shm's split,KILLED: Need shm's split
@@ -2450,9 +2450,9 @@ testsf_c,,,,
 testsf_c6,,,,
 testsf_s,,,,
 testsf_s6,,,,
-tgkill01,PASS,PASS,PASS,PASS
+tgkill01,PASS,PASS,PASS,FAILED: SIGSEGV
 tgkill02,FAILED: Need signal queue,FAILED: Need signal queue,FAILED: Need signal queue,FAILED: Need signal queue
-tgkill03,PASS,PASS,PASS,PASS
+tgkill03,PASS,PASS,PASS,FAILED: SIGSEGV
 thp01,,,,
 thp02,,,,
 thp03,,,,
@@ -2468,13 +2468,13 @@ timer_gettime01,PASS,PASS,PASS,PASS
 timer_settime01,PASS,PASS,PASS,PASS
 timer_settime02,,,,
 timer_settime03,PASS,PASS,PASS,PASS
-timerfd01,PASS,PASS,PASS,PASS
+timerfd01,PASS,PASS,HALF: Unstable,PASS
 timerfd02,PASS,PASS,PASS,PASS
 timerfd04,FAILED: unshare,FAILED: unshare,FAILED: unshare,FAILED: unshare
 timerfd_create01,PASS,PASS,PASS,PASS
 timerfd_gettime01,PASS,PASS,PASS,PASS
 timerfd_settime01,PASS,PASS,PASS,PASS
-timerfd_settime02,PASS,PASS,PASS,PASS
+timerfd_settime02,PASS,FAILED: SIGSEGV,PASS,FAILED: SIGSEGV
 times01,,,,
 times03,,,,
 tkill01,PASS,PASS,PASS,PASS

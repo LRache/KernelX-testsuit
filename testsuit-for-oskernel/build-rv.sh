@@ -6,8 +6,11 @@ XZ="$SCRIPT_DIR/sdcard-rv.img.xz"
 URL="https://github.com/oscomp/testsuits-for-oskernel/releases/download/pre-20250615/sdcard-rv.img.xz"
 TESTCODE="$SCRIPT_DIR/testcode-rv"
 DATA="$SCRIPT_DIR/data"
+MKE2FS="$SCRIPT_DIR/bin/riscv64-mke2fs.static"
 
-for file in "$DATA/passwd" "$DATA/group" "$DATA/config"; do
+"$SCRIPT_DIR/ensure-mke2fs-tools.sh" riscv64
+
+for file in "$DATA/passwd" "$DATA/group" "$DATA/config" "$MKE2FS"; do
     if [ ! -f "$file" ]; then
         echo "Error: missing required file: $file"
         exit 1
@@ -43,7 +46,7 @@ $SUDO chown -R root:root "$MOUNT_DIR/testcode"
 $SUDO find "$MOUNT_DIR" -type f -executable -exec chmod o-x {} +
 
 $SUDO mkdir -p "$MOUNT_DIR/bin"
-$SUDO cp ./bin/riscv64-mke2fs.static "$MOUNT_DIR/bin/mke2fs.static"
+$SUDO cp "$MKE2FS" "$MOUNT_DIR/bin/mke2fs.static"
 $SUDO chmod 755 "$MOUNT_DIR/bin/mke2fs.static"
 
 $SUDO mkdir -p "$MOUNT_DIR/etc"

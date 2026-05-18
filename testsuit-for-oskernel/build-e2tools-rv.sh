@@ -9,6 +9,8 @@ TESTCODE="$SCRIPT_DIR/testcode-rv"
 DATA="$SCRIPT_DIR/data"
 MKE2FS="$SCRIPT_DIR/bin/riscv64-mke2fs.static"
 
+"$SCRIPT_DIR/ensure-mke2fs-tools.sh" riscv64
+
 for file in "$DATA/passwd" "$DATA/group" "$DATA/config" "$MKE2FS"; do
     if [ ! -f "$file" ]; then
         echo "Error: missing required file: $file"

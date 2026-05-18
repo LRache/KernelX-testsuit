@@ -6,8 +6,11 @@ XZ="$SCRIPT_DIR/sdcard-la.img.xz"
 URL="https://github.com/oscomp/testsuits-for-oskernel/releases/download/pre-20250615/sdcard-la.img.xz"
 TESTCODE="$SCRIPT_DIR/testcode-la"
 DATA="$SCRIPT_DIR/data"
+MKE2FS="$SCRIPT_DIR/bin/loongarch64-mke2fs.static"
 
-for file in "$DATA/passwd" "$DATA/group" "$DATA/config"; do
+"$SCRIPT_DIR/ensure-mke2fs-tools.sh" loongarch64
+
+for file in "$DATA/passwd" "$DATA/group" "$DATA/config" "$MKE2FS"; do
     if [ ! -f "$file" ]; then
         echo "Error: missing required file: $file"
         exit 1
@@ -38,6 +41,15 @@ echo "Writing testcode to $IMG using debugfs..."
 # Build a debugfs command script
 CMDS=$(mktemp)
 
+set_file_metadata() {
+    local image_path="$1"
+    local mode="$2"
+
+    echo "sif $image_path mode 0100$mode" >> "$CMDS"
+    echo "sif $image_path uid 0" >> "$CMDS"
+    echo "sif $image_path gid 0" >> "$CMDS"
+}
+
 # Create directory structure
 echo "mkdir /testcode" >> "$CMDS"
 echo "mkdir /bin"      >> "$CMDS"
@@ -65,6 +77,10 @@ find "$TESTCODE" -type f | sort | while read -r file; do
     echo "write $file /testcode$rel" >> "$CMDS"
 done
 
+# Copy tools
+echo "write $MKE2FS /bin/mke2fs.static" >> "$CMDS"
+set_file_metadata "/bin/mke2fs.static" "755"
+
 # Copy data files
 echo "write $DATA/passwd /etc/passwd" >> "$CMDS"
 echo "write $DATA/group /etc/group" >> "$CMDS"
@@ -91,6 +107,8 @@ echo "=== /testcode/ ==="
 "$DEBUGFS" -R 'ls -l /testcode' "$IMG" 2>&1
 echo "=== /bin/ ==="
 "$DEBUGFS" -R 'ls -l /bin' "$IMG" 2>&1
+echo "=== /bin/mke2fs.static ==="
+"$DEBUGFS" -R 'stat /bin/mke2fs.static' "$IMG" 2>&1 | grep -E "Mode|User|Group|Size"
 echo "=== /glibc/busybox ==="
 "$DEBUGFS" -R 'stat /glibc/busybox' "$IMG" 2>&1 | grep -E "Size|Links"
 
