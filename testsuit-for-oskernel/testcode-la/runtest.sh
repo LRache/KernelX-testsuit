@@ -37,13 +37,13 @@ ln /glibc/lib/ld-linux-loongarch-lp64d.so.1 /usr/lib64/ld-linux-loongarch-lp64d.
 
 set -e
 
-# /testcode/basic_testcode.sh
-# /testcode/busybox_testcode.sh
-# /testcode/lua_testcode.sh
-# /testcode/libcbench_testcode.sh
-# /testcode/lmbench_testcode.sh
+/testcode/basic_testcode.sh
+/testcode/busybox_testcode.sh
+/testcode/lua_testcode.sh
+/testcode/libcbench_testcode.sh
+/testcode/lmbench_testcode.sh
 # /testcode/unixbench_testcode.sh
-# /testcode/iozone_testcode.sh
+/testcode/iozone_testcode.sh
 # /testcode/cyclictest_testcode.sh
 /testcode/ltp_testcode_glibc.sh
 
@@ -54,15 +54,15 @@ rm -f /lib64/ld-musl-loongarch-lp64d.so.1 /lib64/ld-linux-loongarch-lp64d.so.1
 ln /musl/lib/libc.so /lib64/ld-musl-loongarch-lp64d.so.1
 ln /musl/lib/libc.so /lib64/ld-linux-loongarch-lp64d.so.1
 
-# /testcode/basic_testcode.sh
-# /testcode/busybox_testcode.sh
-# /testcode/lua_testcode.sh
-# /testcode/libctest_static_testcode.sh
-# /testcode/libctest_dynamic_testcode.sh
-# /testcode/libcbench_testcode.sh
-# /testcode/lmbench_testcode.sh
+/testcode/basic_testcode.sh
+/testcode/busybox_testcode.sh
+/testcode/lua_testcode.sh
+/testcode/libctest_static_testcode.sh
+/testcode/libctest_dynamic_testcode.sh
+/testcode/libcbench_testcode.sh
+/testcode/lmbench_testcode.sh
 # /testcode/unixbench_testcode.sh
-# /testcode/iozone_testcode.sh
+/testcode/iozone_testcode.sh
 # /testcode/cyclictest_testcode.sh
 /testcode/ltp_testcode_musl.sh
 
