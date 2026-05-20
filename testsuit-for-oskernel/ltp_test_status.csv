@@ -287,7 +287,7 @@ dirtyc0w,,,,
 dirtyc0w_child,,,,
 dirtyc0w_shmem,,,,
 dirtyc0w_shmem_child,,,,
-dirtypipe,,,,
+dirtypipe,PASS,,,
 dma_thread_diotest,,,,
 dns-stress-lib.sh,,,,
 dns-stress.sh,,,,
@@ -327,13 +327,13 @@ epoll_ctl02,HALF,HALF,HALF,HALF
 epoll_ctl03,PASS,PASS,PASS,PASS
 epoll_ctl04,FAILED,FAILED,FAILED,FAILED
 epoll_ctl05,FAILED,FAILED,FAILED,FAILED
-epoll_pwait01,,,,
-epoll_pwait02,,,,
-epoll_pwait03,,,,
-epoll_pwait04,,,,
-epoll_pwait05,,,,
+epoll_pwait01,PASS,,,
+epoll_pwait02,PASS,,,
+epoll_pwait03,NOEXIT: systemd-detect-virt,,,
+epoll_pwait04,PASS,,,
+epoll_pwait05,PASS,,,
 epoll_wait01,PASS,PASS,PASS,PASS
-epoll_wait02,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found
+epoll_wait02,NOEXIT: systemd-detect-virt,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found
 epoll_wait03,PASS,PASS,PASS,PASS
 epoll_wait04,PASS,PASS,PASS,PASS
 epoll_wait05,FAILED,FAILED,FAILED,FAILED
@@ -406,7 +406,7 @@ fanotify23,FAILED: FAN_ATTRIB not supported in kernel,FAILED: FAN_ATTRIB not sup
 fanout01,,,,
 fchdir01,PASS,PASS,PASS,PASS
 fchdir02,PASS,PASS,PASS,PASS
-fchdir03,FAILED: TFAIL: fchdir() succeeded unexpectedly,FAILED: TFAIL: fchdir() succeeded unexpectedly,FAILED: TFAIL: fchdir() succeeded unexpectedly,FAILED: TFAIL: fchdir() succeeded unexpectedly
+fchdir03,TEST: FAILED: TFAIL: fchdir() succeeded unexpectedly,FAILED: TFAIL: fchdir() succeeded unexpectedly,FAILED: TFAIL: fchdir() succeeded unexpectedly,FAILED: TFAIL: fchdir() succeeded unexpectedly
 fchmod01,PASS,PASS,PASS,PASS
 fchmod02,PASS,PASS,PASS,PASS
 fchmod03,PASS,PASS,PASS,PASS
@@ -478,20 +478,20 @@ fcntl29,PASS,PASS,PASS,PASS
 fcntl29_64,PASS,PASS,PASS,PASS
 fcntl30,PASS,PASS,PASS,PASS
 fcntl30_64,PASS,PASS,PASS,PASS
-fcntl31,FAILED: setsid,FAILED: setsid,FAILED: setsid,FAILED: setsid
-fcntl31_64,FAILED: setsid,FAILED: setsid,FAILED: setsid,FAILED: setsid
+fcntl31,NOSUMMARY,FAILED: setsid,FAILED: setsid,FAILED: setsid
+fcntl31_64,NOSUMMARY,FAILED: setsid,FAILED: setsid,FAILED: setsid
 fcntl32,FAILED: F_SETLEASE,FAILED: F_SETLEASE,FAILED: F_SETLEASE,FAILED: F_SETLEASE
 fcntl32_64,FAILED: F_SETLEASE,FAILED: F_SETLEASE,FAILED: F_SETLEASE,FAILED: F_SETLEASE
 fcntl33,FAILED: F_SETLEASE,FAILED: F_SETLEASE,FAILED: F_SETLEASE,FAILED: F_SETLEASE
 fcntl33_64,FAILED: F_SETLEASE,FAILED: F_SETLEASE,FAILED: F_SETLEASE,FAILED: F_SETLEASE
 fcntl34,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug
 fcntl34_64,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug
-fcntl35,FAILED: Change pipe size,FAILED: Change pipe size,FAILED: Change pipe size,FAILED: Change pipe size
-fcntl35_64,FAILED: Change pipe size,FAILED: Change pipe size,FAILED: Change pipe size,FAILED: Change pipe size
+fcntl35,FAILED: Change pipe max size,FAILED: Change pipe size,FAILED: Change pipe size,FAILED: Change pipe size
+fcntl35_64,FAILED: Change pipe max size,FAILED: Change pipe size,FAILED: Change pipe size,FAILED: Change pipe size
 fcntl36,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug
 fcntl36_64,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug
-fcntl37,FAILED: syscall capget,FAILED: syscall capget,FAILED: syscall capget,FAILED: syscall capget
-fcntl37_64,FAILED: syscall capget,FAILED: syscall capget,FAILED: syscall capget,FAILED: syscall capget
+fcntl37,PASS,FAILED: syscall capget,FAILED: syscall capget,FAILED: syscall capget
+fcntl37_64,PASS,FAILED: syscall capget,FAILED: syscall capget,FAILED: syscall capget
 fcntl38,FAILED: Need dnotify,FAILED: Need dnotify,FAILED: Need dnotify,FAILED: Need dnotify
 fcntl38_64,FAILED: Need dnotify,FAILED: Need dnotify,FAILED: Need dnotify,FAILED: Need dnotify
 fcntl39,FAILED: Need dnotify,FAILED: Need dnotify,FAILED: Need dnotify,FAILED: Need dnotify
@@ -675,8 +675,8 @@ fstat02_64,PASS,PASS,PASS,PASS
 fstat03,PASS,PASS,PASS,PASS
 fstat03_64,PASS,PASS,PASS,PASS
 fstatat01,PASS,PASS,PASS,PASS
-fstatfs01,HALF,HALF,HALF,HALF
-fstatfs01_64,HALF,HALF,HALF,HALF
+fstatfs01,PASS,HALF,HALF,HALF
+fstatfs01_64,PASS,HALF,HALF,HALF
 fstatfs02,PASS,PASS,PASS,PASS
 fstatfs02_64,PASS,PASS,PASS,PASS
 fsx-linux,,,,
@@ -684,7 +684,7 @@ fsx.sh,,,,
 fsync01,PASS: filesystem support,PASS: filesystem support,PASS: filesystem support,PASS: filesystem support
 fsync02,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found
 fsync03,FAILED: Need mkfifo,FAILED: Need mkfifo,FAILED: Need mkfifo,FAILED: Need mkfifo
-fsync04,FAILED: Need mkfs.ex4,FAILED: Need mkfs.ex4,FAILED: Need mkfs.ex4,FAILED: Need mkfs.ex4
+fsync04,FAILED: Need /sys/block,FAILED: Need mkfs.ex4,FAILED: Need mkfs.ex4,FAILED: Need mkfs.ex4
 ftest01,,,,
 ftest02,,,,
 ftest03,,,,
@@ -823,13 +823,13 @@ getrusage01,PASS,PASS,PASS,PASS
 getrusage02,PASS,PASS,PASS,PASS
 getrusage03,FAILED: Test needs at least 512MB MemAvailable,FAILED: Test needs at least 512MB MemAvailable,FAILED: Test needs at least 512MB MemAvailable,FAILED: Test needs at least 512MB MemAvailable
 getrusage04,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found
-getsid01,,,,
-getsid02,,,,
+getsid01,PASS,,,
+getsid02,PASS,,,
 getsockname01,,,,
 getsockopt01,,,,
 getsockopt02,,,,
-gettid01,,,,
-gettid02,FAILED: BUGGED,FAILED: BUGGED,FAILED: BUGGED,FAILED: BUGGED
+gettid01,PASS,PASS,,
+gettid02,PASS,PASS,FAILED: BUGGED,FAILED: BUGGED
 gettimeofday01,PASS,PASS,PASS,PASS
 gettimeofday02,PASS,PASS,PASS,PASS
 getuid01,PASS,PASS,PASS,PASS
@@ -993,13 +993,13 @@ io_submit02,,,,
 io_submit03,,,,
 io_uring01,,,,
 io_uring02,,,,
-ioctl01,,,,
-ioctl02,,,,
-ioctl03,,,,
-ioctl04,,,,
-ioctl05,,,,
-ioctl06,,,,
-ioctl07,,,,
+ioctl01,PASS,,,
+ioctl02,FAILED: You must specify a tty device with -d option,,,
+ioctl03,FAILED: Need tun,,,
+ioctl04,PASS,,,
+ioctl05,PASS,,,
+ioctl06,PASS,,,
+ioctl07,PASS,,,
 ioctl08,,,,
 ioctl09,,,,
 ioctl_loop01,,,,
@@ -1190,7 +1190,7 @@ memcg_test_4,,,,
 memcg_test_4.sh,,,,
 memcg_usage_in_bytes_test.sh,,,,
 memcg_use_hierarchy_test.sh,,,,
-memcmp01,,,,
+memcmp01,PASS,,,
 memcontrol01,,,,
 memcontrol02,,,,
 memcontrol03,,,,
@@ -1314,11 +1314,11 @@ mpls02.sh,,,,
 mpls03.sh,,,,
 mpls04.sh,,,,
 mpls_lib.sh,,,,
-mprotect01,,,,
-mprotect02,,,,
-mprotect03,,,,
-mprotect04,,,,
-mprotect05,,,,
+mprotect01,NOSUMMARY,,,
+mprotect02,NOSUMMARY,,,
+mprotect03,NOSUMMARY,,,
+mprotect04,NOSUMMARY,,,
+mprotect05,FAILED,,,
 mq_notify01,,,,
 mq_notify02,,,,
 mq_notify03,,,,
@@ -1897,7 +1897,7 @@ setrlimit03,,,,
 setrlimit04,,,,
 setrlimit05,,,,
 setrlimit06,,,,
-setsid01,,,,
+setsid01,NOSUMMARY,,,
 setsockopt01,,,,
 setsockopt02,,,,
 setsockopt03,,,,
@@ -2026,15 +2026,15 @@ statfs03,PASS,PASS,PASS,PASS
 statfs03_64,PASS,PASS,PASS,PASS
 statvfs01,,,,
 statvfs02,,,,
-statx01,,,,
-statx02,,,,
-statx03,,,,
+statx01,FAILED,,,
+statx02,PASS,,,
+statx03,PASS,,,
 statx04,,,,
 statx05,,,,
 statx06,,,,
 statx07,,,,
 statx08,,,,
-statx09,,,,
+statx09,FAILED: Need CONFIG_FS_VERITY,,,
 statx10,,,,
 statx11,,,,
 statx12,,,,
@@ -2473,7 +2473,7 @@ timerfd02,PASS,PASS,PASS,PASS
 timerfd04,FAILED: unshare,FAILED: unshare,FAILED: unshare,FAILED: unshare
 timerfd_create01,PASS,PASS,PASS,PASS
 timerfd_gettime01,PASS,PASS,PASS,PASS
-timerfd_settime01,PASS,PASS,PASS,PASS
+timerfd_settime01,PASS,PASS,PASS,HALF:
 timerfd_settime02,PASS,FAILED: SIGSEGV,PASS,FAILED: SIGSEGV
 times01,,,,
 times03,,,,
