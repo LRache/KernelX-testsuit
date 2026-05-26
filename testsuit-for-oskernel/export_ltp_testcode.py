@@ -130,6 +130,7 @@ def render_script(tests, busybox):
         "cd ./ltp/testcases/bin",
         "",
         "export LTPROOT=../..",
+        "PATH=$PATH:/glibc/ltp/testcases/bin"
         "",
         "set -ex",
         "",
