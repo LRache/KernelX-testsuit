@@ -1,1 +1,7 @@
 .DS_Store
+linux-*/
+linux/downloads/
+
+__pycache__
+
+*.log

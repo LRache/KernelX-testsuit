@@ -352,7 +352,7 @@ eventfd2_03,PASS,PASS,PASS,PASS
 evm_overlay.sh,,,,
 exec_with_inh,,,,
 exec_without_inh,,,,
-execl01,PASS,PASS,PASS,PASS
+execl01,PASS,PASS,PASS,FAILE: Error relocating execl01_child:
 execle01,PASS,PASS,PASS,PASS
 execlp01,PASS,PASS,PASS,PASS
 execv01,PASS,PASS,PASS,PASS
@@ -1337,29 +1337,29 @@ mremap04,,,,
 mremap05,,,,
 mremap06,,,,
 msg_comm,,,,
-msgctl01,,,,
-msgctl02,,,,
-msgctl03,,,,
-msgctl04,,,,
-msgctl05,,,,
-msgctl06,,,,
-msgctl12,,,,
-msgget01,,,,
-msgget02,,,,
-msgget03,,,,
-msgget04,,,,
-msgget05,,,,
-msgrcv01,,,,
-msgrcv02,,,,
-msgrcv03,,,,
-msgrcv05,,,,
-msgrcv06,,,,
-msgrcv07,,,,
-msgrcv08,,,,
-msgsnd01,,,,
-msgsnd02,,,,
-msgsnd05,,,,
-msgsnd06,,,,
+msgctl01,PASS,PASS,FAILED,FAILED
+msgctl02,PASS,PASS,PASS,PASS
+msgctl03,PASS,PASS,PASS,PASS
+msgctl04,PASS,PASS,PASS,PASS
+msgctl05,SKIP,SKIP,PASS,PASS
+msgctl06,SKIP: kernel doesn't support MSG_STAT_ANY,,,
+msgctl12,PASS,PASS,PASS,PASS
+msgget01,PASS,PASS,PASS,PASS
+msgget02,PASS,PASS,PASS,PASS
+msgget03,FAILED: /proc/sys/kernel/msgmni: ENOENT,,,
+msgget04,FAILED: CONFIG_CHECKPOINT_RESTORE,,,
+msgget05,FAILED: CONFIG_CHECKPOINT_RESTORE,,
+msgrcv01,PASS,PASS,PASS,PASS
+msgrcv02,PASS,PASS,PASS,PASS
+msgrcv03,FAILED: CONFIG_CHECKPOINT_RESTORE,,,
+msgrcv05,PASS,PASS,PASS,PASS
+msgrcv06,PASS,PASS,PASS,PASS
+msgrcv07,PASS,PASS,PASS,PASS
+msgrcv08,PASS,PASS,PASS,PASS
+msgsnd01,PASS,PASS,PASS,PASS
+msgsnd02,PASS,PASS,PASS,PASS
+msgsnd05,PASS,PASS,PASS,PASS
+msgsnd06,PASS,PASS,PASS,PASS
 msgstress01,,,,
 msync01,,,,
 msync02,,,,
@@ -1784,22 +1784,22 @@ select03,PASS,PASS,PASS,PASS
 select04,PASS,PASS,PASS,PASS
 sem_comm,,,,
 sem_nstest,,,,
-semctl01,PASS,TEST,TEST,TEST
-semctl02,PASS,TEST,TEST,TEST
-semctl03,PASS,TEST,TEST,TEST
-semctl04,PASS,TEST,TEST,TEST
-semctl05,PASS,TEST,TEST,TEST
+semctl01,PASS,PASS,PASS,PASS
+semctl02,PASS,PASS,PASS,PASS
+semctl03,PASS,PASS,PASS,PASS
+semctl04,PASS,PASS,PASS,PASS
+semctl05,PASS,PASS,PASS,PASS
 semctl06,PASS: NOSUMMARY,,,
-semctl07,PASS,TEST,TEST,TEST
+semctl07,PASS,PASS,PASS,PASS
 semctl08,SKIP,SKIP,SKIP,SKIP
 semctl09,FAILED: kernel doesn't support SEM_STAT_ANY,,,
-semget01,PASS,TEST,TEST,TEST
-semget02,PASS,TEST,TEST,TEST
+semget01,PASS,PASS,PASS,PASS
+semget02,PASS,PASS,PASS,PASS
 semget05,FAILED: Path not found: /proc/sys/kernel/sem: ENOENT,,,
-semop01,PASS,TEST,TEST,TEST
-semop02,PASS,TEST,TEST,TEST
-semop03,PASS,TEST,TEST,TEST
-semop04,PASS,TEST,TEST,TEST
+semop01,PASS,PASS,PASS,PASS
+semop02,HALF: Timeout,HALF: Timeout,HALF: Timeout,HALF: Timeout
+semop03,PASS,PASS,PASS,PASS
+semop04,PASS,PASS,FAILED: Timeout,FAILED: Timeout
 semop05,NOSUMMARY,,,
 semtest_2ns,,,,
 send01,,,,
