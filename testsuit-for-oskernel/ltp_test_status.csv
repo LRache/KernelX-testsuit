@@ -1576,10 +1576,10 @@ print_caps,,,,
 proc01,,,,
 proc_sched_rt01,,,,
 process_madvise01,,,,
-process_vm01,PASS,PASS,TEST,TEST
-process_vm_readv02,PASS,PASS,TEST,TEST
-process_vm_readv03,PASS,PASS,TEST,TEST
-process_vm_writev02,PASS,PASS,TEST,TEST
+process_vm01,PASS,PASS,PASS,PASS
+process_vm_readv02,PASS,PASS,PASS,PASS
+process_vm_readv03,PASS,PASS,PASS,PASS
+process_vm_writev02,PASS,PASS,PASS,PASS
 profil01,,,,
 prot_hsymlinks,,,,
 pselect01,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found
