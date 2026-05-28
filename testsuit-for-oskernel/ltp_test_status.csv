@@ -1337,11 +1337,11 @@ mremap04,,,,
 mremap05,,,,
 mremap06,,,,
 msg_comm,,,,
-msgctl01,PASS,PASS,FAILED,FAILED
+msgctl01,HALF: ctime,HALF,HALD,HALF
 msgctl02,PASS,PASS,PASS,PASS
 msgctl03,PASS,PASS,PASS,PASS
 msgctl04,PASS,PASS,PASS,PASS
-msgctl05,SKIP,SKIP,PASS,PASS
+msgctl05,SKIP,SKIP,SKIP,SKIP
 msgctl06,SKIP: kernel doesn't support MSG_STAT_ANY,,,
 msgctl12,PASS,PASS,PASS,PASS
 msgget01,PASS,PASS,PASS,PASS
@@ -1576,10 +1576,10 @@ print_caps,,,,
 proc01,,,,
 proc_sched_rt01,,,,
 process_madvise01,,,,
-process_vm01,,,,
-process_vm_readv02,,,,
-process_vm_readv03,,,,
-process_vm_writev02,,,,
+process_vm01,PASS,PASS,TEST,TEST
+process_vm_readv02,PASS,PASS,TEST,TEST
+process_vm_readv03,PASS,PASS,TEST,TEST
+process_vm_writev02,PASS,PASS,TEST,TEST
 profil01,,,,
 prot_hsymlinks,,,,
 pselect01,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found
