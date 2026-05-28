@@ -67,12 +67,12 @@ ln /glibc/lib/libm.so.6 /lib/libm.so.6
 
 set -ex
 
-# /testcode/basic_testcode.sh
-# /testcode/busybox_testcode.sh
-# /testcode/lua_testcode.sh
-# /testcode/libcbench_testcode.sh
-# /testcode/lmbench_testcode.sh
-# /testcode/iozone_testcode.sh
+/testcode/basic_testcode.sh
+/testcode/busybox_testcode.sh
+/testcode/lua_testcode.sh
+/testcode/libcbench_testcode.sh
+/testcode/lmbench_testcode.sh
+/testcode/iozone_testcode.sh
 /testcode/ltp_testcode_glibc.sh
 
 set +ex
@@ -86,14 +86,14 @@ ln /musl/lib/libc.so /lib/ld-musl-riscv64.so.1
 
 set -ex
 
-# /testcode/basic_testcode.sh
-# /testcode/busybox_testcode.sh
-# /testcode/lua_testcode.sh
-# /testcode/libctest_static_testcode.sh
-# /testcode/libctest_dynamic_testcode.sh
-# /testcode/libcbench_testcode.sh
-# /testcode/lmbench_testcode.sh
-# /testcode/iozone_testcode.sh
+/testcode/basic_testcode.sh
+/testcode/busybox_testcode.sh
+/testcode/lua_testcode.sh
+/testcode/libctest_static_testcode.sh
+/testcode/libctest_dynamic_testcode.sh
+/testcode/libcbench_testcode.sh
+/testcode/lmbench_testcode.sh
+/testcode/iozone_testcode.sh
 /testcode/ltp_testcode_musl.sh
 
 set +ex
