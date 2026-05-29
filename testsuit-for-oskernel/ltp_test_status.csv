@@ -352,22 +352,22 @@ eventfd2_03,PASS,PASS,PASS,PASS
 evm_overlay.sh,,,,
 exec_with_inh,,,,
 exec_without_inh,,,,
-execl01,PASS,PASS,PASS,FAILE: Error relocating execl01_child:
-execle01,PASS,PASS,PASS,PASS
-execlp01,PASS,PASS,PASS,PASS
-execv01,PASS,PASS,PASS,PASS
-execve01,PASS,PASS,PASS,PASS
+execl01,PASS,PASS,PASS,FAILED: Error relocating execl01_child:
+execle01,PASS,PASS,PASS,FAILED
+execlp01,PASS,PASS,PASS,FAILED
+execv01,PASS,PASS,PASS,FAILED
+execve01,PASS,PASS,PASS,FAILED
 execve02,PASS,PASS,PASS,PASS
 execve03,PASS,PASS,PASS,PASS
 execve04,PASS,PASS,PASS,PASS
 execve05,PASS,PASS,PASS,PASS
-execve06,PASS,PASS,PASS,PASS
+execve06,PASS,PASS,PASS,FAILED
 execveat01,PASS,PASS,PASS,PASS
 execveat02,PASS,PASS,PASS,PASS
 execveat03,FAILED: overlayfs,FAILED: overlayfs,FAILED: overlayfs,FAILED: overlayfs
-execvp01,PASS,PASS,PASS,PASS
-exit01,PASS,PASS,PASS,PASS
-exit02,PASS,PASS,PASS,PASS
+execvp01,PASS,PASS,PASS,FAILED
+exit01,PASS,PASS,PASS,TEST
+exit02,PASS,PASS,PASS,TEST
 exit_group01,PASS,PASS,PASS,PASS
 f00f,,,,
 faccessat01,PASS,PASS,PASS,PASS
@@ -1799,7 +1799,7 @@ semget05,FAILED: Path not found: /proc/sys/kernel/sem: ENOENT,,,
 semop01,PASS,PASS,PASS,PASS
 semop02,HALF: Timeout,HALF: Timeout,HALF: Timeout,HALF: Timeout
 semop03,PASS,PASS,PASS,PASS
-semop04,PASS,PASS,FAILED: Timeout,FAILED: Timeout
+semop04,FAILED: Timeout,FAILED: Timeout,FAILED: Timeout,FAILED: Timeout
 semop05,NOSUMMARY,,,
 semtest_2ns,,,,
 send01,,,,
