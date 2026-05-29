@@ -352,20 +352,20 @@ eventfd2_03,PASS,PASS,PASS,PASS
 evm_overlay.sh,,,,
 exec_with_inh,,,,
 exec_without_inh,,,,
-execl01,PASS,FAILED: Error relocating execl01_child:,PASS,FAILED: Error relocating execl01_child:
-execle01,PASS,FAILED,PASS,FAILED
-execlp01,PASS,FAILED,PASS,FAILED
-execv01,PASS,FAILED,PASS,FAILED
-execve01,PASS,FAILED,PASS,FAILED
+execl01,PASS,PASS,PASS,PASS
+execle01,PASS,PASS,PASS,PASS
+execlp01,PASS,PASS,PASS,PASS
+execv01,PASS,PASS,PASS,PASS
+execve01,PASS,PASS,PASS,PASS
 execve02,PASS,PASS,PASS,PASS
 execve03,PASS,PASS,PASS,PASS
 execve04,PASS,PASS,PASS,PASS
 execve05,PASS,PASS,PASS,PASS
-execve06,PASS,FAILED,PASS,FAILED
+execve06,PASS,PASS,PASS,PASS
 execveat01,PASS,PASS,PASS,PASS
 execveat02,PASS,PASS,PASS,PASS
 execveat03,FAILED: overlayfs,FAILED: overlayfs,FAILED: overlayfs,FAILED: overlayfs
-execvp01,PASS,FAILED,PASS,FAILED
+execvp01,PASS,PASS,PASS,PASS
 exit01,PASS,PASS,PASS,PASS
 exit02,PASS,PASS,PASS,PASS
 exit_group01,PASS,PASS,PASS,PASS
@@ -1869,8 +1869,8 @@ setpgid02,PASS,PASS,PASS,PASS
 setpgid03,PASS,PASS,PASS,PASS
 setpgrp01,PASS,PASS,PASS,PASS
 setpgrp02,PASS,PASS,PASS,PASS
-setpriority01,TEST,,,
-setpriority02,TEST,,,
+setpriority01,PASS,PASS,,
+setpriority02,PASS,PASS,,
 setregid01,PASS,PASS,PASS,PASS
 setregid02,PASS,PASS,PASS,PASS
 setregid03,PASS,PASS,PASS,PASS
@@ -2003,7 +2003,7 @@ splice03,PASS,PASS,PASS,PASS
 splice04,PASS,PASS,PASS,PASS
 splice05,PASS,PASS,PASS,PASS
 splice06,,,,
-splice07,FAILED,FAILED,FAILED,FAILED
+splice07,HALF,FAILED,FAILED,FAILED
 splice08,,,,
 splice09,,,,
 squashfs01,,,,
@@ -2742,7 +2742,7 @@ wqueue09,,,,
 write01,PASS,PASS,PASS,PASS
 write02,PASS,PASS,PASS,PASS
 write03,PASS,PASS,PASS,PASS
-write04,FAILED: need mknodat,FAILED: need mknodat,FAILED: need mknodat,FAILED: need mknodat
+write04,PASS,PASS,FAILED: need mknodat,FAILED: need mknodat
 write05,PASS,PASS,PASS,PASS
 write06,PASS,PASS,PASS,PASS
 write_freezing.sh,,,,
