@@ -180,7 +180,7 @@ confstr01,PASS,PASS,PASS,PASS
 connect01,HALF,HALF,HALF,HALF
 connect02,FAILED,FAILED,FAILED,FAILED
 copy_file_range01,PASS,PASS,PASS,PASS
-copy_file_range02,FAILED: Need mknod,FAILED: Need mknod,FAILED: Need mknod,FAILED: Need mknod
+copy_file_range02,HALF,HALF,TEST,TEST
 copy_file_range03,PASS,PASS,PASS,PASS
 cp_tests.sh,HALF,,,
 cpio_tests.sh,,,,
@@ -295,12 +295,12 @@ dns-stress01-rmt.sh,,,,
 dns-stress02-rmt.sh,,,,
 dnsmasq_tests.sh,,,,
 doio,,,,
-du01.sh,HALF,,,
+du01.sh,HALF,HALF,,
 dup01,PASS,PASS,PASS,PASS
 dup02,PASS,PASS,PASS,PASS
 dup03,PASS,PASS,PASS,PASS
 dup04,PASS,PASS,PASS,PASS
-dup05,FAILED: Need mkfifo,FAILED: Need mkfifo,FAILED: Need mkfifo,FAILED: Need mkfifo
+dup05,PASS,PASS,TEST,TEST
 dup06,PASS,PASS,PASS,PASS
 dup07,PASS,PASS,PASS,PASS
 dup201,PASS,PASS,PASS,PASS
@@ -327,8 +327,8 @@ epoll_ctl02,HALF,HALF,HALF,HALF
 epoll_ctl03,PASS,PASS,PASS,PASS
 epoll_ctl04,FAILED,FAILED,FAILED,FAILED
 epoll_ctl05,FAILED,FAILED,FAILED,FAILED
-epoll_pwait01,PASS,,,
-epoll_pwait02,PASS,,,
+epoll_pwait01,PASS,PASS,,
+epoll_pwait02,PASS,PASS,,
 epoll_pwait03,NOEXIT: systemd-detect-virt,,,
 epoll_pwait04,PASS,,,
 epoll_pwait05,PASS,,,
@@ -380,22 +380,22 @@ fallocate03,HALF,HALF,HALF,HALF
 fallocate04,HALF,HALF,HALF,HALF
 fallocate05,FAILED,FAILED,FAILED,FAILED
 fallocate06,FAILED,FAILED,FAILED,FAILED
-fanotify01,,,,
+fanotify01,PASS,,,
 fanotify02,PASS,PASS,PASS,PASS
 fanotify03,PASS,PASS,PASS,PASS
 fanotify04,PASS,PASS,PASS,PASS
-fanotify05,,,,
+fanotify05,FAILED: Timeout,,,
 fanotify06,PASS,PASS,PASS,PASS
 fanotify07,HALF: overlayfs,HALF: overlayfs,HALF: overlayfs,HALF: overlayfs
 fanotify08,PASS,PASS,PASS,PASS
 fanotify09,PASS,PASS,PASS,PASS
 fanotify10,HALF: Unstable,HALF: Unstable,HALF: Unstable,HALF: Unstable
-fanotify11,,,,
+fanotify11,HALF: libgcc_s.so.1 must be installed for pthread_exit to work,,,
 fanotify12,PASS,PASS,PASS,PASS
-fanotify13,,,,
+fanotify13,FAILED,,,
 fanotify14,HALF,HALF,HALF,HALF
 fanotify15,FAILED,FAILED,FAILED,FAILED
-fanotify16,,,,
+fanotify16,FAILED,,,
 fanotify17,FAILED: fanotify inside user namespace is not supported,FAILED: fanotify inside user namespace is not supported,FAILED: fanotify inside user namespace is not supported,FAILED: fanotify inside user namespace is not supported
 fanotify18,,,,
 fanotify19,PASS,PASS,PASS,PASS
@@ -432,8 +432,8 @@ fcntl04,PASS,PASS,PASS,PASS
 fcntl04_64,PASS,PASS,PASS,PASS
 fcntl05,PASS,PASS,PASS,PASS
 fcntl05_64,PASS,PASS,PASS,PASS
-fcntl07,FAILED: mkfifo,FAILED: mkfifo,FAILED: mkfifo,FAILED: mkfifo
-fcntl07_64,FAILED: mkfifo,FAILED: mkfifo,FAILED: mkfifo,FAILED: mkfifo
+fcntl07,NO SUMMARY,,,
+fcntl07_64,NO SUMMARY,,,
 fcntl08,PASS,PASS,PASS,PASS
 fcntl08_64,PASS,PASS,PASS,PASS
 fcntl09,PASS,PASS,PASS,PASS
@@ -683,7 +683,7 @@ fsx-linux,,,,
 fsx.sh,,,,
 fsync01,PASS: filesystem support,PASS: filesystem support,PASS: filesystem support,PASS: filesystem support
 fsync02,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found
-fsync03,FAILED: Need mkfifo,FAILED: Need mkfifo,FAILED: Need mkfifo,FAILED: Need mkfifo
+fsync03,PASS,PASS,TEST,TEST
 fsync04,FAILED: Need /sys/block,FAILED: Need mkfs.ex4,FAILED: Need mkfs.ex4,FAILED: Need mkfs.ex4
 ftest01,,,,
 ftest02,,,,
@@ -719,9 +719,9 @@ futex_wait03,PASS,PASS,HALF: Unstable,HALF: Unstable
 futex_wait04,PASS,PASS,PASS,PASS
 futex_wait05,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found
 futex_wait_bitset01,,,,
-futex_waitv01,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch
-futex_waitv02,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch
-futex_waitv03,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch,FAILED: syscall(-1) __NR_futex_waitv not supported on your arch
+futex_waitv01,SKIP: syscall(-1) __NR_futex_waitv not supported on your arch,,,
+futex_waitv02,SKIP: syscall(-1) __NR_futex_waitv not supported on your arch,,,
+futex_waitv03,SKIP: syscall(-1) __NR_futex_waitv not supported on your arch,,,
 futex_wake01,PASS,PASS,PASS,PASS
 futex_wake02,PASS,PASS,PASS,FAILED: Child (5032) killed by signal SIGSEGV
 futex_wake03,PASS,PASS,PASS,PASS
@@ -1085,8 +1085,8 @@ link02,PASS,PASS,PASS,PASS
 link04,PASS,PASS,PASS,PASS
 link05,PASS,PASS,PASS,PASS
 link08,PASS,PASS,PASS,PASS
-linkat01,FAILED: Need mkfifo,FAILED: Need mkfifo,FAILED: Need mkfifo,FAILED: Need mkfifo
-linkat02,,,,
+linkat01,NOSUMMARY,,,
+linkat02,NOSUMMARY: passed,,,
 linktest.sh,,,,
 listen01,,,,
 listxattr01,,,,
@@ -1098,15 +1098,15 @@ llistxattr03,,,,
 llseek01,PASS,PASS,PASS,PASS
 llseek02,PASS,PASS,PASS,PASS
 llseek03,PASS,PASS,PASS,PASS
-ln_tests.sh,PASS,,,
+ln_tests.sh,HALF,,,
 lock_torture.sh,,,,
 locktests,,,,
 logrotate_tests.sh,,,,
 lremovexattr01,,,,
 lseek01,PASS,PASS,PASS,PASS
-lseek02,FAILED: Need fifo,FAILED: Need fifo,FAILED: Need fifo,FAILED: Need fifo
+lseek02,PASS,PASS,TEST,TEST
 lseek07,PASS,PASS,PASS,PASS
-lseek11,FAILED,FAILED,FAILED,FAILED
+lseek11,FAILED: SEEK_HOLE/DATA,FAILED,FAILED,FAILED
 lsmod01.sh,,,,
 lstat01,PASS,PASS,PASS,PASS
 lstat01_64,PASS,PASS,PASS,PASS
@@ -1213,14 +1213,14 @@ mincore02,,,,
 mincore03,,,,
 mincore04,,,,
 mkdir02,PASS,FAILED: Group ID lookup failed: EAFNOSUPPORT (97),PASS,FAILED: Group ID lookup failed: EAFNOSUPPORT (97)
-mkdir03,FAILED: Need mkfifo,FAILED: Need mkfifo,FAILED: Need mkfifo,FAILED: Need mkfifo
+mkdir03,PASS,PASS,TEST,TEST
 mkdir04,PASS,PASS,PASS,PASS
 mkdir05,PASS,PASS,PASS,PASS
 mkdir09,FAILED: Timeout,FAILED: Timeout,FAILED: Timeout,FAILED: Timeout
-mkdir_tests.sh,PASS,,,
+mkdir_tests.sh,HALF,,,
 mkdirat01,PASS,PASS,PASS,PASS
 mkdirat02,PASS,PASS,PASS,PASS
-mkfs01.sh,PASS,,,
+mkfs01.sh,HALF,,,
 mknod01,,,,
 mknod02,,,,
 mknod03,,,,
@@ -1284,7 +1284,7 @@ modify_ldt01,,,,
 modify_ldt02,,,,
 modify_ldt03,,,,
 mount01,PASS,PASS,PASS,PASS
-mount02,FAILED: Need mknod,FAILED: Need mknod,FAILED: Need mknod,FAILED: Need mknod
+mount02,NOSUMMARY,,,
 mount03,HALF: Need mknod,HALF: Need mknod,HALF: Need mknod,HALF: Need mknod
 mount03_suid_child,,,,
 mount04,PASS,PASS,PASS,PASS
@@ -1439,15 +1439,15 @@ open01,PASS,PASS,PASS,PASS
 open02,PASS,PASS,PASS,PASS
 open03,PASS,PASS,PASS,PASS
 open04,PASS,PASS,PASS,PASS
-open06,FAILED: Need mkfifo,FAILED: Need mkfifo,FAILED: Need mkfifo,FAILED: Need mkfifo
+open06,PASS,PASS,TEST,TEST
 open07,PASS,PASS,PASS,PASS
 open08,PASS,PASS,PASS,PASS
 open09,PASS,PASS,PASS,PASS
 open10,PASS,FAILED: TBROK: Group ID lookup failed: EAFNOSUPPORT (97),PASS,FAILED: TBROK: Group ID lookup failed: EAFNOSUPPORT (97)
-open11,FAILED: Need mknod,FAILED: Need mknod,FAILED: Need mknod,FAILED: Need mknod
+open11,PASS,PASS,TEST,TEST
 open12,FAILED: NOTPASS PASSED,FAILED: NOTPASS PASSED,FAILED: NOTPASS PASSED,FAILED: NOTPASS PASSED
 open13,FAILED: NOTPASS HALF:,FAILED: NOTPASS HALF:,FAILED: NOTPASS HALF:,FAILED: NOTPASS HALF:
-open14,FAILED: Need mkfifo,FAILED: Need mkfifo,FAILED: Need mkfifo,FAILED: Need mkfifo
+open14,NO SUMMARY,,,
 open_by_handle_at01,,,,
 open_by_handle_at02,,,,
 open_tree01,,,,
@@ -1509,7 +1509,7 @@ ping02.sh,,,,
 pipe01,PASS,PASS,PASS,PASS
 pipe02,PASS,PASS,PASS,PASS
 pipe03,PASS,PASS,PASS,PASS
-pipe04,,,,
+pipe04,NOSUMMARY,,,
 pipe05,PASS,PASS,PASS,PASS
 pipe06,PASS,PASS,PASS,PASS
 pipe07,PASS,PASS,PASS,PASS
@@ -1520,7 +1520,7 @@ pipe11,PASS,PASS,PASS,PASS
 pipe12,PASS,PASS,PASS,PASS
 pipe13,PASS,PASS,PASS,PASS
 pipe14,PASS,PASS,PASS,PASS
-pipe15,FAILED,FAILED,FAILED,FAILED
+pipe15,FAILED: NOFILE limit max too low: 1024 < 1024,FAILED,FAILED,FAILED
 pipe2_01,PASS,PASS,PASS,PASS
 pipe2_02,PASS,PASS,PASS,PASS
 pipe2_04,PASS,PASS,PASS,PASS
@@ -1535,14 +1535,14 @@ pm_sched_domain.py,,,,
 pm_sched_mc.py,,,,
 poll01,PASS,PASS,PASS,PASS
 poll02,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found
-posix_fadvise01,,,,
-posix_fadvise01_64,,,,
-posix_fadvise02,,,,
-posix_fadvise02_64,,,,
-posix_fadvise03,,,,
-posix_fadvise03_64,,,,
-posix_fadvise04,,,,
-posix_fadvise04_64,,,,
+posix_fadvise01,PASS,PASS,TEST,TEST
+posix_fadvise01_64,PASS,PASS,TEST,TEST
+posix_fadvise02,PASS,PASS,TEST,TEST
+posix_fadvise02_64,PASS,PASS,TEST,TEST
+posix_fadvise03,PASS,PASS,TEST,TEST
+posix_fadvise03_64,PASS,PASS,TEST,TEST
+posix_fadvise04,PASS,PASS,TEST,TEST
+posix_fadvise04_64,PASS,PASS,TEST,TEST
 ppoll01,PASS,PASS,PASS,PASS
 prctl01,,,,
 prctl02,,,,
@@ -1569,8 +1569,8 @@ preadv201,PASS,PASS,PASS,PASS
 preadv201_64,PASS,PASS,PASS,PASS
 preadv202,PASS,PASS,PASS,PASS
 preadv202_64,PASS,PASS,PASS,PASS
-preadv203,FAILED: Need device,FAILED: Need device,FAILED: Need device,FAILED: Need device
-preadv203_64,FAILED: Need device,FAILED: Need device,FAILED: Need device,FAILED: Need device
+preadv203,FAILED: preadv2(): EOPNOTSUPP (95),,,
+preadv203_64,,,,
 prepare_lvm.sh,,,,
 print_caps,,,,
 proc01,,,,
@@ -1644,7 +1644,7 @@ quotactl09,,,,
 rcu_torture.sh,,,,
 read01,PASS,PASS,PASS,PASS
 read02,PASS,PASS,PASS,PASS
-read03,FAILED: Need mknod,FAILED: Need mknod,FAILED: Need mknod,FAILED: Need mknod
+read03,PASS,PASS,TEST,TEST
 read04,PASS,PASS,PASS,PASS
 read_all,,,,
 readahead01,,,,
@@ -2638,7 +2638,7 @@ umount2_02,HALF,HALF,HALF,HALF
 uname01,PASS,PASS,PASS,PASS
 uname02,PASS,PASS,PASS,PASS
 uname04,PASS,PASS,PASS,PASS
-unlink05,FAILED: Half: Need mkfifo,FAILED: Half: Need mkfifo,FAILED: Half: Need mkfifo,FAILED: Half: Need mkfifo
+unlink05,PASS,PASS,TEST,TEST
 unlink07,PASS,PASS,PASS,PASS
 unlink08,PASS,PASS,PASS,PASS
 unlink09,FAILED: Need ioctl command,FAILED: Need ioctl command,FAILED: Need ioctl command,FAILED: Need ioctl command
@@ -2725,8 +2725,8 @@ waitpid10,PASS,PASS,PASS,PASS
 waitpid11,PASS,PASS,PASS,PASS
 waitpid12,PASS,PASS,PASS,PASS
 waitpid13,PASS,PASS,PASS,PASS
-wc01.sh,PASS,,,
-which01.sh,PASS,,,
+wc01.sh,HALF,,,
+which01.sh,HALF,,,
 wireguard01.sh,,,,
 wireguard02.sh,,,,
 wireguard_lib.sh,,,,
@@ -2742,7 +2742,7 @@ wqueue09,,,,
 write01,PASS,PASS,PASS,PASS
 write02,PASS,PASS,PASS,PASS
 write03,PASS,PASS,PASS,PASS
-write04,PASS,PASS,FAILED: need mknodat,FAILED: need mknodat
+write04,PASS,PASS,TEST,TEST
 write05,PASS,PASS,PASS,PASS
 write06,PASS,PASS,PASS,PASS
 write_freezing.sh,,,,
