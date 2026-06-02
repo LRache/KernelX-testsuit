@@ -142,8 +142,9 @@ def render_script(tests, busybox):
         "cd ./ltp/testcases/bin",
         "",
         "export LTPROOT=../..",
+        "PATH=\"$PATH:$(pwd)\"",
         "",
-        "set -ex",
+        "set -x",
         "",
     ]
     lines.extend(f"./{name}" for name in tests)
