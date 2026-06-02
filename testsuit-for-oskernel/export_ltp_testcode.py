@@ -135,7 +135,8 @@ def load_tests(csv_path, env, scope):
         return tests
 
 
-def render_script(tests, busybox):
+def render_script(tests, busybox, scope):
+    shell_flags = "set -ex" if scope == "passed" else "set -x"
     lines = [
         f"#!{busybox} sh",
         "",
@@ -144,7 +145,7 @@ def render_script(tests, busybox):
         "export LTPROOT=../..",
         "PATH=\"$PATH:$(pwd)\"",
         "",
-        "set -x",
+        shell_flags,
         "",
     ]
     lines.extend(f"./{name}" for name in tests)
@@ -310,8 +311,10 @@ def main():
         output_path = resolve_output_path(args.output, env, multi_env)
         busybox = args.busybox or DEFAULT_BUSYBOX[env]
         tests = load_tests(csv_path, env, scope)
-        render = render_linux_script if args.linux else render_script
-        content = render(tests, busybox)
+        if args.linux:
+            content = render_linux_script(tests, busybox)
+        else:
+            content = render_script(tests, busybox, scope)
 
         if args.dry_run:
             if multi_env:
