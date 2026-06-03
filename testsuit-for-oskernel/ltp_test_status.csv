@@ -180,7 +180,7 @@ confstr01,PASS,PASS,PASS,PASS
 connect01,HALF,HALF,HALF,HALF
 connect02,FAILED,FAILED,FAILED,FAILED
 copy_file_range01,PASS,PASS,PASS,PASS
-copy_file_range02,HALF,HALF,TEST,TEST
+copy_file_range02,HALF,HALF,HALF,TEST
 copy_file_range03,PASS,PASS,PASS,PASS
 cp_tests.sh,HALF,,,
 cpio_tests.sh,,,,
@@ -300,7 +300,7 @@ dup01,PASS,PASS,PASS,PASS
 dup02,PASS,PASS,PASS,PASS
 dup03,PASS,PASS,PASS,PASS
 dup04,PASS,PASS,PASS,PASS
-dup05,PASS,PASS,TEST,TEST
+dup05,PASS,PASS,PASS,TEST
 dup06,PASS,PASS,PASS,PASS
 dup07,PASS,PASS,PASS,PASS
 dup201,PASS,PASS,PASS,PASS
@@ -548,102 +548,102 @@ freeze_thaw.sh,,,,
 freeze_write_freezing.sh,,,,
 fremovexattr01,,,,
 fremovexattr02,,,,
-fs_bind01.sh,PASS,TEST,TEST,TEST
-fs_bind02.sh,PASS,TEST,TEST,TEST
-fs_bind03.sh,PASS,TEST,TEST,TEST
-fs_bind04.sh,PASS,TEST,TEST,TEST
-fs_bind05.sh,PASS,TEST,TEST,TEST
-fs_bind06.sh,PASS,TEST,TEST,TEST
-fs_bind07-2.sh,PASS,TEST,TEST,TEST
-fs_bind07.sh,PASS,TEST,TEST,TEST
-fs_bind08.sh,PASS,TEST,TEST,TEST
-fs_bind09.sh,PASS,TEST,TEST,TEST
-fs_bind10.sh,PASS,TEST,TEST,TEST
-fs_bind11.sh,PASS,TEST,TEST,TEST
-fs_bind12.sh,PASS,TEST,TEST,TEST
-fs_bind13.sh,PASS,TEST,TEST,TEST
-fs_bind14.sh,PASS,TEST,TEST,TEST
-fs_bind15.sh,FAILED: failed=4,TEST,TEST,TEST
-fs_bind16.sh,PASS,TEST,TEST,TEST
-fs_bind17.sh,PASS,TEST,TEST,TEST
-fs_bind18.sh,PASS,TEST,TEST,TEST
-fs_bind19.sh,FAILED: failed=2,TEST,TEST,TEST
-fs_bind20.sh,PASS,TEST,TEST,TEST
-fs_bind21.sh,FAILED: failed=13,TEST,TEST,TEST
-fs_bind22.sh,FAILED: failed=2,TEST,TEST,TEST
-fs_bind23.sh,FAILED: failed=7,TEST,TEST,TEST
-fs_bind24.sh,FAILED: failed=2,TEST,TEST,TEST
-fs_bind_cloneNS01.sh,FAILED: broken=1,TEST,TEST,TEST
-fs_bind_cloneNS02.sh,FAILED: broken=1,TEST,TEST,TEST
-fs_bind_cloneNS03.sh,FAILED: broken=1,TEST,TEST,TEST
-fs_bind_cloneNS04.sh,FAILED: broken=1,TEST,TEST,TEST
-fs_bind_cloneNS05.sh,FAILED: failed=4 broken=1,TEST,TEST,TEST
-fs_bind_cloneNS06.sh,FAILED: failed=4 broken=1,TEST,TEST,TEST
-fs_bind_cloneNS07.sh,FAILED: failed=6 broken=1,TEST,TEST,TEST
+fs_bind01.sh,PASS,PASS,TEST,TEST
+fs_bind02.sh,PASS,PASS,TEST,TEST
+fs_bind03.sh,PASS,PASS,TEST,TEST
+fs_bind04.sh,PASS,PASS,TEST,TEST
+fs_bind05.sh,PASS,PASS,TEST,TEST
+fs_bind06.sh,PASS,PASS,TEST,TEST
+fs_bind07-2.sh,PASS,PASS,TEST,TEST
+fs_bind07.sh,PASS,PASS,TEST,TEST
+fs_bind08.sh,PASS,PASS,TEST,TEST
+fs_bind09.sh,PASS,PASS,TEST,TEST
+fs_bind10.sh,PASS,PASS,TEST,TEST
+fs_bind11.sh,PASS,PASS,TEST,TEST
+fs_bind12.sh,PASS,PASS,TEST,TEST
+fs_bind13.sh,PASS,PASS,TEST,TEST
+fs_bind14.sh,PASS,PASS,TEST,TEST
+fs_bind15.sh,HALF: failed=4,HALF: failed=4,TEST,TEST
+fs_bind16.sh,PASS,PASS,TEST,TEST
+fs_bind17.sh,PASS,PASS,TEST,TEST
+fs_bind18.sh,PASS,PASS,TEST,TEST
+fs_bind19.sh,HALF: failed=2,HALF: failed=2,TEST,TEST
+fs_bind20.sh,PASS,PASS,TEST,TEST
+fs_bind21.sh,HALF: failed=13,HALF: failed=13,TEST,TEST
+fs_bind22.sh,HALF: failed=2,HALF: failed=2,TEST,TEST
+fs_bind23.sh,PASS,PASS,TEST,TEST
+fs_bind24.sh,HALF: failed=2,HALF: failed=2,TEST,TEST
+fs_bind_cloneNS01.sh,FAILED: broken=1,NOEXIT,,
+fs_bind_cloneNS02.sh,FAILED: broken=1,NOEXIT,,
+fs_bind_cloneNS03.sh,FAILED: broken=1,NOEXIT,,
+fs_bind_cloneNS04.sh,FAILED: broken=1,NOEXIT,,
+fs_bind_cloneNS05.sh,FAILED: failed=4 broken=1,NOEXIT,,
+fs_bind_cloneNS06.sh,FAILED: failed=4 broken=1,NOEXIT,,
+fs_bind_cloneNS07.sh,FAILED: failed=6 broken=1,NOEXIT,,
 fs_bind_lib.sh,,,,
-fs_bind_move01.sh,FAILED: failed=9,TEST,TEST,TEST
-fs_bind_move02.sh,FAILED: failed=10,TEST,TEST,TEST
-fs_bind_move03.sh,FAILED: failed=10,TEST,TEST,TEST
-fs_bind_move04.sh,FAILED: failed=9,TEST,TEST,TEST
-fs_bind_move05.sh,FAILED: failed=9,TEST,TEST,TEST
-fs_bind_move06.sh,FAILED: failed=6,TEST,TEST,TEST
-fs_bind_move07.sh,FAILED: failed=6,TEST,TEST,TEST
-fs_bind_move08.sh,FAILED: failed=5,TEST,TEST,TEST
-fs_bind_move09.sh,FAILED: failed=11,TEST,TEST,TEST
-fs_bind_move10.sh,FAILED: failed=7,TEST,TEST,TEST
-fs_bind_move11.sh,FAILED: failed=7,TEST,TEST,TEST
-fs_bind_move12.sh,FAILED: failed=6,TEST,TEST,TEST
-fs_bind_move13.sh,PASS,TEST,TEST,TEST
-fs_bind_move14.sh,FAILED: failed=4,TEST,TEST,TEST
-fs_bind_move15.sh,FAILED: failed=4,TEST,TEST,TEST
-fs_bind_move16.sh,FAILED: failed=3,TEST,TEST,TEST
-fs_bind_move17.sh,PASS,TEST,TEST,TEST
-fs_bind_move18.sh,FAILED: failed=15,TEST,TEST,TEST
-fs_bind_move19.sh,FAILED: failed=11,TEST,TEST,TEST
-fs_bind_move20.sh,FAILED: failed=6,TEST,TEST,TEST
-fs_bind_move21.sh,FAILED: failed=10,TEST,TEST,TEST
-fs_bind_move22.sh,FAILED: failed=7,TEST,TEST,TEST
-fs_bind_rbind01.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind02.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind03.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind04.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind05.sh,FAILED: failed=2,TEST,TEST,TEST
-fs_bind_rbind06.sh,FAILED: failed=2,TEST,TEST,TEST
-fs_bind_rbind07-2.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind07.sh,FAILED: failed=2,TEST,TEST,TEST
-fs_bind_rbind08.sh,FAILED: failed=2,TEST,TEST,TEST
-fs_bind_rbind09.sh,FAILED: failed=2,TEST,TEST,TEST
-fs_bind_rbind10.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind11.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind12.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind13.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind14.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind15.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind16.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind17.sh,FAILED: failed=9,TEST,TEST,TEST
-fs_bind_rbind18.sh,FAILED: failed=9,TEST,TEST,TEST
-fs_bind_rbind19.sh,FAILED: failed=9,TEST,TEST,TEST
-fs_bind_rbind20.sh,FAILED: failed=9,TEST,TEST,TEST
-fs_bind_rbind21.sh,FAILED: failed=15,TEST,TEST,TEST
-fs_bind_rbind22.sh,FAILED: failed=12,TEST,TEST,TEST
-fs_bind_rbind23.sh,FAILED: failed=13,TEST,TEST,TEST
-fs_bind_rbind24.sh,FAILED: failed=13,TEST,TEST,TEST
-fs_bind_rbind25.sh,FAILED: failed=13,TEST,TEST,TEST
-fs_bind_rbind26.sh,FAILED: failed=11,TEST,TEST,TEST
-fs_bind_rbind27.sh,FAILED: failed=12,TEST,TEST,TEST
-fs_bind_rbind28.sh,FAILED: failed=11,TEST,TEST,TEST
-fs_bind_rbind29.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind30.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind31.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind32.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind33.sh,FAILED: failed=13,TEST,TEST,TEST
-fs_bind_rbind34.sh,FAILED: failed=11,TEST,TEST,TEST
-fs_bind_rbind35.sh,FAILED: failed=14,TEST,TEST,TEST
-fs_bind_rbind36.sh,FAILED: failed=8,TEST,TEST,TEST
-fs_bind_rbind37.sh,FAILED: failed=13,TEST,TEST,TEST
-fs_bind_rbind38.sh,PASS,TEST,TEST,TEST
-fs_bind_rbind39.sh,PASS,TEST,TEST,TEST
-fs_bind_regression.sh,FAILED: failed=5,TEST,TEST,TEST
+fs_bind_move01.sh,PASS,PASS,TEST,TEST
+fs_bind_move02.sh,PASS,PASS,TEST,TEST
+fs_bind_move03.sh,PASS,PASS,TEST,TEST
+fs_bind_move04.sh,PASS,PASS,TEST,TEST
+fs_bind_move05.sh,PASS,PASS,TEST,TEST
+fs_bind_move06.sh,PASS,PASS,TEST,TEST
+fs_bind_move07.sh,PASS,PASS,TEST,TEST
+fs_bind_move08.sh,PASS,PASS,TEST,TEST
+fs_bind_move09.sh,HALF: failed=5,HALF: failed=5,TEST,TEST
+fs_bind_move10.sh,PASS,PASS,TEST,TEST
+fs_bind_move11.sh,PASS,PASS,TEST,TEST
+fs_bind_move12.sh,PASS,PASS,TEST,TEST
+fs_bind_move13.sh,NOEXIT,NOEXIT,NOEXIT,NOEXIT
+fs_bind_move14.sh,PASS,PASS,TEST,TEST
+fs_bind_move15.sh,PASS,PASS,TEST,TEST
+fs_bind_move16.sh,PASS,PASS,TEST,TEST
+fs_bind_move17.sh,PASS,PASS,TEST,TEST
+fs_bind_move18.sh,PASS,PASS,TEST,TEST
+fs_bind_move19.sh,PASS,PASS,TEST,TEST
+fs_bind_move20.sh,PASS,PASS,TEST,TEST
+fs_bind_move21.sh,PASS,PASS,TEST,TEST
+fs_bind_move22.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind01.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind02.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind03.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind04.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind05.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind06.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind07-2.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind07.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind08.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind09.sh,HALF: failed=2,HALF: failed=2,TEST,TEST
+fs_bind_rbind10.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind11.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind12.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind13.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind14.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind15.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind16.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind17.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind18.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind19.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind20.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind21.sh,HALF: failed=2,HALF: failed=2,TEST,TEST
+fs_bind_rbind22.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind23.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind24.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind25.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind26.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind27.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind28.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind29.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind30.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind31.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind32.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind33.sh,HALF: failed=13,HALF: failed=13,TEST,TEST
+fs_bind_rbind34.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind35.sh,NOEXIT: TEST: FAILED: failed=14,NOEXIT,NOEXIT,NOEXIT
+fs_bind_rbind36.sh,HALF: failed=1,HALF: failed=1,TEST,TEST
+fs_bind_rbind37.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind38.sh,PASS,PASS,TEST,TEST
+fs_bind_rbind39.sh,PASS,PASS,TEST,TEST
+fs_bind_regression.sh,PASS,PASS,TEST,TEST
 fs_di,,,,
 fs_fill,,,,
 fs_inod,,,,
@@ -1657,7 +1657,7 @@ readlinkat01,PASS,PASS,PASS,PASS
 readlinkat02,PASS,PASS,PASS,HALF
 readv01,PASS,PASS,PASS,PASS
 readv02,PASS,PASS,PASS,PASS
-realpath01,FAILED,TEST,,
+realpath01,FAILED,PASS,,
 reboot01,PASS,PASS,PASS,PASS
 reboot02,,,,
 recv01,,,,
