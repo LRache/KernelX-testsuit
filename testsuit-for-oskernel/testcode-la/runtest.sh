@@ -5,6 +5,8 @@ export PATH=/bin:$PATH
 /glibc/busybox mkdir -p /bin /lib /tmp /var/tmp
 
 busybox_tools="
+awk
+setsid
 sh
 cp
 rm
