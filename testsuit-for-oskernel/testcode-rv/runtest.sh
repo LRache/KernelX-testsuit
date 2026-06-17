@@ -33,6 +33,9 @@ blkid
 df
 mount
 umount
+timeout
+setsid
+sleep
 "
 
 for tool in $busybox_tools; do
@@ -74,6 +77,8 @@ set -ex
 /testcode/libcbench_testcode.sh
 /testcode/lmbench_testcode.sh
 /testcode/iozone_testcode.sh
+/testcode/iperf_testcode.sh
+/testcode/netperf_testcode.sh
 /testcode/ltp_testcode_glibc.sh
 
 set +ex
@@ -95,6 +100,8 @@ set -ex
 /testcode/libcbench_testcode.sh
 /testcode/lmbench_testcode.sh
 /testcode/iozone_testcode.sh
+/testcode/iperf_testcode.sh
+/testcode/netperf_testcode.sh
 /testcode/ltp_testcode_musl.sh
 
 set +ex

@@ -62,6 +62,9 @@ done
 mkdir -p /lib64 /usr/lib64
 mkdir -p /dev/shm
 
+cp /testcode/tst_test_busybox_compatible.sh /glibc/ltp/testcases/bin/tst_test.sh
+cp /testcode/tst_test_busybox_compatible.sh /musl/ltp/testcases/bin/tst_test.sh
+
 cd /glibc
 
 # glibc dynamic linker — LoongArch uses /lib64/ for interpreter
@@ -84,6 +87,8 @@ set -e
 /testcode/lmbench_testcode.sh
 # /testcode/unixbench_testcode.sh
 /testcode/iozone_testcode.sh
+/testcode/iperf_testcode.sh
+/testcode/netperf_testcode.sh
 # /testcode/cyclictest_testcode.sh
 /testcode/ltp_testcode_glibc.sh
 
@@ -103,6 +108,8 @@ ln /musl/lib/libc.so /lib64/ld-linux-loongarch-lp64d.so.1
 /testcode/lmbench_testcode.sh
 # /testcode/unixbench_testcode.sh
 /testcode/iozone_testcode.sh
+/testcode/iperf_testcode.sh
+/testcode/netperf_testcode.sh
 # /testcode/cyclictest_testcode.sh
 /testcode/ltp_testcode_musl.sh
 
