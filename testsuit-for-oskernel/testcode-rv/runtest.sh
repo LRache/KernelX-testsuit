@@ -1,6 +1,6 @@
 #!/glibc/busybox sh
 
-export PATH=/bin:$PATH
+export PATH
 
 /glibc/busybox mkdir -p /bin /lib /tmp /var/tmp
 
@@ -36,6 +36,7 @@ umount
 timeout
 setsid
 sleep
+losetup
 "
 
 for tool in $busybox_tools; do
@@ -48,6 +49,7 @@ done
 
 mount -t tmpfs none /tmp
 mount -t tmpfs none /var/tmp
+losetup /dev/loop0 /testcode/empty-fat32.img
 
 mkfs_tools="
 mkfs

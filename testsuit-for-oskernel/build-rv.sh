@@ -7,8 +7,12 @@ URL="https://github.com/oscomp/testsuits-for-oskernel/releases/download/pre-2025
 TESTCODE="$SCRIPT_DIR/testcode-rv"
 DATA="$SCRIPT_DIR/data"
 MKE2FS="$SCRIPT_DIR/bin/riscv64-mke2fs.static"
+FAT32_IMAGE_NAME="${FAT32_IMAGE_NAME:-empty-fat32.img}"
+FAT32_IMAGE="$(mktemp "${TMPDIR:-/tmp}/kernelx-empty-fat32.XXXXXX.img")"
+trap 'rm -f "$FAT32_IMAGE"' EXIT
 
 "$SCRIPT_DIR/ensure-mke2fs-tools.sh" riscv64
+"$SCRIPT_DIR/prepare-fat32-image.sh" "$FAT32_IMAGE"
 
 for file in "$DATA/passwd" "$DATA/group" "$DATA/config" "$MKE2FS"; do
     if [ ! -f "$file" ]; then
@@ -42,6 +46,9 @@ echo "Copying testcode to image..."
 $SUDO mkdir -p "$MOUNT_DIR/testcode"
 $SUDO cp -r $TESTCODE/* "$MOUNT_DIR/testcode/"
 $SUDO chown -R root:root "$MOUNT_DIR/testcode"
+$SUDO cp "$FAT32_IMAGE" "$MOUNT_DIR/testcode/$FAT32_IMAGE_NAME"
+$SUDO chown root:root "$MOUNT_DIR/testcode/$FAT32_IMAGE_NAME"
+$SUDO chmod 0644 "$MOUNT_DIR/testcode/$FAT32_IMAGE_NAME"
 
 $SUDO find "$MOUNT_DIR" -type f -executable -exec chmod o-x {} +
 

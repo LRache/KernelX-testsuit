@@ -23,7 +23,7 @@ set -ex
 ./gettimeofday
 ./mkdir_
 ./mmap
-# ./mount
+./mount /dev/loop0
 ./munmap
 ./openat
 ./open
@@ -31,7 +31,7 @@ set -ex
 ./read
 ./sleep
 ./times
-# ./umount
+./umount /dev/loop0
 ./uname
 ./unlink
 ./wait

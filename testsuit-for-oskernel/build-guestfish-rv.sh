@@ -9,10 +9,14 @@ TESTCODE="${TESTCODE:-$SCRIPT_DIR/testcode-rv}"
 DATA="$SCRIPT_DIR/data"
 MKE2FS="${MKE2FS:-$SCRIPT_DIR/bin/riscv64-mke2fs.static}"
 ROOT_DEV="${ROOT_DEV:-/dev/sda}"
+FAT32_IMAGE_NAME="${FAT32_IMAGE_NAME:-empty-fat32.img}"
+FAT32_IMAGE="$(mktemp "${TMPDIR:-/tmp}/kernelx-empty-fat32.XXXXXX.img")"
+trap 'rm -f "$FAT32_IMAGE"' EXIT
 
 if [ "$MKE2FS" = "$SCRIPT_DIR/bin/riscv64-mke2fs.static" ]; then
     "$SCRIPT_DIR/ensure-mke2fs-tools.sh" riscv64
 fi
+"$SCRIPT_DIR/prepare-fat32-image.sh" "$FAT32_IMAGE"
 
 has_supermin_kernel() {
     local kernel
@@ -117,7 +121,7 @@ set_guest_metadata() {
 
 commands="$(mktemp)"
 cleanup() {
-    rm -f "$commands"
+    rm -f "$commands" "$FAT32_IMAGE"
 }
 trap cleanup EXIT
 
@@ -145,6 +149,9 @@ trap cleanup EXIT
         echo "upload $(gf_quote "$file") $(gf_quote "$guest_path")"
         set_guest_metadata "$guest_path" "$(file_mode "$file")"
     done
+
+    echo "upload $(gf_quote "$FAT32_IMAGE") $(gf_quote "/testcode/$FAT32_IMAGE_NAME")"
+    set_guest_metadata "/testcode/$FAT32_IMAGE_NAME" "644"
 
     echo "mkdir-p /bin"
     set_guest_metadata "/bin" "755"

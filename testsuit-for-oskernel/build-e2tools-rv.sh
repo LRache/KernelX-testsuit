@@ -8,8 +8,12 @@ URL="https://github.com/oscomp/testsuits-for-oskernel/releases/download/pre-2025
 TESTCODE="$SCRIPT_DIR/testcode-rv"
 DATA="$SCRIPT_DIR/data"
 MKE2FS="$SCRIPT_DIR/bin/riscv64-mke2fs.static"
+FAT32_IMAGE_NAME="${FAT32_IMAGE_NAME:-empty-fat32.img}"
+FAT32_IMAGE="$(mktemp "${TMPDIR:-/tmp}/kernelx-empty-fat32.XXXXXX.img")"
+trap 'rm -f "$FAT32_IMAGE"' EXIT
 
 "$SCRIPT_DIR/ensure-mke2fs-tools.sh" riscv64
+"$SCRIPT_DIR/prepare-fat32-image.sh" "$FAT32_IMAGE"
 
 for file in "$DATA/passwd" "$DATA/group" "$DATA/config" "$MKE2FS"; do
     if [ ! -f "$file" ]; then
@@ -41,7 +45,7 @@ echo "Writing testcode to $IMG using debugfs..."
 
 # Build a debugfs command script
 CMDS=$(mktemp)
-trap 'rm -f "$CMDS"' EXIT
+trap 'rm -f "$CMDS" "$FAT32_IMAGE"' EXIT
 
 file_mode() {
     local file="$1"
@@ -95,6 +99,9 @@ find "$TESTCODE" -type f | sort | while read -r file; do
     echo "write $file $image_path" >> "$CMDS"
     set_file_metadata "$image_path" "$(file_mode "$file")"
 done
+
+echo "write $FAT32_IMAGE /testcode/$FAT32_IMAGE_NAME" >> "$CMDS"
+set_file_metadata "/testcode/$FAT32_IMAGE_NAME" "644"
 
 # Copy tools and data files
 echo "write $MKE2FS /bin/mke2fs.static" >> "$CMDS"
