@@ -34,6 +34,7 @@ blkid
 df
 mount
 umount
+sleep
 losetup
 "
 
