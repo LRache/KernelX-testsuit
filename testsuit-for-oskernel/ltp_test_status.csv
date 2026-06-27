@@ -131,7 +131,7 @@ check_setkey,,,,
 check_simple_capset,,,,
 chmod01,PASS,PASS,PASS,PASS
 chmod03,PASS,PASS,PASS,PASS
-chmod05,PASS,FAILED: TBROK: Group ID lookup failed: EAFNOSUPPORT,PASS,FAILED: TBROK: Group ID lookup failed: EAFNOSUPPORT
+chmod05,PASS,FAILED: broken=1,PASS,FAILED: TBROK: Group ID lookup failed: EAFNOSUPPORT
 chmod06,PASS,PASS,PASS,PASS
 chmod07,FAILED: getgrnam(users) failed,FAILED: getgrnam(users) failed,FAILED: getgrnam(users) failed,FAILED: getgrnam(users) failed
 chown01,PASS,PASS,PASS,PASS
@@ -161,11 +161,11 @@ clock_settime03,PASS,PASS,PASS,PASS
 clone01,PASS,PASS,PASS,PASS
 clone02,PASS,PASS,PASS,PASS
 clone03,PASS,PASS,PASS,PASS
-clone04,PASS,FAILED: SIGSEGV,PASS,FAILED: SIGSEGV
+clone04,PASS,FAILED: broken=1,PASS,PASS
 clone05,PASS,PASS,PASS,PASS
 clone06,PASS,PASS,PASS,PASS
 clone07,PASS,PASS,PASS,PASS
-clone08,PASS,PASS,HALF,HALF
+clone08,PASS,PASS,HALF,HALF: broken=1
 clone09,FAILED: Need FILE '/proc/sys/net/ipv4/conf/lo/tag',FAILED: Need FILE '/proc/sys/net/ipv4/conf/lo/tag',FAILED: Need FILE '/proc/sys/net/ipv4/conf/lo/tag',FAILED: Need FILE '/proc/sys/net/ipv4/conf/lo/tag'
 clone301,PASS,PASS,PASS,PASS
 clone302,PASS,PASS,PASS,PASS
@@ -177,12 +177,12 @@ close_range02,PASS,PASS,PASS,PASS
 cmdlib.sh,,,,
 cn_pec.sh,,,,
 confstr01,PASS,PASS,PASS,PASS
-connect01,HALF,HALF,NOEXIT,NOEXIT
+connect01,HALF,HALF,NOEXIT,FAILED: NOSUMMARY
 connect02,FAILED,FAILED,FAILED,FAILED
 copy_file_range01,PASS,PASS,PASS,PASS
 copy_file_range02,HALF,HALF,HALF,SKIP: skipped=12
 copy_file_range03,PASS,PASS,PASS,PASS
-cp_tests.sh,HALF,,,
+cp_tests.sh,HALF,HALF,HALF: failed=2 broken=1,HALF: failed=2 broken=1
 cpio_tests.sh,,,,
 cpuacct.sh,,,,
 cpuacct_task,,,,
@@ -287,7 +287,7 @@ dirtyc0w,,,,
 dirtyc0w_child,,,,
 dirtyc0w_shmem,,,,
 dirtyc0w_shmem_child,,,,
-dirtypipe,PASS,,,
+dirtypipe,PASS,PASS,PASS,PASS
 dma_thread_diotest,,,,
 dns-stress-lib.sh,,,,
 dns-stress.sh,,,,
@@ -295,7 +295,7 @@ dns-stress01-rmt.sh,,,,
 dns-stress02-rmt.sh,,,,
 dnsmasq_tests.sh,,,,
 doio,,,,
-du01.sh,HALF,HALF,,
+du01.sh,HALF,HALF,HALF: failed=6 skipped=16,HALF: failed=6 skipped=16
 dup01,PASS,PASS,PASS,PASS
 dup02,PASS,PASS,PASS,PASS
 dup03,PASS,PASS,PASS,PASS
@@ -319,7 +319,7 @@ eject_check_tray,,,,
 endian_switch01,,,,
 epoll-ltp,,,,
 epoll_create01,PASS,PASS,PASS,PASS
-epoll_create02,PASS,FAILED,PASS,FAILED
+epoll_create02,PASS,FAILED: failed=2 skipped=1,PASS,SKIP: skipped=1
 epoll_create1_01,PASS,PASS,PASS,PASS
 epoll_create1_02,PASS,PASS,PASS,PASS
 epoll_ctl01,PASS,PASS,PASS,PASS
@@ -327,11 +327,11 @@ epoll_ctl02,HALF,HALF,HALF,HALF
 epoll_ctl03,PASS,PASS,PASS,PASS
 epoll_ctl04,FAILED,FAILED,FAILED,FAILED
 epoll_ctl05,FAILED,FAILED,FAILED,FAILED
-epoll_pwait01,PASS,PASS,,
-epoll_pwait02,PASS,PASS,,
-epoll_pwait03,NOEXIT: systemd-detect-virt,,,
-epoll_pwait04,PASS,,,
-epoll_pwait05,PASS,,,
+epoll_pwait01,PASS,PASS,PASS,PASS
+epoll_pwait02,PASS,PASS,PASS,PASS
+epoll_pwait03,NOEXIT: systemd-detect-virt,,FAILED: broken=1,
+epoll_pwait04,PASS,PASS,PASS,PASS
+epoll_pwait05,PASS,PASS,PASS,PASS
 epoll_wait01,PASS,PASS,PASS,PASS
 epoll_wait02,NOEXIT: systemd-detect-virt,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found
 epoll_wait03,PASS,PASS,PASS,PASS
@@ -380,22 +380,22 @@ fallocate03,HALF,HALF,HALF,HALF
 fallocate04,HALF,HALF,HALF,HALF
 fallocate05,FAILED,FAILED,FAILED,FAILED
 fallocate06,FAILED,FAILED,FAILED,FAILED
-fanotify01,PASS,,,
+fanotify01,PASS,PASS,PASS,PASS
 fanotify02,PASS,PASS,PASS,PASS
 fanotify03,PASS,PASS,PASS,PASS
 fanotify04,PASS,PASS,PASS,PASS
-fanotify05,FAILED: Timeout,,,
+fanotify05,FAILED: Timeout,,FAILED: broken=1,
 fanotify06,PASS,PASS,PASS,PASS
 fanotify07,HALF: overlayfs,HALF: overlayfs,HALF: overlayfs,HALF: overlayfs
 fanotify08,PASS,PASS,PASS,PASS
 fanotify09,PASS,PASS,PASS,PASS
 fanotify10,HALF: Unstable,HALF: Unstable,HALF: Unstable,HALF: Unstable
-fanotify11,HALF: libgcc_s.so.1 must be installed for pthread_exit to work,,,
+fanotify11,HALF: libgcc_s.so.1 must be installed for pthread_exit to work,,FAILED: broken=1,
 fanotify12,PASS,PASS,PASS,PASS
-fanotify13,FAILED,,,
+fanotify13,FAILED,,FAILED: broken=1,
 fanotify14,HALF,HALF,HALF,HALF
 fanotify15,FAILED,FAILED,FAILED,FAILED
-fanotify16,FAILED,,,
+fanotify16,FAILED,,FAILED: broken=1,
 fanotify17,FAILED: fanotify inside user namespace is not supported,FAILED: fanotify inside user namespace is not supported,FAILED: fanotify inside user namespace is not supported,FAILED: fanotify inside user namespace is not supported
 fanotify18,,,,
 fanotify19,PASS,PASS,PASS,PASS
@@ -406,7 +406,7 @@ fanotify23,FAILED: FAN_ATTRIB not supported in kernel,FAILED: FAN_ATTRIB not sup
 fanout01,,,,
 fchdir01,PASS,PASS,PASS,PASS
 fchdir02,PASS,PASS,PASS,PASS
-fchdir03,PASS,PASS,FAILED: TFAIL: fchdir() succeeded unexpectedly,FAILED: TFAIL: fchdir() succeeded unexpectedly
+fchdir03,PASS,PASS,FAILED: TFAIL: fchdir() succeeded unexpectedly,PASS
 fchmod01,PASS,PASS,PASS,PASS
 fchmod02,PASS,PASS,PASS,PASS
 fchmod03,PASS,PASS,PASS,PASS
@@ -432,8 +432,8 @@ fcntl04,PASS,PASS,PASS,PASS
 fcntl04_64,PASS,PASS,PASS,PASS
 fcntl05,PASS,PASS,PASS,PASS
 fcntl05_64,PASS,PASS,PASS,PASS
-fcntl07,NO SUMMARY,,,
-fcntl07_64,NO SUMMARY,,,
+fcntl07,NO SUMMARY,,PASS: NOSUMMARY,
+fcntl07_64,NO SUMMARY,,PASS: NOSUMMARY,
 fcntl08,PASS,PASS,PASS,PASS
 fcntl08_64,PASS,PASS,PASS,PASS
 fcntl09,PASS,PASS,PASS,PASS
@@ -490,8 +490,8 @@ fcntl35,FAILED: Change pipe max size,FAILED: Change pipe size,FAILED: Change pip
 fcntl35_64,FAILED: Change pipe max size,FAILED: Change pipe size,FAILED: Change pipe size,FAILED: Change pipe size
 fcntl36,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug
 fcntl36_64,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug,FAILED: F_SETLEASE & Kernel bug
-fcntl37,PASS,FAILED: syscall capget,FAILED: syscall capget,FAILED: syscall capget
-fcntl37_64,PASS,FAILED: syscall capget,FAILED: syscall capget,FAILED: syscall capget
+fcntl37,PASS,PASS,FAILED: syscall capget,PASS
+fcntl37_64,PASS,PASS,FAILED: syscall capget,PASS
 fcntl38,FAILED: Need dnotify,FAILED: Need dnotify,FAILED: Need dnotify,FAILED: Need dnotify
 fcntl38_64,FAILED: Need dnotify,FAILED: Need dnotify,FAILED: Need dnotify,FAILED: Need dnotify
 fcntl39,FAILED: Need dnotify,FAILED: Need dnotify,FAILED: Need dnotify,FAILED: Need dnotify
@@ -548,102 +548,102 @@ freeze_thaw.sh,,,,
 freeze_write_freezing.sh,,,,
 fremovexattr01,,,,
 fremovexattr02,,,,
-fs_bind01.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind02.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind03.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind04.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind05.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind06.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind07-2.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind07.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind08.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind09.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind10.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind11.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind12.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind13.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind14.sh,TEST: PASS,TEST: PASS,PASS,PASS
+fs_bind01.sh,PASS,PASS,PASS,PASS
+fs_bind02.sh,PASS,PASS,PASS,PASS
+fs_bind03.sh,PASS,PASS,PASS,PASS
+fs_bind04.sh,PASS,PASS,PASS,PASS
+fs_bind05.sh,PASS,PASS,PASS,PASS
+fs_bind06.sh,PASS,PASS,PASS,PASS
+fs_bind07-2.sh,PASS,PASS,PASS,PASS
+fs_bind07.sh,PASS,PASS,PASS,PASS
+fs_bind08.sh,PASS,PASS,PASS,PASS
+fs_bind09.sh,PASS,PASS,PASS,PASS
+fs_bind10.sh,PASS,PASS,PASS,PASS
+fs_bind11.sh,PASS,PASS,PASS,PASS
+fs_bind12.sh,PASS,PASS,PASS,PASS
+fs_bind13.sh,PASS,PASS,PASS,PASS
+fs_bind14.sh,PASS,PASS,PASS,PASS
 fs_bind15.sh,HALF: failed=4,HALF: failed=4,HALF: failed=4,HALF: failed=4
-fs_bind16.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind17.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind18.sh,TEST: PASS,TEST: PASS,PASS,PASS
+fs_bind16.sh,PASS,PASS,PASS,PASS
+fs_bind17.sh,PASS,PASS,PASS,PASS
+fs_bind18.sh,PASS,PASS,PASS,PASS
 fs_bind19.sh,HALF: failed=2,HALF: failed=2,HALF: failed=2,HALF: failed=2
-fs_bind20.sh,TEST: PASS,TEST: PASS,PASS,PASS
+fs_bind20.sh,PASS,PASS,PASS,PASS
 fs_bind21.sh,HALF: failed=13,HALF: failed=13,HALF: failed=13,HALF: failed=13
 fs_bind22.sh,HALF: failed=2,HALF: failed=2,HALF: failed=2,HALF: failed=2
-fs_bind23.sh,TEST: PASS,TEST: PASS,PASS,PASS
+fs_bind23.sh,PASS,PASS,PASS,PASS
 fs_bind24.sh,HALF: failed=2,HALF: failed=2,HALF: failed=2,HALF: failed=2
-fs_bind_cloneNS01.sh,FAILED: broken=1,NOEXIT,,
-fs_bind_cloneNS02.sh,FAILED: broken=1,NOEXIT,,
-fs_bind_cloneNS03.sh,FAILED: broken=1,NOEXIT,,
-fs_bind_cloneNS04.sh,FAILED: broken=1,NOEXIT,,
-fs_bind_cloneNS05.sh,FAILED: failed=4 broken=1,NOEXIT,,
-fs_bind_cloneNS06.sh,FAILED: failed=4 broken=1,NOEXIT,,
-fs_bind_cloneNS07.sh,FAILED: failed=6 broken=1,NOEXIT,,
+fs_bind_cloneNS01.sh,FAILED,FAILED,FAILED,FAILED
+fs_bind_cloneNS02.sh,FAILED,FAILED,FAILED,FAILED
+fs_bind_cloneNS03.sh,FAILED,FAILED,FAILED,FAILED
+fs_bind_cloneNS04.sh,FAILED,FAILED,FAILED,FAILED
+fs_bind_cloneNS05.sh,FAILED,FAILED,FAILED,FAILED
+fs_bind_cloneNS06.sh,FAILED,FAILED,FAILED,FAILED
+fs_bind_cloneNS07.sh,FAILED,FAILED,FAILED,FAILED
 fs_bind_lib.sh,,,,
-fs_bind_move01.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move02.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move03.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move04.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move05.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move06.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move07.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move08.sh,TEST: PASS,TEST: PASS,PASS,PASS
+fs_bind_move01.sh,PASS,PASS,PASS,PASS
+fs_bind_move02.sh,PASS,PASS,PASS,PASS
+fs_bind_move03.sh,PASS,PASS,PASS,PASS
+fs_bind_move04.sh,PASS,PASS,PASS,PASS
+fs_bind_move05.sh,PASS,PASS,PASS,PASS
+fs_bind_move06.sh,PASS,PASS,PASS,PASS
+fs_bind_move07.sh,PASS,PASS,PASS,PASS
+fs_bind_move08.sh,PASS,PASS,PASS,PASS
 fs_bind_move09.sh,HALF: failed=5,HALF: failed=5,HALF: failed=5,HALF: failed=5
-fs_bind_move10.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move11.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move12.sh,TEST: PASS,TEST: PASS,PASS,PASS
+fs_bind_move10.sh,PASS,PASS,PASS,PASS
+fs_bind_move11.sh,PASS,PASS,PASS,PASS
+fs_bind_move12.sh,PASS,PASS,PASS,PASS
 fs_bind_move13.sh,NOEXIT,NOEXIT,NOEXIT,NOEXIT
-fs_bind_move14.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move15.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move16.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move17.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move18.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move19.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move20.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move21.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_move22.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind01.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind02.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind03.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind04.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind05.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind06.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind07-2.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind07.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind08.sh,TEST: PASS,TEST: PASS,PASS,PASS
+fs_bind_move14.sh,PASS,PASS,PASS,PASS
+fs_bind_move15.sh,PASS,PASS,PASS,PASS
+fs_bind_move16.sh,PASS,PASS,PASS,PASS
+fs_bind_move17.sh,PASS,PASS,PASS,PASS
+fs_bind_move18.sh,PASS,PASS,PASS,PASS
+fs_bind_move19.sh,PASS,PASS,PASS,PASS
+fs_bind_move20.sh,PASS,PASS,PASS,PASS
+fs_bind_move21.sh,PASS,PASS,PASS,PASS
+fs_bind_move22.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind01.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind02.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind03.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind04.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind05.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind06.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind07-2.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind07.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind08.sh,PASS,PASS,PASS,PASS
 fs_bind_rbind09.sh,HALF: failed=2,HALF: failed=2,HALF: failed=2,HALF: failed=2
-fs_bind_rbind10.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind11.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind12.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind13.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind14.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind15.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind16.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind17.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind18.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind19.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind20.sh,TEST: PASS,TEST: PASS,PASS,PASS
+fs_bind_rbind10.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind11.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind12.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind13.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind14.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind15.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind16.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind17.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind18.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind19.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind20.sh,PASS,PASS,PASS,PASS
 fs_bind_rbind21.sh,HALF: failed=2,HALF: failed=2,HALF: failed=2,HALF: failed=2
-fs_bind_rbind22.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind23.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind24.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind25.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind26.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind27.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind28.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind29.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind30.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind31.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind32.sh,TEST: PASS,TEST: PASS,PASS,PASS
+fs_bind_rbind22.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind23.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind24.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind25.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind26.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind27.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind28.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind29.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind30.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind31.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind32.sh,PASS,PASS,PASS,PASS
 fs_bind_rbind33.sh,HALF: failed=13,HALF: failed=13,HALF: failed=13,HALF: failed=13
-fs_bind_rbind34.sh,TEST: PASS,TEST: PASS,PASS,PASS
+fs_bind_rbind34.sh,PASS,PASS,PASS,PASS
 fs_bind_rbind35.sh,NOEXIT: TEST: FAILED: failed=14,NOEXIT,NOEXIT,NOEXIT
 fs_bind_rbind36.sh,HALF: failed=1,HALF: failed=1,HALF: failed=1,HALF: failed=1
-fs_bind_rbind37.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind38.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_rbind39.sh,TEST: PASS,TEST: PASS,PASS,PASS
-fs_bind_regression.sh,TEST: PASS,TEST: PASS,PASS,PASS
+fs_bind_rbind37.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind38.sh,PASS,PASS,PASS,PASS
+fs_bind_rbind39.sh,PASS,PASS,PASS,PASS
+fs_bind_regression.sh,PASS,PASS,PASS,PASS
 fs_di,,,,
 fs_fill,,,,
 fs_inod,,,,
@@ -675,8 +675,8 @@ fstat02_64,PASS,PASS,PASS,PASS
 fstat03,PASS,PASS,PASS,PASS
 fstat03_64,PASS,PASS,PASS,PASS
 fstatat01,PASS,PASS,PASS,PASS
-fstatfs01,PASS,HALF,HALF,HALF
-fstatfs01_64,PASS,HALF,HALF,HALF
+fstatfs01,PASS,PASS,HALF,PASS
+fstatfs01_64,PASS,PASS,HALF,PASS
 fstatfs02,PASS,PASS,PASS,PASS
 fstatfs02_64,PASS,PASS,PASS,PASS
 fsx-linux,,,,
@@ -715,15 +715,15 @@ futex_cmp_requeue01,,,,
 futex_cmp_requeue02,,,,
 futex_wait01,PASS,PASS,PASS,PASS
 futex_wait02,PASS,PASS,PASS,PASS
-futex_wait03,PASS,PASS,HALF: Unstable,HALF: Unstable
+futex_wait03,PASS,PASS,HALF: Unstable,PASS
 futex_wait04,PASS,PASS,PASS,PASS
 futex_wait05,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found
 futex_wait_bitset01,,,,
-futex_waitv01,SKIP: syscall(-1) __NR_futex_waitv not supported on your arch,,,
-futex_waitv02,SKIP: syscall(-1) __NR_futex_waitv not supported on your arch,,,
-futex_waitv03,SKIP: syscall(-1) __NR_futex_waitv not supported on your arch,,,
+futex_waitv01,SKIP: syscall(-1) __NR_futex_waitv not supported on your arch,,PASS,
+futex_waitv02,SKIP: syscall(-1) __NR_futex_waitv not supported on your arch,,PASS,
+futex_waitv03,SKIP: syscall(-1) __NR_futex_waitv not supported on your arch,,PASS,
 futex_wake01,PASS,PASS,PASS,PASS
-futex_wake02,PASS,PASS,PASS,FAILED: Child (5032) killed by signal SIGSEGV
+futex_wake02,PASS,PASS,PASS,PASS
 futex_wake03,PASS,PASS,PASS,PASS
 futex_wake04,FAILED: Need hugetlbfs,FAILED: Need hugetlbfs,FAILED: Need hugetlbfs,FAILED: Need hugetlbfs
 futimesat01,,,,
@@ -786,12 +786,12 @@ geteuid01,PASS,PASS,PASS,PASS
 geteuid02,PASS,PASS,PASS,PASS
 getgid01,PASS,PASS,PASS,PASS
 getgid03,PASS,PASS,PASS,PASS
-getgroups01,PASS,FAILED: NOSUMMARY,PASS,FAILED: NOSUMMARY
+getgroups01,PASS,NOSUMMARY: HALF,PASS,FAILED: NOSUMMARY
 getgroups03,PASS,PASS,PASS,PASS
 gethostbyname_r01,,,,
 gethostid01,,,,
 gethostname01,PASS,PASS,PASS,PASS
-gethostname02,PASS,FAILED,PASS,FAILED
+gethostname02,PASS,FAILED: failed=1,PASS,FAILED: failed=1
 getitimer01,PASS,PASS,PASS,PASS
 getitimer02,PASS,PASS,PASS,PASS
 getpagesize01,PASS,PASS,PASS,PASS
@@ -823,8 +823,8 @@ getrusage01,PASS,PASS,PASS,PASS
 getrusage02,PASS,PASS,PASS,PASS
 getrusage03,FAILED: Test needs at least 512MB MemAvailable,FAILED: Test needs at least 512MB MemAvailable,FAILED: Test needs at least 512MB MemAvailable,FAILED: Test needs at least 512MB MemAvailable
 getrusage04,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found,FAILED: NOEXIT: sh: systemd-detect-virt: not found
-getsid01,PASS,,,
-getsid02,PASS,,,
+getsid01,PASS,PASS,PASS,PASS
+getsid02,PASS,PASS,PASS,PASS
 getsockname01,,,,
 getsockopt01,,,,
 getsockopt02,,,,
@@ -993,13 +993,13 @@ io_submit02,,,,
 io_submit03,,,,
 io_uring01,,,,
 io_uring02,,,,
-ioctl01,PASS,,,
-ioctl02,FAILED: You must specify a tty device with -d option,,,
-ioctl03,FAILED: Need tun,,,
-ioctl04,PASS,,,
-ioctl05,PASS,,,
-ioctl06,PASS,,,
-ioctl07,PASS,,,
+ioctl01,PASS,FAILED: broken=1,PASS,FAILED: broken=1
+ioctl02,FAILED: You must specify a tty device with -d option,,FAILED: broken=1,
+ioctl03,FAILED: Need tun,,SKIP: skipped=1,
+ioctl04,PASS,PASS,PASS,PASS
+ioctl05,PASS,PASS,PASS,PASS
+ioctl06,PASS,PASS,PASS,PASS
+ioctl07,PASS,PASS,PASS,PASS
 ioctl08,,,,
 ioctl09,,,,
 ioctl_loop01,,,,
@@ -1073,7 +1073,7 @@ ksm06,,,,
 ksm07,,,,
 lchown01,PASS,PASS,PASS,PASS
 lchown02,PASS,PASS,PASS,PASS
-lchown03,NOSUMMARY,NOSUMMARY,FAILED: Couldn't find 'mkfs.ext2' in $PATH,FAILED: Couldn't find 'mkfs.ext2' in $PATH
+lchown03,NOSUMMARY,NOSUMMARY,FAILED: Couldn't find 'mkfs.ext2' in $PATH,PASS: NOSUMMARY
 ld01.sh,,,,
 ldd01.sh,,,,
 leapsec01,,,,
@@ -1085,8 +1085,8 @@ link02,PASS,PASS,PASS,PASS
 link04,PASS,PASS,PASS,PASS
 link05,PASS,PASS,PASS,PASS
 link08,PASS,PASS,PASS,PASS
-linkat01,NOSUMMARY,,,
-linkat02,NOSUMMARY: passed,,,
+linkat01,NOSUMMARY,,FAILED: NOSUMMARY,
+linkat02,NOSUMMARY: passed,,PASS: NOSUMMARY,
 linktest.sh,,,,
 listen01,,,,
 listxattr01,,,,
@@ -1098,7 +1098,7 @@ llistxattr03,,,,
 llseek01,PASS,PASS,PASS,PASS
 llseek02,PASS,PASS,PASS,PASS
 llseek03,PASS,PASS,PASS,PASS
-ln_tests.sh,HALF,,,
+ln_tests.sh,HALF,,PASS,
 lock_torture.sh,,,,
 locktests,,,,
 logrotate_tests.sh,,,,
@@ -1197,10 +1197,10 @@ memcontrol03,,,,
 memcontrol04,,,,
 memcpy01,PASS,PASS,PASS,PASS
 memctl_test01,,,,
-memfd_create01,PASS,PASS,,
-memfd_create02,PASS,PASS,,
-memfd_create03,FAILED: hugetlbfs is not supported,,,
-memfd_create04,FAILED: Huge page is not supported,,,
+memfd_create01,PASS,PASS,PASS,PASS
+memfd_create02,PASS,PASS,PASS,PASS
+memfd_create03,FAILED: hugetlbfs is not supported,,SKIP: hugetlbfs is not supported,
+memfd_create04,FAILED: Huge page is not supported,,SKIP: skipped=1,
 memset01,PASS,PASS,PASS,PASS
 memtoy,,,,
 mesgq_nstest,,,,
@@ -1217,10 +1217,10 @@ mkdir03,PASS,PASS,PASS,PASS
 mkdir04,PASS,PASS,PASS,PASS
 mkdir05,PASS,PASS,PASS,PASS
 mkdir09,FAILED: Timeout,FAILED: Timeout,FAILED: Timeout,FAILED: Timeout
-mkdir_tests.sh,HALF,,,
+mkdir_tests.sh,HALF,,PASS,
 mkdirat01,PASS,PASS,PASS,PASS
 mkdirat02,PASS,PASS,PASS,PASS
-mkfs01.sh,HALF,,,
+mkfs01.sh,HALF,,SKIP: skipped=1,
 mknod01,,,,
 mknod02,,,,
 mknod03,,,,
@@ -1268,8 +1268,8 @@ mmap20,PASS,PASS,PASS,PASS
 mmap1,,,,
 mmap2,,,,
 mmap3,,,,
-mmapstress01,PASS,FAILED,PASS,FAILED
-mmapstress02,PASS: NOSUMMARY,FAILED,PASS: NOSUMMARY,FAILED
+mmapstress01,PASS,PASS,PASS,PASS
+mmapstress02,PASS: NOSUMMARY,FAILED:NOSUMMARY,PASS: NOSUMMARY,FAILED: NOSUMMARY
 mmapstress03,PASS: NOSUMMARY,SKIP: NOSUMMARY,PASS: NOSUMMARY,SKIP: NOSUMMARY
 mmapstress04,PASS,PASS,PASS,PASS
 mmapstress05,PASS: NOSUMMARY,SKIP: NOSUMMARY,PASS: NOSUMMARY,SKIP: NOSUMMARY
@@ -1284,7 +1284,7 @@ modify_ldt01,,,,
 modify_ldt02,,,,
 modify_ldt03,,,,
 mount01,PASS,PASS,PASS,PASS
-mount02,NOSUMMARY,,,
+mount02,NOSUMMARY,,HALF: failed=5,
 mount03,HALF: Need mknod,HALF: Need mknod,HALF: Need mknod,HALF: Need mknod
 mount03_suid_child,,,,
 mount04,PASS,PASS,PASS,PASS
@@ -1314,11 +1314,11 @@ mpls02.sh,,,,
 mpls03.sh,,,,
 mpls04.sh,,,,
 mpls_lib.sh,,,,
-mprotect01,NOSUMMARY,,,
-mprotect02,NOSUMMARY,,,
-mprotect03,NOSUMMARY,,,
-mprotect04,NOSUMMARY,,,
-mprotect05,FAILED,,,
+mprotect01,NOSUMMARY,,FAILED: NOSUMMARY,
+mprotect02,NOSUMMARY,,FAILED: NOSUMMARY,
+mprotect03,NOSUMMARY,,FAILED: NOSUMMARY,
+mprotect04,NOSUMMARY,,PASS: NOSUMMARY,
+mprotect05,FAILED,,PASS,
 mq_notify01,,,,
 mq_notify02,,,,
 mq_notify03,,,,
@@ -1342,16 +1342,16 @@ msgctl02,PASS,PASS,PASS,PASS
 msgctl03,PASS,PASS,PASS,PASS
 msgctl04,PASS,PASS,PASS,PASS
 msgctl05,SKIP,SKIP,SKIP,SKIP
-msgctl06,SKIP: kernel doesn't support MSG_STAT_ANY,,,
+msgctl06,SKIP: kernel doesn't support MSG_STAT_ANY,,SKIP: skipped=1,
 msgctl12,PASS,PASS,PASS,PASS
 msgget01,PASS,PASS,PASS,PASS
 msgget02,PASS,PASS,PASS,PASS
-msgget03,FAILED: /proc/sys/kernel/msgmni: ENOENT,,,
-msgget04,FAILED: CONFIG_CHECKPOINT_RESTORE,,,
-msgget05,FAILED: CONFIG_CHECKPOINT_RESTORE,,
+msgget03,FAILED: /proc/sys/kernel/msgmni: ENOENT,,SKIP: skipped=1,
+msgget04,FAILED: CONFIG_CHECKPOINT_RESTORE,,SKIP: CONFIG_CHECKPOINT_RESTORE,
+msgget05,FAILED: CONFIG_CHECKPOINT_RESTORE,,SKIP: CONFIG_CHECKPOINT_RESTORE,
 msgrcv01,PASS,PASS,PASS,PASS
 msgrcv02,PASS,PASS,PASS,PASS
-msgrcv03,FAILED: CONFIG_CHECKPOINT_RESTORE,,,
+msgrcv03,FAILED: CONFIG_CHECKPOINT_RESTORE,,SKIP: CONFIG_CHECKPOINT_RESTORE,
 msgrcv05,PASS,PASS,PASS,PASS
 msgrcv06,PASS,PASS,PASS,PASS
 msgrcv07,PASS,PASS,PASS,PASS
@@ -1387,7 +1387,7 @@ netns_netlink,,,,
 netns_sysfs.sh,,,,
 netstat01.sh,,,,
 netstress,,,,
-newuname01,NOSUMMARY,NOSUMMARY,,
+newuname01,NOSUMMARY,NOSUMMARY,PASS: NOSUMMARY,PASS: NOSUMMARY
 nextafter01,,,,
 nfs01.sh,,,,
 nfs01_open_files,,,,
@@ -1443,11 +1443,11 @@ open06,PASS,PASS,PASS,PASS
 open07,PASS,PASS,PASS,PASS
 open08,PASS,PASS,PASS,PASS
 open09,PASS,PASS,PASS,PASS
-open10,PASS,FAILED: TBROK: Group ID lookup failed: EAFNOSUPPORT (97),PASS,FAILED: TBROK: Group ID lookup failed: EAFNOSUPPORT (97)
+open10,PASS,FAILED: broken=1,PASS,FAILED: TBROK: Group ID lookup failed: EAFNOSUPPORT (97)
 open11,PASS,PASS,PASS,PASS
 open12,FAILED: NOTPASS PASSED,FAILED: NOTPASS PASSED,FAILED: NOTPASS PASSED,FAILED: NOTPASS PASSED
 open13,FAILED: NOTPASS HALF:,FAILED: NOTPASS HALF:,FAILED: NOTPASS HALF:,FAILED: NOTPASS HALF:
-open14,NO SUMMARY,,,
+open14,NO SUMMARY,,NO SUMMARY: KERNEL BUG,
 open_by_handle_at01,,,,
 open_by_handle_at02,,,,
 open_tree01,,,,
@@ -1457,7 +1457,7 @@ openat02,FAILED: NOTPASS PASSED,FAILED: NOTPASS PASSED,FAILED: NOTPASS PASSED,FA
 openat03,FAILED,FAILED,FAILED,FAILED
 openat04,FAILED: There are no supported filesystems,FAILED: There are no supported filesystems,FAILED: There are no supported filesystems,FAILED: There are no supported filesystems
 openat201,PASS,PASS,PASS,PASS
-openat202,HALF,HALF,,
+openat202,HALF,HALF,HALF: failed=6,HALF: failed=6
 openat203,PASS,PASS,PASS,PASS
 openfile,,,,
 output_ipsec_conf,,,,
@@ -1465,8 +1465,8 @@ overcommit_memory,,,,
 page01,,,,
 page02,,,,
 parameters.sh,,,,
-pathconf01,PASS,FAILED,PASS,FAILED
-pathconf02,PASS,FAILED,PASS,FAILED
+pathconf01,PASS,PASS,PASS,PASS
+pathconf02,PASS,HALF: failed=5,PASS,HALF: failed=5
 pause01,PASS,PASS,PASS,PASS
 pause02,PASS,PASS,PASS,PASS
 pause03,PASS,PASS,PASS,PASS
@@ -1483,8 +1483,8 @@ pidfd_open01,PASS,PASS,PASS,PASS
 pidfd_open02,PASS,PASS,PASS,PASS
 pidfd_open03,PASS,PASS,PASS,PASS
 pidfd_open04,PASS,PASS,PASS,PASS
-pidfd_send_signal01,PASS,PASS,PASS,HALF: Unstable
-pidfd_send_signal02,FAILED,FAILED,HALF,HALF
+pidfd_send_signal01,PASS,PASS,PASS,PASS
+pidfd_send_signal02,FAILED,FAILED,HALF,HALF: broken=1
 pidfd_send_signal03,FAILED,FAILED,FAILED: /proc/sys/kernel/ns_last_pid,FAILED
 pidns01,,,,
 pidns02,,,,
@@ -1509,7 +1509,7 @@ ping02.sh,,,,
 pipe01,PASS,PASS,PASS,PASS
 pipe02,PASS,PASS,PASS,PASS
 pipe03,PASS,PASS,PASS,PASS
-pipe04,NOSUMMARY,,,
+pipe04,NOSUMMARY,,PASS: NOSUMMARY,
 pipe05,PASS,PASS,PASS,PASS
 pipe06,PASS,PASS,PASS,PASS
 pipe07,PASS,PASS,PASS,PASS
@@ -1569,7 +1569,7 @@ preadv201,PASS,PASS,PASS,PASS
 preadv201_64,PASS,PASS,PASS,PASS
 preadv202,PASS,PASS,PASS,PASS
 preadv202_64,PASS,PASS,PASS,PASS
-preadv203,FAILED: preadv2(): EOPNOTSUPP (95),,,
+preadv203,FAILED: preadv2(): EOPNOTSUPP (95),,SKIP: skipped=4,
 preadv203_64,,,,
 prepare_lvm.sh,,,,
 print_caps,,,,
@@ -1586,8 +1586,8 @@ pselect01,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-
 pselect01_64,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found,FAILED: sh: systemd-detect-virt: not found
 pselect02,PASS,PASS,PASS,PASS
 pselect02_64,PASS,PASS,PASS,PASS
-pselect03,PASS,HALF: Timeout,PASS,HALF: Timeout
-pselect03_64,PASS,HALF: Timeout,PASS,HALF: Timeout
+pselect03,PASS,PASS,PASS,PASS
+pselect03_64,PASS,PASS,PASS,PASS
 pt_test,,,,
 ptem01,,,,
 pth_str01,,,,
@@ -1652,12 +1652,12 @@ readahead02,,,,
 readdir01,PASS,PASS,PASS,PASS
 readdir21,FAILED: __NR_readdir not supported on your arch,FAILED: __NR_readdir not supported on your arch,FAILED: __NR_readdir not supported on your arch,FAILED: __NR_readdir not supported on your arch
 readlink01,PASS,PASS,PASS,PASS
-readlink03,PASS,PASS,PASS,HALF
+readlink03,PASS,PASS,PASS,HALF: failed=1
 readlinkat01,PASS,PASS,PASS,PASS
-readlinkat02,PASS,PASS,PASS,HALF
+readlinkat02,PASS,PASS,PASS,HALF: failed=1
 readv01,PASS,PASS,PASS,PASS
 readv02,PASS,PASS,PASS,PASS
-realpath01,FAILED,PASS,,
+realpath01,FAILED,PASS,FAILED: failed=1,FAILED: failed=1
 reboot01,PASS,PASS,PASS,PASS
 reboot02,,,,
 recv01,,,,
@@ -1735,7 +1735,7 @@ runpwtests_exclusive03.sh,,,,
 runpwtests_exclusive04.sh,,,,
 runpwtests_exclusive05.sh,,,,
 rwtest,,,,
-sbrk01,PASS,FAILED,PASS,FAILED
+sbrk01,PASS,HALF: failed=2,PASS,HALF: failed=2
 sbrk02,PASS,PASS,PASS,PASS
 sbrk03,FAILED: This arch 'unknown' is not supported for test!,FAILED: This arch 'unknown' is not supported for test!,FAILED: This arch 'unknown' is not supported for test!,FAILED: This arch 'unknown' is not supported for test!
 sched_datafile,,,,
@@ -1789,18 +1789,18 @@ semctl02,PASS,PASS,PASS,PASS
 semctl03,PASS,PASS,PASS,PASS
 semctl04,PASS,PASS,PASS,PASS
 semctl05,PASS,PASS,PASS,PASS
-semctl06,PASS: NOSUMMARY,,,
+semctl06,PASS: NOSUMMARY,PASS: NOSUMMARY,PASS: NOSUMMARY,PASS: NOSUMMARY
 semctl07,PASS,PASS,PASS,PASS
 semctl08,SKIP,SKIP,SKIP,SKIP
-semctl09,FAILED: kernel doesn't support SEM_STAT_ANY,,,
+semctl09,FAILED: kernel doesn't support SEM_STAT_ANY,,SKIP: skipped=2,
 semget01,PASS,PASS,PASS,PASS
 semget02,PASS,PASS,PASS,PASS
-semget05,FAILED: Path not found: /proc/sys/kernel/sem: ENOENT,,,
+semget05,FAILED: Path not found: /proc/sys/kernel/sem: ENOENT,,SKIP: skipped=1,
 semop01,PASS,PASS,PASS,PASS
 semop02,HALF: Timeout,HALF: Timeout,HALF: Timeout,HALF: Timeout
 semop03,PASS,PASS,PASS,PASS
 semop04,FAILED: Timeout,FAILED: Timeout,FAILED: Timeout,FAILED: Timeout
-semop05,NOSUMMARY,,,
+semop05,NOSUMMARY,,NOSUMMARY,
 semtest_2ns,,,,
 send01,,,,
 send02,,,,
@@ -1855,7 +1855,7 @@ setgid02,PASS,PASS,PASS,PASS
 setgid03,PASS,PASS,PASS,PASS
 setgroups01,PASS,PASS,PASS,PASS
 setgroups02,PASS,PASS,PASS,PASS
-setgroups03,PASS,HALF,PASS,HALF
+setgroups03,PASS,HALF: failed=1,PASS,HALF: failed=1
 setgroups04,PASS,PASS,PASS,PASS
 sethostname01,PASS,PASS,PASS,PASS
 sethostname02,PASS,PASS,PASS,PASS
@@ -1869,8 +1869,8 @@ setpgid02,PASS,PASS,PASS,PASS
 setpgid03,PASS,PASS,PASS,PASS
 setpgrp01,PASS,PASS,PASS,PASS
 setpgrp02,PASS,PASS,PASS,PASS
-setpriority01,PASS,PASS,,
-setpriority02,PASS,PASS,,
+setpriority01,PASS,PASS,SKIP: skipped=1,SKIP: skipped=1
+setpriority02,PASS,PASS,PASS,PASS
 setregid01,PASS,PASS,PASS,PASS
 setregid02,PASS,PASS,PASS,PASS
 setregid03,PASS,PASS,PASS,PASS
@@ -1897,7 +1897,7 @@ setrlimit03,,,,
 setrlimit04,,,,
 setrlimit05,,,,
 setrlimit06,,,,
-setsid01,NOSUMMARY,,,
+setsid01,NOSUMMARY,,FAILED: NOSUMMARY,
 setsockopt01,,,,
 setsockopt02,,,,
 setsockopt03,,,,
@@ -1969,9 +1969,9 @@ sigpending02,PASS,PASS,PASS,PASS
 sigprocmask01,PASS,PASS,PASS,PASS
 sigrelse01,,,,
 sigsuspend01,PASS,PASS,PASS,PASS
-sigtimedwait01,PASS,FAILED: Timeout,PASS,FAILED: Timeout
-sigwait01,PASS,HALF,PASS,HALF
-sigwaitinfo01,PASS,FAILED: Timeout,PASS,FAILED: Timeout
+sigtimedwait01,PASS,FAILED: broken=1,PASS,FAILED: broken=1
+sigwait01,PASS,PASS,PASS,PASS
+sigwaitinfo01,PASS,FAILED: broken=1,PASS,FAILED: broken=1
 sit01.sh,,,,
 smack_common.sh,,,,
 smack_file_access.sh,,,,
@@ -2026,15 +2026,15 @@ statfs03,PASS,PASS,PASS,PASS
 statfs03_64,PASS,PASS,PASS,PASS
 statvfs01,,,,
 statvfs02,,,,
-statx01,FAILED,,,
-statx02,PASS,,,
-statx03,PASS,,,
-statx04,FAILED,,,
-statx05,FAILED,,,
-statx06,FAILED,,,
-statx07,FAILED:  Couldn't find 'exportfs' in $PATH,,,
-statx08,FAILED,,,
-statx09,FAILED: Need CONFIG_FS_VERITY,,,
+statx01,FAILED,,HALF: failed=2 skipped=1,
+statx02,PASS,PASS,PASS,PASS
+statx03,PASS,PASS,PASS,PASS
+statx04,FAILED,,FAILED: failed=12 skipped=1,
+statx05,FAILED,,SKIP: Couldn't find 'e4crypt' in $PATH,
+statx06,FAILED,,FAILED: failed=4,
+statx07,FAILED:  Couldn't find 'exportfs' in $PATH,,SKIP: Couldn't find 'exportfs' in $PATH,
+statx08,FAILED,,SKIP: skipped=16,
+statx09,FAILED: Need CONFIG_FS_VERITY,,SKIP: CONFIG_FS_VERITY,
 statx10,,,,
 statx11,,,,
 statx12,,,,
@@ -2468,13 +2468,13 @@ timer_gettime01,PASS,PASS,PASS,PASS
 timer_settime01,PASS,PASS,PASS,PASS
 timer_settime02,,,,
 timer_settime03,PASS,PASS,PASS,PASS
-timerfd01,PASS,PASS,HALF: Unstable,HALF: Unstable
+timerfd01,HALF: Unstable,HALF: Unstable,HALF: Unstable,HALF: Unstable
 timerfd02,PASS,PASS,PASS,PASS
 timerfd04,FAILED: unshare,FAILED: unshare,FAILED: unshare,FAILED: unshare
 timerfd_create01,PASS,PASS,PASS,PASS
 timerfd_gettime01,PASS,PASS,PASS,PASS
 timerfd_settime01,PASS,PASS,PASS,PASS
-timerfd_settime02,PASS,FAILED: SIGSEGV,PASS,PASS
+timerfd_settime02,SKIP,SKIP,SKIP,SKIP
 times01,,,,
 times03,,,,
 tkill01,PASS,PASS,PASS,PASS
@@ -2673,7 +2673,7 @@ utsname02,PASS,PASS,PASS,PASS
 utsname03,PASS,PASS,PASS,PASS
 utsname04,PASS,PASS,PASS,PASS
 verify_caps_exec,,,,
-vfork,FAILED: Need ptrace,FAILED: Need ptrace,NOSUMMARY,NOSUMMARY
+vfork,FAILED: Need ptrace,FAILED: Need ptrace,NOSUMMARY,SKIP: Need ptrace
 vfork01,PASS,PASS,PASS,PASS
 vfork02,FAILED: Need sigpending,FAILED: Need sigpending,FAILED: Need sigpending,FAILED: Need sigpending
 vfork_freeze.sh,,,,
@@ -2712,7 +2712,7 @@ waitid06,PASS,PASS,PASS,PASS
 waitid07,FAILED,FAILED,PASS,PASS
 waitid08,FAILED,FAILED,PASS,PASS
 waitid09,PASS,PASS,PASS,PASS
-waitid10,FAILED,FAILED,FAILED: Failed to open FILE '/proc/sys/kernel/core_pattern' for reading: ENOENT,FAILED: Failed to open FILE '/proc/sys/kernel/core_pattern' for reading: ENOENT
+waitid10,FAILED,FAILED,FAILED: Failed to open FILE '/proc/sys/kernel/core_pattern' for reading: ENOENT,FAILED: broken=1
 waitid11,PASS,PASS,PASS,PASS
 waitpid01,PASS,PASS,PASS,PASS
 waitpid03,PASS,PASS,PASS,PASS
@@ -2725,8 +2725,8 @@ waitpid10,PASS,PASS,PASS,PASS
 waitpid11,PASS,PASS,PASS,PASS
 waitpid12,PASS,PASS,PASS,PASS
 waitpid13,PASS,PASS,PASS,PASS
-wc01.sh,HALF,,,
-which01.sh,HALF,,,
+wc01.sh,HALF,,SKIP: skipped=6,
+which01.sh,HALF,,SKIP: skipped=7,
 wireguard01.sh,,,,
 wireguard02.sh,,,,
 wireguard_lib.sh,,,,
