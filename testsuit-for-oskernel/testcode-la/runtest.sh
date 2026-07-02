@@ -65,6 +65,7 @@ done
 mkdir -p /lib64 /usr/lib64
 mkdir -p /dev/shm
 
+rm /glibc/ltp/testcases/bin/tst_test.sh /musl/ltp/testcases/bin/tst_test.sh
 cp /testcode/tst_test_busybox_compatible.sh /glibc/ltp/testcases/bin/tst_test.sh
 cp /testcode/tst_test_busybox_compatible.sh /musl/ltp/testcases/bin/tst_test.sh
 
